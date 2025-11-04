@@ -1,0 +1,243 @@
+.dollar-transition {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  overflow: hidden;
+  background: var(--bg-gradient);
+}
+
+.transition-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.gradient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.35;
+  animation: orbFloat 8s ease-in-out infinite;
+}
+
+.orb-1 {
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(135deg, #059669, #10b981);
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.orb-2 {
+  width: 350px;
+  height: 350px;
+  background: linear-gradient(135deg, #1e40af, #2563eb);
+  bottom: 15%;
+  right: 15%;
+  animation-delay: 2s;
+}
+
+.orb-3 {
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(135deg, #10b981, #1e40af);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: 4s;
+}
+
+@keyframes orbFloat {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.35;
+  }
+  33% {
+    transform: translate(30px, -30px) scale(1.1);
+    opacity: 0.45;
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+    opacity: 0.25;
+  }
+}
+
+/* Dollar Icon Styles */
+.dollar-icon {
+  position: relative;
+  font-size: 200px;
+  font-weight: 900;
+  color: #fbbf24;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dollar-symbol {
+  position: relative;
+  z-index: 2;
+  text-shadow: 
+    0 0 20px rgba(251, 191, 36, 0.8),
+    0 0 40px rgba(251, 191, 36, 0.6),
+    0 0 60px rgba(251, 191, 36, 0.4);
+}
+
+/* Rotation Stage - Fast rotation */
+.dollar-transition.rotate .dollar-icon {
+  animation: dollarRotate 2s linear;
+}
+
+@keyframes dollarRotate {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  100% {
+    transform: rotate(720deg) scale(1);
+  }
+}
+
+/* Zoom Stage - Pan and zoom to screen */
+.dollar-transition.zoom .dollar-icon {
+  animation: dollarZoom 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+@keyframes dollarZoom {
+  0% {
+    transform: rotate(720deg) scale(1) translateX(0) translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: rotate(900deg) scale(3) translateX(0) translateY(-5vh);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(1080deg) scale(5) translateX(0) translateY(-15vh);
+    opacity: 0;
+  }
+}
+
+/* Fade Stage */
+.dollar-transition.fade .dollar-icon {
+  animation: dollarFade 0.5s ease-out forwards;
+}
+
+@keyframes dollarFade {
+  0% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(6) translateY(-25vh);
+  }
+}
+
+.glow-effect {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.4) 0%, transparent 70%);
+  z-index: 1;
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+}
+
+.particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #fbbf24;
+  border-radius: 50%;
+  z-index: 3;
+  box-shadow: 0 0 10px rgba(251, 191, 36, 0.8);
+}
+
+.particle-1 {
+  top: 20%;
+  left: 20%;
+  animation: particleFloat1 3s ease-in-out infinite;
+}
+
+.particle-2 {
+  top: 20%;
+  right: 20%;
+  animation: particleFloat2 3s ease-in-out infinite 0.5s;
+}
+
+.particle-3 {
+  bottom: 20%;
+  left: 20%;
+  animation: particleFloat3 3s ease-in-out infinite 1s;
+}
+
+.particle-4 {
+  bottom: 20%;
+  right: 20%;
+  animation: particleFloat4 3s ease-in-out infinite 1.5s;
+}
+
+@keyframes particleFloat1 {
+  0%, 100% {
+    transform: translate(0, 0);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(30px, -30px);
+    opacity: 1;
+  }
+}
+
+@keyframes particleFloat2 {
+  0%, 100% {
+    transform: translate(0, 0);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(-30px, -30px);
+    opacity: 1;
+  }
+}
+
+@keyframes particleFloat3 {
+  0%, 100% {
+    transform: translate(0, 0);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(30px, 30px);
+    opacity: 1;
+  }
+}
+
+@keyframes particleFloat4 {
+  0%, 100% {
+    transform: translate(0, 0);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(-30px, 30px);
+    opacity: 1;
+  }
+}
+

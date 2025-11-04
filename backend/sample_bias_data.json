@@ -1,0 +1,23 @@
+[
+  {"gender": "male", "region": "urban", "income_level": "high", "approved": 1},
+  {"gender": "female", "region": "urban", "income_level": "high", "approved": 1},
+  {"gender": "male", "region": "rural", "income_level": "medium", "approved": 1},
+  {"gender": "female", "region": "rural", "income_level": "medium", "approved": 0},
+  {"gender": "male", "region": "urban", "income_level": "low", "approved": 1},
+  {"gender": "female", "region": "urban", "income_level": "low", "approved": 0},
+  {"gender": "male", "region": "rural", "income_level": "high", "approved": 1},
+  {"gender": "female", "region": "rural", "income_level": "high", "approved": 1},
+  {"gender": "male", "region": "urban", "income_level": "medium", "approved": 1},
+  {"gender": "female", "region": "urban", "income_level": "medium", "approved": 1},
+  {"gender": "male", "region": "rural", "income_level": "low", "approved": 0},
+  {"gender": "female", "region": "rural", "income_level": "low", "approved": 0},
+  {"gender": "male", "region": "urban", "income_level": "high", "approved": 1},
+  {"gender": "female", "region": "urban", "income_level": "high", "approved": 1},
+  {"gender": "male", "region": "rural", "income_level": "medium", "approved": 1},
+  {"gender": "female", "region": "rural", "income_level": "medium", "approved": 0},
+  {"gender": "male", "region": "urban", "income_level": "low", "approved": 0},
+  {"gender": "female", "region": "urban", "income_level": "low", "approved": 0},
+  {"gender": "male", "region": "rural", "income_level": "high", "approved": 1},
+  {"gender": "female", "region": "rural", "income_level": "high", "approved": 1}
+]
+

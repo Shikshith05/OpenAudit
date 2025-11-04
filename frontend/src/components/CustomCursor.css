@@ -1,0 +1,38 @@
+/* Custom Cursor Styles */
+:root {
+  --cursor-size: 14px;
+}
+
+* {
+  cursor: none !important;
+}
+
+.custom-cursor {
+  position: fixed;
+  width: var(--cursor-size);
+  height: var(--cursor-size);
+  border-radius: 50%;
+  background: #ffffff;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease, height 0.2s ease, background 0.2s ease;
+  box-shadow: 
+    0 0 10px rgba(255, 255, 255, 0.9),
+    0 0 20px rgba(255, 255, 255, 0.7),
+    0 0 30px rgba(255, 255, 255, 0.5),
+    inset 0 0 10px rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+.custom-cursor.hover {
+  width: calc(var(--cursor-size) * 1.5);
+  height: calc(var(--cursor-size) * 1.5);
+  background: #fbbf24;
+  box-shadow: 
+    0 0 15px rgba(251, 191, 36, 0.9),
+    0 0 25px rgba(251, 191, 36, 0.7),
+    0 0 35px rgba(251, 191, 36, 0.5),
+    inset 0 0 15px rgba(255, 255, 255, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.7);
+}

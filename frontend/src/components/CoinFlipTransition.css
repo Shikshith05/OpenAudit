@@ -1,0 +1,485 @@
+.logo-transition {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  overflow: hidden;
+  background: var(--bg-gradient);
+}
+
+.logo-transition::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: 
+    radial-gradient(circle, rgba(255, 255, 255, 0.15) 2px, transparent 2px),
+    radial-gradient(circle, rgba(37, 99, 235, 0.1) 1px, transparent 1px);
+  background-size: 80px 80px, 40px 40px;
+  animation: backgroundMove 30s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.logo-transition::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.1) 0%, transparent 70%);
+  animation: rotate 20s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes backgroundMove {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(80px, 80px);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.transition-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.gradient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.15;
+  animation: orbFloat 10s ease-in-out infinite;
+}
+
+.orb-1 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.4), rgba(16, 185, 129, 0));
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.orb-2 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.3), rgba(59, 130, 246, 0));
+  bottom: 15%;
+  right: 15%;
+  animation-delay: 2s;
+}
+
+.orb-3 {
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.25), rgba(139, 92, 246, 0));
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: 4s;
+}
+
+@keyframes orbFloat {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.15;
+  }
+  33% {
+    transform: translate(40px, -40px) scale(1.2);
+    opacity: 0.25;
+  }
+  66% {
+    transform: translate(-30px, 30px) scale(0.9);
+    opacity: 0.1;
+  }
+}
+
+.logo-container {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.logo-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.transition-logo {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  position: relative;
+  z-index: 3;
+  filter: drop-shadow(0 8px 24px rgba(16, 185, 129, 0.4))
+          drop-shadow(0 0 40px rgba(16, 185, 129, 0.6));
+  transition: all 0.3s ease;
+}
+
+.logo-fallback-transition {
+  width: 180px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 3;
+  filter: drop-shadow(0 8px 24px rgba(16, 185, 129, 0.4))
+          drop-shadow(0 0 40px rgba(16, 185, 129, 0.6));
+}
+
+.logo-text {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text);
+  text-shadow: 
+    0 4px 20px rgba(16, 185, 129, 0.5),
+    0 0 30px rgba(16, 185, 129, 0.3);
+  letter-spacing: 2px;
+  position: relative;
+  z-index: 3;
+}
+
+.logo-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.4) 0%, rgba(59, 130, 246, 0.3) 50%, transparent 70%);
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+.logo-particles {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+/* Enter Stage - Logo appears */
+.logo-transition.enter .transition-logo,
+.logo-transition.enter .logo-fallback-transition {
+  animation: logoEnter 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.logo-transition.enter .logo-text {
+  animation: textEnter 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation-delay: 0.2s;
+  opacity: 0;
+}
+
+@keyframes logoEnter {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(-180deg);
+    filter: blur(20px);
+  }
+  60% {
+    transform: scale(1.2) rotate(10deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+    filter: blur(0);
+  }
+}
+
+@keyframes textEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Spin Stage - Logo rotates */
+.logo-transition.spin .transition-logo,
+.logo-transition.spin .logo-fallback-transition {
+  animation: logoSpin 0.9s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.logo-transition.spin .logo-glow {
+  animation: glowSpin 0.9s cubic-bezier(0.4, 0, 0.2, 1) forwards, glowPulse 2s ease-in-out infinite;
+}
+
+.logo-transition.spin .logo-text {
+  animation: textGlow 0.9s ease-in-out infinite;
+}
+
+@keyframes logoSpin {
+  0% {
+    transform: scale(1) rotate(0deg);
+    filter: drop-shadow(0 8px 24px rgba(16, 185, 129, 0.4))
+            drop-shadow(0 0 40px rgba(16, 185, 129, 0.6));
+  }
+  50% {
+    transform: scale(1.15) rotate(360deg);
+    filter: drop-shadow(0 12px 32px rgba(16, 185, 129, 0.6))
+            drop-shadow(0 0 60px rgba(16, 185, 129, 0.8));
+  }
+  100% {
+    transform: scale(1.2) rotate(720deg);
+    filter: drop-shadow(0 16px 40px rgba(16, 185, 129, 0.8))
+            drop-shadow(0 0 80px rgba(16, 185, 129, 1));
+  }
+}
+
+@keyframes glowSpin {
+  0% {
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.3) rotate(180deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.5) rotate(360deg);
+    opacity: 1;
+  }
+}
+
+@keyframes textGlow {
+  0%, 100% {
+    text-shadow: 
+      0 4px 20px rgba(16, 185, 129, 0.5),
+      0 0 30px rgba(16, 185, 129, 0.3);
+  }
+  50% {
+    text-shadow: 
+      0 8px 30px rgba(16, 185, 129, 0.8),
+      0 0 50px rgba(16, 185, 129, 0.6);
+  }
+}
+
+/* Zoom Stage - Logo zooms to fill screen */
+.logo-transition.zoom .transition-logo,
+.logo-transition.zoom .logo-fallback-transition {
+  animation: logoZoom 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+.logo-transition.zoom .logo-glow {
+  animation: glowZoom 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+.logo-transition.zoom .logo-text {
+  animation: textZoom 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+.logo-transition.zoom .particle {
+  animation: particleZoom 0.8s ease-out forwards;
+}
+
+@keyframes logoZoom {
+  0% {
+    transform: scale(1.2) rotate(720deg);
+    opacity: 1;
+    filter: drop-shadow(0 16px 40px rgba(16, 185, 129, 0.8))
+            drop-shadow(0 0 80px rgba(16, 185, 129, 1));
+  }
+  50% {
+    transform: scale(3) rotate(900deg);
+    opacity: 1;
+    filter: drop-shadow(0 24px 60px rgba(16, 185, 129, 0.9))
+            drop-shadow(0 0 100px rgba(16, 185, 129, 1));
+  }
+  100% {
+    transform: scale(12) rotate(1080deg);
+    opacity: 0.9;
+    filter: drop-shadow(0 32px 80px rgba(16, 185, 129, 1))
+            drop-shadow(0 0 150px rgba(16, 185, 129, 1));
+  }
+}
+
+@keyframes glowZoom {
+  0% {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(25);
+    opacity: 0.4;
+  }
+}
+
+@keyframes textZoom {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(2);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Fade Stage - Screen fades out */
+.logo-transition.fade {
+  animation: screenFade 0.6s ease-out forwards;
+}
+
+.logo-transition.fade .transition-logo,
+.logo-transition.fade .logo-fallback-transition,
+.logo-transition.fade .logo-glow,
+.logo-transition.fade .logo-text {
+  opacity: 0;
+  transition: opacity 0.4s ease-out;
+}
+
+@keyframes screenFade {
+  0% {
+    opacity: 1;
+    background: var(--bg-gradient);
+  }
+  100% {
+    opacity: 0;
+    background: transparent;
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.8;
+  }
+}
+
+/* Particles */
+.particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #10b981;
+  border-radius: 50%;
+  z-index: 4;
+  box-shadow: 
+    0 0 10px rgba(16, 185, 129, 0.8),
+    0 0 20px rgba(16, 185, 129, 0.6);
+  opacity: 0;
+}
+
+.logo-transition.spin .particle {
+  opacity: 1;
+  animation: particleFloat 2s ease-in-out infinite;
+}
+
+.logo-transition.zoom .particle {
+  opacity: 1;
+}
+
+.particle-1 {
+  top: 10%;
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.particle-2 {
+  top: 15%;
+  right: 25%;
+  animation-delay: 0.2s;
+}
+
+.particle-3 {
+  bottom: 20%;
+  left: 15%;
+  animation-delay: 0.4s;
+}
+
+.particle-4 {
+  bottom: 15%;
+  right: 20%;
+  animation-delay: 0.6s;
+}
+
+.particle-5 {
+  top: 50%;
+  left: 10%;
+  animation-delay: 0.8s;
+}
+
+.particle-6 {
+  top: 45%;
+  right: 10%;
+  animation-delay: 1s;
+}
+
+@keyframes particleFloat {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(40px, -40px) scale(1.5);
+    opacity: 1;
+  }
+}
+
+@keyframes particleZoom {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--particle-x, 0), var(--particle-y, 0)) scale(0);
+    opacity: 0;
+  }
+}
+
+.particle-1 { --particle-x: -200px; --particle-y: -150px; }
+.particle-2 { --particle-x: 200px; --particle-y: -150px; }
+.particle-3 { --particle-x: -200px; --particle-y: 150px; }
+.particle-4 { --particle-x: 200px; --particle-y: 150px; }
+.particle-5 { --particle-x: -300px; --particle-y: 0px; }
+.particle-6 { --particle-x: 300px; --particle-y: 0px; }
+

@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>OpenAudit Chatbot Widget (Demo)</title>
+  <style>
+    :root{--accent:#0ea5a4;--bg:#0f172a;--card:#0b1220;--muted:#94a3b8}
+    body{font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; margin:0;}
+
+    /* Floating launcher */
+    .oa-launcher{position:fixed;right:24px;bottom:24px;z-index:9999}
+    .oa-button{width:64px;height:64px;border-radius:999px;background:linear-gradient(135deg,var(--accent),#06b6d4);box-shadow:0 8px 18px rgba(2,6,23,.45);display:flex;align-items:center;justify-content:center;color:white;border:none;cursor:pointer;font-weight:700;font-size:18px}
+
+    /* Chat card */
+    .oa-chat{width:360px;max-width:92vw;position:fixed;right:24px;bottom:100px;border-radius:12px;overflow:hidden;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));box-shadow:0 12px 40px rgba(2,6,23,.6);backdrop-filter: blur(6px);display:flex;flex-direction:column;transform-origin:100% 100%;border:1px solid rgba(255,255,255,0.03)}
+    .oa-header{padding:12px 14px;display:flex;align-items:center;gap:10px}
+    .oa-title{font-weight:700;color:#e6eef6;font-size:15px}
+    .oa-sub{font-size:12px;color:var(--muted)}
+    .oa-close{margin-left:auto;background:transparent;border:0;color:var(--muted);cursor:pointer;font-size:16px}
+
+    .oa-messages{padding:12px;display:flex;flex-direction:column;gap:10px;overflow:auto;height:360px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent)}
+    .msg{max-width:78%;padding:10px 12px;border-radius:12px;font-size:14px;line-height:1.3}
+    .msg.user{align-self:flex-end;background:#152236;color:#e6eef6;border-bottom-right-radius:4px}
+    .msg.bot{align-self:flex-start;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));color:#dbeafe;border:1px solid rgba(255,255,255,0.03)}
+
+    .oa-input{display:flex;padding:10px;border-top:1px solid rgba(255,255,255,0.02);gap:8px}
+    .oa-input input{flex:1;padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:#e6eef6}
+    .oa-input button{padding:8px 12px;border-radius:10px;border:0;background:var(--accent);color:white;cursor:pointer}
+
+    .hint{font-size:12px;color:var(--muted);padding:8px 12px}
+
+    /* subtle entry animation */
+    .oa-chat.closed{transform:scale(.85) translateY(10px);opacity:0;pointer-events:none}
+    .oa-chat.open{transform:scale(1);opacity:1}
+
+    /* small responsive tweak */
+    @media (max-width:420px){.oa-chat{right:12px;left:12px;width:auto;bottom:80px}}
+  </style>
+</head>
+<body>
+
+<!-- Launcher button -->
+<div class="oa-launcher">
+  <button id="oa-launch" class="oa-button" aria-label="Open OpenAudit chat">OA</button>
+</div>
+
+<!-- Chat card (hidden by default) -->
+<aside id="oa-chat" class="oa-chat closed" role="dialog" aria-label="OpenAudit chat widget">
+  <header class="oa-header">
+    <div>
+      <div class="oa-title">OpenAudit Assistant</div>
+      <div class="oa-sub">Ask me about the audit data or say hi 👋</div>
+    </div>
+    <button id="oa-close" class="oa-close" aria-label="Close">✕</button>
+  </header>
+
+  <div id="oa-messages" class="oa-messages" aria-live="polite"></div>
+
+  <div class="hint">You can ask things like: "what's the smart score?", "top category", or say "hello".</div>
+
+  <form id="oa-form" class="oa-input" onsubmit="return false;">
+    <input id="oa-input" autocomplete="off" placeholder="Type a question..." aria-label="Chat input" />
+    <button id="oa-send">Send</button>
+  </form>
+</aside>
+
+<script>
+// ----- Embedded audit data (from your final output) -----
+const auditData = {
+  "analyses": [
+    {
+      "id": "analysis_1762005569.986722",
+      "user_id": "cAxO9GJkChFCzeFC2j0CcA",
+      "account_type": "company",
+      "created_at": "2025-11-01T19:29:29.986726",
+      "total_transactions": 10944,
+      "total_amount": 1639805481.56,
+      "date_range": {"start": "2020-01-01T00:00:00","end":"2024-12-31T00:00:00"},
+      "smart_score": {
+        "score": 6.9,
+        "max_score": 10.0,
+        "spender_rating": "Moderate Spender",
+        "components": {
+          "Food": {"ideal":15.0,"actual":0,"deviation":15.0,"score":5.0},
+          "Entertainment": {"ideal":10.0,"actual":0,"deviation":10.0,"score":6.67},
+          "Travel": {"ideal":5.0,"actual":8.32,"deviation":3.32,"score":8.89},
+          "Utilities": {"ideal":10.0,"actual":0,"deviation":10.0,"score":6.67},
+          "Education": {"ideal":10.0,"actual":0,"deviation":10.0,"score":6.67},
+          "Healthcare": {"ideal":5.0,"actual":0,"deviation":5.0,"score":8.33},
+          "Shopping": {"ideal":10.0,"actual":7.96,"deviation":2.04,"score":9.32},
+          "Savings": {"ideal":25.0,"actual":15.17,"deviation":9.83,"score":6.72},
+          "Subscriptions": {"ideal":5.0,"actual":0,"deviation":5.0,"score":8.33},
+          "Transport": {"ideal":5.0,"actual":5.87,"deviation":0.87,"score":9.71},
+          "Other": {"ideal":0,"actual":62.69,"deviation":62.69,"score":0}
+        },
+        "savings_bonus":7,
+        "interpretation":"Moderate Spender. Your spending patterns could be optimized. Consider reviewing your expense categories.",
+        "recommendations":["💡 Optimization: You're spending 8.3% on Travel (ideal: 5.0%). This is your highest spending category. Review and cut unnecessary expenses here first.","⚠️ Reduce spending on Travel. You're spending 8.3% (ideal: 5.0%). This is 66% above recommended."]
+      },
+      "insights_summary":{
+        "top_category": {"name":"Other","percentage":62.69,"amount":1027952661.54},
+        "category_count":5
+      },
+      "file_errors":[],
+      "file_warnings":[]
+    }
+  ]
+};
+
+// ----- Minimal intent parsing and handlers -----
+const agents = {
+  greetings: [/^hi|^hello|hey|good (morning|afternoon|evening)/i],
+  smartScore: [/smart score|score\b|what.?score|rating\b/i],
+  topCategory: [/top category|largest category|which category|top_cat/i],
+  recommendations: [/recommend|advice|suggest|what should|recommendations\b/i],
+  componentsList: [/components|breakdown|categories|show categories|show components/i],
+  totalTransactions: [/total transactions|how many transactions|transactions count/i],
+  totalAmount: [/total amount|how much total|total value|amount analyzed/i],
+  dateRange: [/date range|time range|from .* to .*/i],
+  whyOther: [/why.*other|other.*why|what is other/i],
+  help: [/help|what can you do|commands/i]
+};
+
+function findMatch(text){
+  text = text.trim();
+  for(const [k,arr] of Object.entries(agents)){
+    for(const rx of arr){ if(rx.test(text)) return k; }
+  }
+  return null;
+}
+
+function formatCurrency(n){
+  try{return n.toLocaleString(undefined,{style:'currency',currency:'USD',maximumFractionDigits:2})}
+  catch(e){return n}
+}
+
+function botAnswer(userText){
+  const analysis = auditData.analyses[0];
+  const sc = analysis.smart_score;
+  const top = analysis.insights_summary.top_category;
+
+  // direct matches first
+  const intent = findMatch(userText);
+  if(/^hi$|^hello$|^hey/i.test(userText)){
+    return `Hi — I'm the OpenAudit assistant. I can answer questions about this audit data (smart score, top category, breakdowns) or do basic greetings. Try: "What's the smart score?"`;
+  }
+  if(intent === 'greetings') return `Hello! I'm OpenAudit's helper — ask me about the audit results or say "help" to see examples.`;
+  if(intent === 'smartScore') return `Smart score: ${sc.score}/${sc.max_score}. Rating: ${sc.spender_rating}. Interpretation: ${sc.interpretation}`;
+  if(intent === 'topCategory') return `Top category is **${top.name}** at ${top.percentage}% (amount: ${formatCurrency(top.amount)}).`;
+  if(intent === 'recommendations') return `Recommendations:\n- ${sc.recommendations.join('\n- ')}`;
+  if(intent === 'componentsList'){
+    const comps = sc.components;
+    const lines = Object.keys(comps).map(k=>`${k}: ${comps[k].actual}% (ideal ${comps[k].ideal}%) — score ${comps[k].score}`);
+    return `Category breakdown:\n${lines.join('\n')}`;
+  }
+  if(intent === 'totalTransactions') return `Total transactions analyzed: ${analysis.total_transactions}`;
+  if(intent === 'totalAmount') return `Total amount analyzed: ${formatCurrency(analysis.total_amount)}`;
+  if(intent === 'dateRange') return `Date range: ${analysis.date_range.start} → ${analysis.date_range.end}`;
+  if(intent === 'whyOther') return `"Other" is large (62.69%) because current categorization uses keyword matching. Many transactions didn't match the present keywords and were placed in "Other". Once you use a semantic classifier (e.g. Gemini) this should reduce.`;
+  if(intent === 'help') return `You can ask: "smart score", "top category", "show components", "recommendations", "total transactions", "why is other large", or just say "hi".`;
+
+  // fallback: try to answer if they ask about a specific category by name
+  const cc = Object.keys(sc.components);
+  for(const c of cc){
+    if(new RegExp(`\b${c}\b`,`i`).test(userText)){
+      const d = sc.components[c];
+      return `${c}: actual ${d.actual}% (ideal ${d.ideal}%). Deviation ${d.deviation} — score ${d.score}.`;
+    }
+  }
+
+  // more general fallback
+  return `Sorry, I didn't quite get that. I can answer things about the audit data: try "what's the smart score?", "top category", "show components", or "why is Other large?"`;
+}
+
+// ----- UI plumbing -----
+const chat = document.getElementById('oa-chat');
+const launch = document.getElementById('oa-launch');
+const closeBtn = document.getElementById('oa-close');
+const messages = document.getElementById('oa-messages');
+const input = document.getElementById('oa-input');
+const form = document.getElementById('oa-form');
+
+function appendMessage(text,who='bot'){
+  const el = document.createElement('div');
+  el.className = 'msg ' + (who==='user' ? 'user':'bot');
+  // preserve linebreaks
+  el.innerHTML = text.replace(/\n/g,'<br>');
+  messages.appendChild(el);
+  messages.scrollTop = messages.scrollHeight;
+}
+
+// initial system greeting
+function openChat(){
+  chat.classList.remove('closed');
+  chat.classList.add('open');
+  appendMessage(`Welcome to OpenAudit! Ask me questions about the audit for the period ${auditData.analyses[0].date_range.start} — ${auditData.analyses[0].date_range.end}.`);
+}
+
+launch.addEventListener('click', ()=>{
+  // open animation
+  if(chat.classList.contains('open')) return;
+  openChat();
+});
+closeBtn.addEventListener('click', ()=>{chat.classList.remove('open');chat.classList.add('closed');});
+
+form.addEventListener('submit', ()=>{
+  const val = input.value.trim(); if(!val) return;
+  appendMessage(val,'user');
+  input.value='';
+  // small typing delay simulation
+  setTimeout(()=>{
+    const ans = botAnswer(val);
+    appendMessage(ans,'bot');
+  }, 350);
+});
+
+// allow Enter to send
+input.addEventListener('keydown', (e)=>{
+  if(e.key === 'Enter' && !e.shiftKey){ e.preventDefault(); form.dispatchEvent(new Event('submit')); }
+});
+
+// expose a tiny API for integration (optional)
+window.OpenAuditWidget = {
+  open: openChat,
+  close: ()=>{chat.classList.remove('open');chat.classList.add('closed');},
+  query: (q)=>{ appendMessage(q,'user'); setTimeout(()=>appendMessage(botAnswer(q),'bot'),350); }
+};
+</script>
+</body>
+</html>

@@ -1,0 +1,879 @@
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-gradient);
+  padding: 20px;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.login-container-landing {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  max-width: 1000px;
+  width: 100%;
+  z-index: 10;
+  position: relative;
+  animation: fadeInUp 0.8s ease-out;
+  margin: 0 auto;
+}
+
+@media (max-width: 968px) {
+  .login-wrapper {
+    flex-direction: column;
+    gap: 20px;
+    max-width: 500px;
+  }
+}
+
+.login-container::before {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: 
+    radial-gradient(circle, rgba(255, 255, 255, 0.15) 2px, transparent 2px),
+    radial-gradient(circle, rgba(37, 99, 235, 0.1) 1px, transparent 1px);
+  background-size: 80px 80px, 40px 40px;
+  animation: backgroundMove 30s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.login-container::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.1) 0%, transparent 70%);
+  animation: rotate 20s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Floating Financial Elements Background */
+.financial-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200vh;
+  min-height: 200vh;
+  pointer-events: none;
+  z-index: 0;
+  overflow: visible;
+}
+
+.financial-element {
+  position: absolute;
+  opacity: 0.08;
+  animation: floatFinancial 20s ease-in-out infinite;
+}
+
+.financial-element svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+  stroke: currentColor;
+  stroke-width: 1;
+}
+
+/* Stock Chart Line */
+.stock-chart-1 {
+  top: 5%;
+  left: 2%;
+  width: 200px;
+  height: 80px;
+  animation-delay: 0s;
+  color: var(--primary);
+}
+
+.stock-chart-2 {
+  top: 55%;
+  right: 3%;
+  width: 180px;
+  height: 70px;
+  animation-delay: 2s;
+  color: var(--secondary);
+}
+
+.stock-chart-3 {
+  top: 90%;
+  left: 2%;
+  width: 150px;
+  height: 60px;
+  animation-delay: 4s;
+  color: var(--gold);
+}
+
+/* Bar Chart */
+.bar-chart-1 {
+  top: 15%;
+  right: 2%;
+  width: 120px;
+  height: 100px;
+  animation-delay: 1s;
+  color: var(--primary);
+}
+
+.bar-chart-2 {
+  top: 80%;
+  right: 5%;
+  width: 100px;
+  height: 90px;
+  animation-delay: 5s;
+  color: var(--secondary);
+}
+
+/* Pie Chart */
+.pie-chart-1 {
+  top: 40%;
+  left: 3%;
+  width: 80px;
+  height: 80px;
+  animation-delay: 3s;
+  color: var(--gold);
+}
+
+.pie-chart-2 {
+  top: 65%;
+  right: 2%;
+  width: 70px;
+  height: 70px;
+  animation-delay: 6s;
+  color: var(--primary);
+}
+
+/* Trend Arrow */
+.trend-up-1 {
+  top: 25%;
+  left: 3%;
+  width: 60px;
+  height: 60px;
+  animation-delay: 2.5s;
+  color: var(--success);
+}
+
+.trend-up-2 {
+  top: 75%;
+  left: 5%;
+  width: 50px;
+  height: 50px;
+  animation-delay: 4.5s;
+  color: var(--secondary);
+}
+
+.trend-down-1 {
+  top: 45%;
+  right: 3%;
+  width: 55px;
+  height: 55px;
+  animation-delay: 1.5s;
+  color: var(--error);
+  opacity: 0.06;
+}
+
+/* Dollar Sign */
+.dollar-1 {
+  top: 10%;
+  left: 48%;
+  width: 40px;
+  height: 40px;
+  animation-delay: 0.5s;
+  color: var(--gold);
+}
+
+.dollar-2 {
+  top: 85%;
+  left: 50%;
+  width: 35px;
+  height: 35px;
+  animation-delay: 3.5s;
+  color: var(--gold);
+}
+
+/* Percentage Symbol */
+.percent-1 {
+  top: 65%;
+  left: 5%;
+  width: 45px;
+  height: 45px;
+  animation-delay: 2s;
+  color: var(--primary);
+}
+
+.percent-2 {
+  top: 90%;
+  right: 5%;
+  width: 40px;
+  height: 40px;
+  animation-delay: 5.5s;
+  color: var(--secondary);
+}
+
+/* Graph Lines */
+.graph-line-1 {
+  top: 20%;
+  right: 2%;
+  width: 140px;
+  height: 4px;
+  animation-delay: 1s;
+  color: var(--primary);
+}
+
+.graph-line-2 {
+  top: 70%;
+  left: 3%;
+  width: 160px;
+  height: 4px;
+  animation-delay: 4s;
+  color: var(--secondary);
+}
+
+/* Additional Financial Elements */
+.bar-chart-3 {
+  top: 70%;
+  left: 2%;
+  width: 90px;
+  height: 75px;
+  animation-delay: 3s;
+  color: var(--gold);
+}
+
+.bar-chart-4 {
+  top: 55%;
+  right: 2%;
+  width: 110px;
+  height: 85px;
+  animation-delay: 6s;
+  color: var(--primary);
+}
+
+.stock-chart-4 {
+  top: 35%;
+  left: 50%;
+  width: 160px;
+  height: 65px;
+  animation-delay: 1.5s;
+  color: var(--success);
+}
+
+.stock-chart-5 {
+  top: 60%;
+  right: 3%;
+  width: 140px;
+  height: 55px;
+  animation-delay: 5.5s;
+  color: var(--gold);
+}
+
+.dollar-3 {
+  top: 50%;
+  left: 3%;
+  width: 50px;
+  height: 50px;
+  animation-delay: 2.5s;
+  color: var(--gold);
+}
+
+.dollar-4 {
+  top: 80%;
+  right: 50%;
+  width: 45px;
+  height: 45px;
+  animation-delay: 4.5s;
+  color: var(--gold);
+}
+
+.trend-line-1 {
+  top: 30%;
+  left: 5%;
+  width: 180px;
+  height: 5px;
+  animation-delay: 0.8s;
+  color: var(--primary);
+}
+
+.trend-line-2 {
+  top: 50%;
+  right: 3%;
+  width: 200px;
+  height: 5px;
+  animation-delay: 3.8s;
+  color: var(--secondary);
+}
+
+/* Additional Fast Floating Elements */
+.bar-chart-5 {
+  top: 10%;
+  right: 5%;
+  width: 85px;
+  height: 80px;
+  animation: floatFinancialFast 12s ease-in-out infinite;
+  animation-delay: 0.5s;
+  color: var(--secondary);
+}
+
+.bar-chart-6 {
+  top: 85%;
+  left: 3%;
+  width: 100px;
+  height: 90px;
+  animation: floatFinancialFast 14s ease-in-out infinite;
+  animation-delay: 2s;
+  color: var(--gold);
+}
+
+.stock-chart-6 {
+  top: 55%;
+  right: 2%;
+  width: 150px;
+  height: 60px;
+  animation: floatFinancialFast 13s ease-in-out infinite;
+  animation-delay: 1s;
+  color: var(--success);
+}
+
+.stock-chart-7 {
+  top: 75%;
+  left: 50%;
+  width: 145px;
+  height: 58px;
+  animation: floatFinancialFast 15s ease-in-out infinite;
+  animation-delay: 3s;
+  color: var(--primary);
+}
+
+.dollar-5 {
+  top: 20%;
+  left: 48%;
+  width: 48px;
+  height: 48px;
+  animation: floatFinancialFast 12s ease-in-out infinite;
+  animation-delay: 1.5s;
+  color: var(--gold);
+}
+
+.dollar-6 {
+  top: 45%;
+  right: 50%;
+  width: 42px;
+  height: 42px;
+  animation: floatFinancialFast 14s ease-in-out infinite;
+  animation-delay: 2.5s;
+  color: var(--gold);
+}
+
+.percent-1 {
+  top: 65%;
+  left: 2%;
+  width: 40px;
+  height: 40px;
+  animation: floatFinancialFast 16s ease-in-out infinite;
+  animation-delay: 0.8s;
+  color: var(--secondary);
+}
+
+.percent-2 {
+  top: 90%;
+  right: 48%;
+  width: 36px;
+  height: 36px;
+  animation: floatFinancialFast 13s ease-in-out infinite;
+  animation-delay: 3.5s;
+  color: var(--primary);
+}
+
+.pie-chart-1 {
+  top: 40%;
+  left: 5%;
+  width: 60px;
+  height: 60px;
+  animation: floatFinancialFast 14s ease-in-out infinite;
+  animation-delay: 1.2s;
+  color: var(--primary);
+}
+
+.pie-chart-2 {
+  top: 65%;
+  right: 5%;
+  width: 55px;
+  height: 55px;
+  animation: floatFinancialFast 13.6s ease-in-out infinite;
+  animation-delay: 2.8s;
+  color: var(--secondary);
+}
+
+.graph-line-3 {
+  top: 45%;
+  right: 2%;
+  width: 170px;
+  height: 4px;
+  animation: floatFinancialFast 14.4s ease-in-out infinite;
+  animation-delay: 1.8s;
+  color: var(--gold);
+}
+
+.graph-line-4 {
+  top: 80%;
+  left: 48%;
+  width: 190px;
+  height: 4px;
+  animation: floatFinancialFast 12.6s ease-in-out infinite;
+  animation-delay: 3.2s;
+  color: var(--primary);
+}
+
+.trend-arrow-1 {
+  top: 60%;
+  right: 48%;
+  width: 35px;
+  height: 35px;
+  animation: floatFinancialFast 15s ease-in-out infinite;
+  animation-delay: 0.3s;
+  color: var(--success);
+}
+
+.trend-arrow-2 {
+  top: 35%;
+  left: 5%;
+  width: 32px;
+  height: 32px;
+  animation: floatFinancialFast 13.4s ease-in-out infinite;
+  animation-delay: 4s;
+  color: var(--secondary);
+}
+
+@keyframes floatFinancial {
+  0% {
+    transform: translateY(0px) translateX(0px) rotate(0deg) scale(1);
+    opacity: 0.55;
+  }
+  20% {
+    transform: translateY(-120px) translateX(100px) rotate(12deg) scale(1.05);
+    opacity: 0.58;
+  }
+  40% {
+    transform: translateY(-180px) translateX(-120px) rotate(-15deg) scale(0.98);
+    opacity: 0.56;
+  }
+  60% {
+    transform: translateY(-90px) translateX(150px) rotate(20deg) scale(1.03);
+    opacity: 0.60;
+  }
+  80% {
+    transform: translateY(-150px) translateX(-140px) rotate(-10deg) scale(1);
+    opacity: 0.57;
+  }
+  100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg) scale(1);
+    opacity: 0.55;
+  }
+}
+
+@keyframes floatFinancialFast {
+  0% {
+    transform: translateY(0px) translateX(0px) rotate(0deg) scale(1);
+    opacity: 0.50;
+  }
+  25% {
+    transform: translateY(-200px) translateX(150px) rotate(25deg) scale(1.08);
+    opacity: 0.55;
+  }
+  50% {
+    transform: translateY(-280px) translateX(-180px) rotate(-30deg) scale(0.95);
+    opacity: 0.53;
+  }
+  75% {
+    transform: translateY(-120px) translateX(200px) rotate(35deg) scale(1.05);
+    opacity: 0.58;
+  }
+  100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg) scale(1);
+    opacity: 0.50;
+  }
+}
+
+@keyframes backgroundMove {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(80px, 80px);
+  }
+}
+
+.login-card {
+  background: var(--surface-glass);
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  border-radius: 32px;
+  padding: 48px;
+  flex: 0 1 auto;
+  width: 100%;
+  max-width: 460px;
+  box-shadow: 
+    0 25px 70px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    inset 0 2px 0 rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  animation: scaleIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.login-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  animation: shimmer 3s linear infinite;
+  pointer-events: none;
+}
+
+/* Admin Login Card */
+.admin-login-card {
+  background: var(--surface-glass);
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  border-radius: 32px;
+  padding: 32px;
+  flex: 0 1 auto;
+  width: 100%;
+  max-width: 360px;
+  box-shadow: 
+    0 25px 70px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(251, 191, 36, 0.3),
+    inset 0 2px 0 rgba(255, 255, 255, 0.05),
+    0 0 60px rgba(251, 191, 36, 0.15);
+  border: 2px solid rgba(251, 191, 36, 0.25);
+  animation: scaleIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.2s both;
+  position: relative;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.admin-login-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(251, 191, 36, 0.15), transparent);
+  animation: shimmer 3s linear infinite;
+  pointer-events: none;
+}
+
+.admin-login-card::after {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.1) 0%, transparent 70%);
+  animation: rotate 15s linear infinite;
+  pointer-events: none;
+}
+
+.admin-login-header {
+  text-align: center;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.admin-icon-wrapper {
+  position: relative;
+  display: inline-flex;
+  margin-bottom: 12px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.admin-icon {
+  color: #fbbf24;
+  filter: drop-shadow(0 10px 20px rgba(251, 191, 36, 0.5));
+  z-index: 2;
+  position: relative;
+  animation: pulse 2s ease-in-out infinite;
+  width: 36px;
+  height: 36px;
+}
+
+.sparkle {
+  position: absolute;
+  color: #fbbf24;
+  opacity: 0.8;
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+.sparkle-1 {
+  top: -20px;
+  right: -20px;
+  animation-delay: 0s;
+}
+
+.sparkle-2 {
+  bottom: -15px;
+  left: -15px;
+  animation-delay: 0.7s;
+}
+
+.sparkle-3 {
+  top: 50%;
+  right: -30px;
+  animation-delay: 1.4s;
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1) rotate(180deg);
+  }
+}
+
+.admin-login-header h2 {
+  font-size: 24px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 6px;
+  text-shadow: 0 0 30px rgba(251, 191, 36, 0.3);
+  animation: fadeInUp 0.6s ease-out 0.4s both;
+}
+
+.admin-login-header p {
+  color: var(--text-light);
+  font-size: 13px;
+  animation: fadeInUp 0.6s ease-out 0.5s both;
+}
+
+.admin-login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.btn-admin {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  color: #0f172a;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(251, 191, 36, 0.4);
+  font-weight: 700;
+}
+
+.btn-admin::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn-admin:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.btn-admin:hover {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 
+    0 10px 30px rgba(251, 191, 36, 0.5),
+    0 0 20px rgba(251, 191, 36, 0.4);
+}
+
+.btn-admin:active {
+  transform: translateY(-1px) scale(0.99);
+}
+
+
+.login-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.login-logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.login-logo {
+  animation: fadeInDown 0.8s ease-out;
+}
+
+.login-logo img {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  border-radius: 20px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: drop-shadow(0 15px 30px rgba(37, 99, 235, 0.4));
+  animation: float 3s ease-in-out infinite;
+}
+
+.login-logo:hover img {
+  transform: scale(1.15) rotate(8deg);
+  filter: drop-shadow(0 20px 40px rgba(37, 99, 235, 0.6));
+  animation: pulse 1s ease-in-out infinite;
+}
+
+.login-header {
+  animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+.login-header h1 {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+  animation: fadeInUp 0.6s ease-out 0.3s both;
+  letter-spacing: -1.5px;
+}
+
+.login-header p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 16px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.form-group label svg {
+  color: var(--primary);
+}
+
+.form-group input {
+  padding: 14px 16px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  background: var(--surface);
+  color: #ffffff;
+  font-size: 16px;
+  transition: all 0.2s;
+}
+
+.form-group {
+  animation: fadeInUp 0.6s ease-out;
+  animation-fill-mode: both;
+}
+
+.form-group:nth-child(1) { animation-delay: 0.4s; }
+.form-group:nth-child(2) { animation-delay: 0.5s; }
+
+.form-group input {
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 
+    0 0 0 3px rgba(30, 64, 175, 0.2),
+    0 4px 12px rgba(30, 64, 175, 0.15);
+  background: rgba(21, 27, 41, 0.8);
+  border-width: 2px;
+}
+
+.form-group input:hover {
+  border-color: var(--border-light);
+  background: rgba(21, 27, 41, 0.7);
+}
+
+.form-group input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.login-footer {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.login-footer {
+  animation: fadeInUp 0.6s ease-out 0.6s both;
+}
+
+.login-footer a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+}
+
+.login-footer a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: width 0.3s ease;
+}
+
+.login-footer a:hover::after {
+  width: 100%;
+}
+
+.login-footer a:hover {
+  transform: translateX(6px) scale(1.05);
+  color: var(--primary-dark);
+  text-shadow: 0 0 8px rgba(37, 99, 235, 0.3);
+}
+
