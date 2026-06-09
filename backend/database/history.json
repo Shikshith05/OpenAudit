@@ -294897,6 +294897,4265 @@
       "files_uploaded": [
         "company_5_year_transactions 1.csv"
       ]
+    },
+    {
+      "id": "1oJo-V2pvUku53WnnoSXJw",
+      "user_id": "71uXQF8rISlv06jUIsQXSQ",
+      "account_type": "company",
+      "created_at": "2025-11-04T19:17:31.960155",
+      "company_name": "vish",
+      "audit_report": {
+        "audit_summary": {
+          "audit_date": "2025-11-04T19:17:31.956718",
+          "company_name": "vish",
+          "fiscal_year": 2025,
+          "overall_risk_score": 25,
+          "compliance_score": 75,
+          "financial_health_score": 75,
+          "audit_status": "PASS"
+        },
+        "financial_compliance": {
+          "gaap_compliance": "COMPLIANT",
+          "issues": [],
+          "recommendations": [
+            "No significant issues detected"
+          ]
+        },
+        "fraud_detection": {
+          "suspicious_transactions": [
+            {
+              "date": "2023-11-26",
+              "amount": 299998.88,
+              "description": "Transaction for Insurance with Bright Consulting",
+              "suspicion_index": 0.6,
+              "amount_score": 1.0,
+              "text_score": 0.0,
+              "risk_level": "\u2705 Normal"
+            },
+            {
+              "date": "2024-03-14",
+              "amount": 299986.77,
+              "description": "Transaction for Interest Expense with Global Corp",
+              "suspicion_index": 0.6,
+              "amount_score": 0.9999,
+              "text_score": 0.0,
+              "risk_level": "\u2705 Normal"
+            },
+            {
+              "date": "2023-02-21",
+              "amount": 299961.0,
+              "description": "Transaction for Insurance with Bright Consulting",
+              "suspicion_index": 0.5998,
+              "amount_score": 0.9997,
+              "text_score": 0.0,
+              "risk_level": "\u2705 Normal"
+            },
+            {
+              "date": "2021-01-06",
+              "amount": 299958.99,
+              "description": "Transaction for Travel Expenses with Metro Services",
+              "suspicion_index": 0.5998,
+              "amount_score": 0.9997,
+              "text_score": 0.0,
+              "risk_level": "\u2705 Normal"
+            },
+            {
+              "date": "2024-10-11",
+              "amount": 299935.52,
+              "description": "Transaction for Maintenance with Metro Services",
+              "suspicion_index": 0.5997,
+              "amount_score": 0.9996,
+              "text_score": 0.0,
+              "risk_level": "\u2705 Normal"
+            },
+            {
+              "date": "2020-10-11",
+              "amount": 299913.79,
+              "description": "Transaction for Utilities with QuickTech",
+              "suspicion_index": 0.5997,
+              "amount_score": 0.9994,
+              "text_score": 0.0,
+              "risk_level": "\u2705 Normal"
+            },
+            {
+              "date": "2024-09-23",
+              "amount": 299913.32,
+              "description": "Transaction for Interest Expense with QuickTech",
+              "suspicion_index": 0.5997,
+              "amount_score": 0.9994,
+              "text_score": 0.0,
+              "risk_level": "\u2705 Normal"
+            },
+            {
+              "date": "2021-10-11",
+              "amount": 299793.68,
+              "description": "Transaction for Inventory Purchase with Customer-B",
+              "suspicion_index": 0.5992,
+              "amount_score": 0.9986,
+              "text_score": 0.0,
+              "risk_level": "\u2705 Normal"
+            },
+            {
+              "date": "2022-11-23",
+              "amount": 299777.86,
+              "description": "Transaction for Licensing Fees with Global Corp",
+              "suspicion_index": 0.5991,
+              "amount_score": 0.9985,
+              "text_score": 0.0,
+              "risk_level": "\u2705 Normal"
+            },
+            {
+              "date": "2021-07-06",
+              "amount": 299777.04,
+              "description": "Transaction for Licensing Fees with Vendor-Two",
+              "suspicion_index": 0.5991,
+              "amount_score": 0.9985,
+              "text_score": 0.0,
+              "risk_level": "\u2705 Normal"
+            }
+          ],
+          "anomalies_detected": [
+            "0 high-risk transactions",
+            "0 medium-risk transactions",
+            "10944 normal transactions"
+          ],
+          "risk_level": "LOW",
+          "findings": [
+            "Total transactions analyzed: 10944",
+            "High-risk transactions: 0 (0.0%)",
+            "Medium-risk transactions: 0 (0.0%)",
+            "Normal transactions: 10944 (100.0%)"
+          ]
+        },
+        "risk_assessment": {
+          "financial_risks": [
+            "Identified 0 potentially fraudulent transactions",
+            "Average transaction amount: \u20b9149,836.03",
+            "Largest transaction: \u20b9299,998.88"
+          ],
+          "operational_risks": [],
+          "compliance_risks": [],
+          "overall_risk_level": "LOW"
+        },
+        "internal_controls": {
+          "strengths": [
+            "Automated fraud detection system in place"
+          ],
+          "weaknesses": [],
+          "improvement_areas": [
+            "Maintain current monitoring levels"
+          ]
+        },
+        "regulatory_compliance": {
+          "tax_compliance": "COMPLIANT",
+          "statutory_compliance": "COMPLIANT",
+          "issues": [],
+          "actions_required": [
+            "Continue monitoring"
+          ]
+        },
+        "operational_analysis": {
+          "revenue_trends": "Based on transaction analysis",
+          "expense_trends": "Analyzed 10944 transactions",
+          "budget_variance": "Not provided",
+          "key_metrics": [
+            "Total transactions: 10944",
+            "Total amount: \u20b91,639,805,481.56",
+            "Average amount: \u20b9149,836.03",
+            "High-risk ratio: 0.00%"
+          ]
+        },
+        "recommendations": {
+          "critical": [],
+          "high_priority": [],
+          "medium_priority": [
+            "Implement regular fraud detection audits",
+            "Enhance transaction monitoring"
+          ],
+          "low_priority": [
+            "Maintain current fraud detection practices"
+          ]
+        },
+        "metadata": {
+          "audit_performed_at": "2025-11-04T19:17:31.959176",
+          "model_used": "fraud-detection-ml-model",
+          "total_transactions_analyzed": 10944,
+          "financial_period": {
+            "start": "2020-01-01T00:00:00",
+            "end": "2024-12-31T00:00:00"
+          }
+        }
+      },
+      "financial_summary": {
+        "total_amount": 1639805481.56,
+        "total_transactions": 10944
+      },
+      "total_transactions": 10944,
+      "total_amount": 1639805481.56,
+      "insights": {
+        "top_category": {
+          "name": "Other",
+          "percentage": 62.69,
+          "amount": 1027952661.54
+        },
+        "category_breakdown": {
+          "Savings": {
+            "percentage": 15.17,
+            "amount": 248715487.38
+          },
+          "Shopping": {
+            "percentage": 7.96,
+            "amount": 130536590.75
+          },
+          "Other": {
+            "percentage": 62.69,
+            "amount": 1027952661.54
+          },
+          "Transport": {
+            "percentage": 5.87,
+            "amount": 96214059.44
+          },
+          "Travel": {
+            "percentage": 8.32,
+            "amount": 136386682.45
+          }
+        },
+        "total_spent": 1639805481.56,
+        "transaction_count": 10944
+      },
+      "visualizations": {
+        "pie_chart": [
+          {
+            "name": "Savings",
+            "value": 248715487.38
+          },
+          {
+            "name": "Shopping",
+            "value": 130536590.75
+          },
+          {
+            "name": "Other",
+            "value": 1027952661.54
+          },
+          {
+            "name": "Transport",
+            "value": 96214059.44
+          },
+          {
+            "name": "Travel",
+            "value": 136386682.45
+          }
+        ],
+        "bar_chart": [
+          {
+            "name": "Other",
+            "value": 1027952661.54,
+            "category": "Other",
+            "amount": 1027952661.54,
+            "percentage": 62.69
+          },
+          {
+            "name": "Savings",
+            "value": 248715487.38,
+            "category": "Savings",
+            "amount": 248715487.38,
+            "percentage": 15.17
+          },
+          {
+            "name": "Travel",
+            "value": 136386682.45,
+            "category": "Travel",
+            "amount": 136386682.45,
+            "percentage": 8.32
+          },
+          {
+            "name": "Shopping",
+            "value": 130536590.75,
+            "category": "Shopping",
+            "amount": 130536590.75,
+            "percentage": 7.96
+          },
+          {
+            "name": "Transport",
+            "value": 96214059.44,
+            "category": "Transport",
+            "amount": 96214059.44,
+            "percentage": 5.87
+          }
+        ],
+        "summary_stats": {
+          "total_categories": 5,
+          "largest_category": "Other",
+          "smallest_category": "Transport"
+        }
+      },
+      "transactions": [
+        {
+          "amount": 94403.72,
+          "description": "Transaction for Insurance with Customer-C",
+          "date": "2020-01-01"
+        },
+        {
+          "amount": 19006.12,
+          "description": "Transaction for Inventory Purchase with Alpha Logistics",
+          "date": "2020-01-01"
+        },
+        {
+          "amount": 115215.19,
+          "description": "Transaction for Office Supplies with Customer-C",
+          "date": "2020-01-01"
+        },
+        {
+          "amount": 255326.54,
+          "description": "Transaction for Licensing Fees with Customer-B",
+          "date": "2020-01-02"
+        },
+        {
+          "amount": 193668.69,
+          "description": "Transaction for Maintenance with QuickTech",
+          "date": "2020-01-02"
+        },
+        {
+          "amount": 0.0,
+          "description": "Transaction for Salaries with XYZ Supplies",
+          "date": "2020-01-02"
+        },
+        {
+          "amount": 77106.93,
+          "description": "Transaction for Salaries with Customer-C",
+          "date": "2020-01-02"
+        },
+        {
+          "amount": 283765.61,
+          "description": "Transaction for Licensing Fees with Customer-B",
+          "date": "2020-01-02"
+        },
+        {
+          "amount": 133410.09,
+          "description": "Transaction for Sales Revenue with Bright Consulting",
+          "date": "2020-01-02"
+        },
+        {
+          "amount": 67987.67,
+          "description": "Transaction for Office Supplies with Global Corp",
+          "date": "2020-01-02"
+        },
+        {
+          "amount": 72294.19,
+          "description": "Transaction for Interest Expense with Metro Services",
+          "date": "2020-01-02"
+        },
+        {
+          "amount": 224056.86,
+          "description": "Transaction for Sales Revenue with Bright Consulting",
+          "date": "2020-01-03"
+        },
+        {
+          "amount": 81507.91,
+          "description": "Transaction for Maintenance with XYZ Supplies",
+          "date": "2020-01-03"
+        },
+        {
+          "amount": 83927.0,
+          "description": "Transaction for Utilities with QuickTech",
+          "date": "2020-01-03"
+        },
+        {
+          "amount": 84616.82,
+          "description": "Transaction for Salaries with Customer-A",
+          "date": "2020-01-03"
+        },
+        {
+          "amount": 29253.15,
+          "description": "Transaction for Inventory Purchase with Metro Services",
+          "date": "2020-01-03"
+        },
+        {
+          "amount": 24505.17,
+          "description": "Transaction for Licensing Fees with Metro Services",
+          "date": "2020-01-04"
+        },
+        {
+          "amount": 757.99,
+          "description": "Transaction for Travel Expenses with Vendor-Two",
+          "date": "2020-01-04"
+        },
+        {
+          "amount": 109650.8,
+          "description": "Transaction for Rent with Vendor-One",
+          "date": "2020-01-04"
+        },
+        {
+          "amount": 107067.92,
+          "description": "Transaction for Consulting Services with QuickTech",
+          "date": "2020-01-04"
+        },
+        {
+          "amount": 296356.9,
+          "description": "Transaction for Marketing with Bright Consulting",
+          "date": "2020-01-04"
+        },
+        {
+          "amount": 237792.07,
+          "description": "Transaction for Interest Expense with XYZ Supplies",
+          "date": "2020-01-04"
+        },
+        {
+          "amount": 54040.68,
+          "description": "Transaction for Maintenance with QuickTech",
+          "date": "2020-01-04"
+        },
+        {
+          "amount": 1779.97,
+          "description": "Transaction for Consulting Services with Global Corp",
+          "date": "2020-01-04"
+        },
+        {
+          "amount": 174902.91,
+          "description": "Transaction for Travel Expenses with Customer-A",
+          "date": "2020-01-05"
+        },
+        {
+          "amount": 61058.32,
+          "description": "Transaction for Marketing with XYZ Supplies",
+          "date": "2020-01-05"
+        },
+        {
+          "amount": 124580.68,
+          "description": "Transaction for Licensing Fees with Global Corp",
+          "date": "2020-01-05"
+        },
+        {
+          "amount": 104787.12,
+          "description": "Transaction for Sales Revenue with Bright Consulting",
+          "date": "2020-01-05"
+        },
+        {
+          "amount": 103125.23,
+          "description": "Transaction for Marketing with Customer-B",
+          "date": "2020-01-05"
+        },
+        {
+          "amount": 202145.44,
+          "description": "Transaction for Consulting Services with Global Corp",
+          "date": "2020-01-05"
+        },
+        {
+          "amount": 120075.84,
+          "description": "Transaction for Interest Expense with Bright Consulting",
+          "date": "2020-01-05"
+        },
+        {
+          "amount": 138507.25,
+          "description": "Transaction for Interest Expense with Alpha Logistics",
+          "date": "2020-01-05"
+        },
+        {
+          "amount": 66595.56,
+          "description": "Transaction for Insurance with QuickTech",
+          "date": "2020-01-05"
+        },
+        {
+          "amount": 102138.09,
+          "description": "Transaction for Travel Expenses with ABC Traders",
+          "date": "2020-01-06"
+        },
+        {
+          "amount": 229803.66,
+          "description": "Transaction for Rent with Alpha Logistics",
+          "date": "2020-01-06"
+        },
+        {
+          "amount": 195488.76,
+          "description": "Transaction for Inventory Purchase with QuickTech",
+          "date": "2020-01-06"
+        },
+        {
+          "amount": 247057.85,
+          "description": "Transaction for Office Supplies with Customer-B",
+          "date": "2020-01-06"
+        },
+        {
+          "amount": 242036.69,
+          "description": "Transaction for Interest Expense with Customer-B",
+          "date": "2020-01-06"
+        },
+        {
+          "amount": 100791.16,
+          "description": "Transaction for Inventory Purchase with Customer-B",
+          "date": "2020-01-06"
+        },
+        {
+          "amount": 123826.64,
+          "description": "Transaction for Licensing Fees with Vendor-One",
+          "date": "2020-01-06"
+        },
+        {
+          "amount": 155710.54,
+          "description": "Transaction for Insurance with Metro Services",
+          "date": "2020-01-07"
+        },
+        {
+          "amount": 112724.04,
+          "description": "Transaction for Office Supplies with Bright Consulting",
+          "date": "2020-01-07"
+        },
+        {
+          "amount": 286926.61,
+          "description": "Transaction for Maintenance with QuickTech",
+          "date": "2020-01-07"
+        },
+        {
+          "amount": 84030.67,
+          "description": "Transaction for Consulting Services with Vendor-One",
+          "date": "2020-01-07"
+        },
+        {
+          "amount": 203204.69,
+          "description": "Transaction for Sales Revenue with Vendor-Two",
+          "date": "2020-01-07"
+        },
+        {
+          "amount": 115444.44,
+          "description": "Transaction for Sales Revenue with Customer-B",
+          "date": "2020-01-07"
+        },
+        {
+          "amount": 232228.65,
+          "description": "Transaction for Inventory Purchase with XYZ Supplies",
+          "date": "2020-01-07"
+        },
+        {
+          "amount": 123571.69,
+          "description": "Transaction for Sales Revenue with Vendor-One",
+          "date": "2020-01-07"
+        },
+        {
+          "amount": 65151.09,
+          "description": "Transaction for Travel Expenses with Alpha Logistics",
+          "date": "2020-01-07"
+        },
+        {
+          "amount": 148407.34,
+          "description": "Transaction for Rent with Global Corp",
+          "date": "2020-01-08"
+        },
+        {
+          "amount": 108084.58,
+          "description": "Transaction for Maintenance with Vendor-One",
+          "date": "2020-01-08"
+        },
+        {
+          "amount": 160016.3,
+          "description": "Transaction for Licensing Fees with Vendor-Two",
+          "date": "2020-01-08"
+        },
+        {
+          "amount": 26168.01,
+          "description": "Transaction for Inventory Purchase with Vendor-Two",
+          "date": "2020-01-08"
+        },
+        {
+          "amount": 184669.76,
+          "description": "Transaction for Rent with Customer-C",
+          "date": "2020-01-09"
+        },
+        {
+          "amount": 297233.23,
+          "description": "Transaction for Licensing Fees with QuickTech",
+          "date": "2020-01-09"
+        },
+        {
+          "amount": 119520.05,
+          "description": "Transaction for Rent with Customer-B",
+          "date": "2020-01-09"
+        },
+        {
+          "amount": 224671.77,
+          "description": "Transaction for Licensing Fees with Customer-C",
+          "date": "2020-01-09"
+        },
+        {
+          "amount": 218590.74,
+          "description": "Transaction for Utilities with Customer-C",
+          "date": "2020-01-10"
+        },
+        {
+          "amount": 91420.85,
+          "description": "Transaction for Inventory Purchase with Alpha Logistics",
+          "date": "2020-01-10"
+        },
+        {
+          "amount": 73104.28,
+          "description": "Transaction for Travel Expenses with ABC Traders",
+          "date": "2020-01-10"
+        },
+        {
+          "amount": 245356.36,
+          "description": "Transaction for Maintenance with ABC Traders",
+          "date": "2020-01-10"
+        },
+        {
+          "amount": 296164.55,
+          "description": "Transaction for Maintenance with ABC Traders",
+          "date": "2020-01-10"
+        },
+        {
+          "amount": 144165.17,
+          "description": "Transaction for Consulting Services with Vendor-Two",
+          "date": "2020-01-11"
+        },
+        {
+          "amount": 35723.79,
+          "description": "Transaction for Licensing Fees with Global Corp",
+          "date": "2020-01-11"
+        },
+        {
+          "amount": 276206.97,
+          "description": "Transaction for Rent with ABC Traders",
+          "date": "2020-01-11"
+        },
+        {
+          "amount": 80690.08,
+          "description": "Transaction for Travel Expenses with Bright Consulting",
+          "date": "2020-01-11"
+        },
+        {
+          "amount": 22603.9,
+          "description": "Transaction for Inventory Purchase with Customer-A",
+          "date": "2020-01-12"
+        },
+        {
+          "amount": 293275.73,
+          "description": "Transaction for Travel Expenses with ABC Traders",
+          "date": "2020-01-12"
+        },
+        {
+          "amount": 103580.36,
+          "description": "Transaction for Consulting Services with Metro Services",
+          "date": "2020-01-12"
+        },
+        {
+          "amount": 75448.2,
+          "description": "Transaction for Insurance with Vendor-One",
+          "date": "2020-01-12"
+        },
+        {
+          "amount": 42699.81,
+          "description": "Transaction for Office Supplies with Customer-A",
+          "date": "2020-01-12"
+        },
+        {
+          "amount": 212181.28,
+          "description": "Transaction for Salaries with Global Corp",
+          "date": "2020-01-12"
+        },
+        {
+          "amount": 30308.04,
+          "description": "Transaction for Sales Revenue with XYZ Supplies",
+          "date": "2020-01-12"
+        },
+        {
+          "amount": 149758.66,
+          "description": "Transaction for Travel Expenses with Alpha Logistics",
+          "date": "2020-01-13"
+        },
+        {
+          "amount": 154784.11,
+          "description": "Transaction for Interest Expense with Customer-C",
+          "date": "2020-01-13"
+        },
+        {
+          "amount": 119912.36,
+          "description": "Transaction for Sales Revenue with QuickTech",
+          "date": "2020-01-13"
+        },
+        {
+          "amount": 162577.38,
+          "description": "Transaction for Maintenance with Vendor-One",
+          "date": "2020-01-13"
+        },
+        {
+          "amount": 271296.88,
+          "description": "Transaction for Office Supplies with Bright Consulting",
+          "date": "2020-01-14"
+        },
+        {
+          "amount": 139519.7,
+          "description": "Transaction for Consulting Services with Customer-A",
+          "date": "2020-01-14"
+        },
+        {
+          "amount": 133676.76,
+          "description": "Transaction for Maintenance with QuickTech",
+          "date": "2020-01-14"
+        },
+        {
+          "amount": 234746.49,
+          "description": "Transaction for Utilities with Bright Consulting",
+          "date": "2020-01-15"
+        },
+        {
+          "amount": 51594.86,
+          "description": "Transaction for Salaries with Bright Consulting",
+          "date": "2020-01-15"
+        },
+        {
+          "amount": 210071.24,
+          "description": "Transaction for Rent with Vendor-Two",
+          "date": "2020-01-15"
+        },
+        {
+          "amount": 84123.97,
+          "description": "Transaction for Interest Expense with XYZ Supplies",
+          "date": "2020-01-15"
+        },
+        {
+          "amount": 193130.28,
+          "description": "Transaction for Sales Revenue with QuickTech",
+          "date": "2020-01-16"
+        },
+        {
+          "amount": 64903.82,
+          "description": "Transaction for Salaries with QuickTech",
+          "date": "2020-01-16"
+        },
+        {
+          "amount": 247122.93,
+          "description": "Transaction for Consulting Services with Global Corp",
+          "date": "2020-01-16"
+        },
+        {
+          "amount": 163180.33,
+          "description": "Transaction for Utilities with Bright Consulting",
+          "date": "2020-01-16"
+        },
+        {
+          "amount": 130714.52,
+          "description": "Transaction for Consulting Services with QuickTech",
+          "date": "2020-01-16"
+        },
+        {
+          "amount": 69150.32,
+          "description": "Transaction for Consulting Services with QuickTech",
+          "date": "2020-01-16"
+        },
+        {
+          "amount": 69223.34,
+          "description": "Transaction for Interest Expense with Customer-A",
+          "date": "2020-01-16"
+        },
+        {
+          "amount": 16420.89,
+          "description": "Transaction for Marketing with Metro Services",
+          "date": "2020-01-16"
+        },
+        {
+          "amount": 42964.11,
+          "description": "Transaction for Travel Expenses with Metro Services",
+          "date": "2020-01-16"
+        },
+        {
+          "amount": 239995.57,
+          "description": "Transaction for Travel Expenses with XYZ Supplies",
+          "date": "2020-01-17"
+        },
+        {
+          "amount": 104624.97,
+          "description": "Transaction for Inventory Purchase with Metro Services",
+          "date": "2020-01-17"
+        },
+        {
+          "amount": 299155.1,
+          "description": "Transaction for Utilities with Global Corp",
+          "date": "2020-01-17"
+        },
+        {
+          "amount": 123811.34,
+          "description": "Transaction for Travel Expenses with Customer-B",
+          "date": "2020-01-17"
+        },
+        {
+          "amount": 26884.98,
+          "description": "Transaction for Insurance with Metro Services",
+          "date": "2020-01-17"
+        },
+        {
+          "amount": 41596.24,
+          "description": "Transaction for Insurance with Vendor-Two",
+          "date": "2020-01-18"
+        },
+        {
+          "amount": 278515.65,
+          "description": "Transaction for Sales Revenue with ABC Traders",
+          "date": "2020-01-18"
+        }
+      ],
+      "smart_score": {
+        "score": 6.9,
+        "max_score": 10.0,
+        "spender_rating": "Moderate Spender",
+        "components": {
+          "Food": {
+            "ideal": 15.0,
+            "actual": 0,
+            "deviation": 15.0,
+            "score": 5.0
+          },
+          "Entertainment": {
+            "ideal": 10.0,
+            "actual": 0,
+            "deviation": 10.0,
+            "score": 6.67
+          },
+          "Travel": {
+            "ideal": 5.0,
+            "actual": 8.32,
+            "deviation": 3.32,
+            "score": 8.89
+          },
+          "Utilities": {
+            "ideal": 10.0,
+            "actual": 0,
+            "deviation": 10.0,
+            "score": 6.67
+          },
+          "Education": {
+            "ideal": 10.0,
+            "actual": 0,
+            "deviation": 10.0,
+            "score": 6.67
+          },
+          "Healthcare": {
+            "ideal": 5.0,
+            "actual": 0,
+            "deviation": 5.0,
+            "score": 8.33
+          },
+          "Shopping": {
+            "ideal": 10.0,
+            "actual": 7.96,
+            "deviation": 2.04,
+            "score": 9.32
+          },
+          "Savings": {
+            "ideal": 25.0,
+            "actual": 15.17,
+            "deviation": 9.83,
+            "score": 6.72
+          },
+          "Subscriptions": {
+            "ideal": 5.0,
+            "actual": 0,
+            "deviation": 5.0,
+            "score": 8.33
+          },
+          "Transport": {
+            "ideal": 5.0,
+            "actual": 5.87,
+            "deviation": 0.87,
+            "score": 9.71
+          },
+          "Other": {
+            "ideal": 0,
+            "actual": 62.69,
+            "deviation": 62.69,
+            "score": 0
+          }
+        },
+        "savings_bonus": 7,
+        "interpretation": "Moderate Spender. Your spending patterns could be optimized. Consider reviewing your expense categories.",
+        "recommendations": [
+          "\ud83d\udca1 Optimization: You're spending 8.3% on Travel (ideal: 5.0%). This is your highest spending category. Review and cut unnecessary expenses here first.",
+          "\u26a0\ufe0f Reduce spending on Travel. You're spending 8.3% (ideal: 5.0%). This is 66% above recommended."
+        ]
+      },
+      "files_uploaded": [
+        "company_5_year_transactions 1.csv"
+      ]
+    },
+    {
+      "id": "376FirmkhccBrz0_8hpA9g",
+      "user_id": "71uXQF8rISlv06jUIsQXSQ",
+      "account_type": "company",
+      "created_at": "2025-11-04T19:18:33.156294",
+      "company_name": "vish",
+      "audit_report": {
+        "audit_summary": {
+          "audit_date": "2025-11-04T19:18:33.153010",
+          "company_name": "vish",
+          "fiscal_year": 2025,
+          "overall_risk_score": 25,
+          "compliance_score": 75,
+          "financial_health_score": 75,
+          "audit_status": "PASS"
+        },
+        "financial_compliance": {
+          "gaap_compliance": "COMPLIANT",
+          "issues": [],
+          "recommendations": [
+            "No significant issues detected"
+          ]
+        },
+        "fraud_detection": {
+          "suspicious_transactions": [
+            {
+              "date": "2023-11-26",
+              "amount": 299998.88,
+              "description": "Transaction for Insurance with Bright Consulting",
+              "suspicion_index": 0.6,
+              "amount_score": 1.0,
+              "text_score": 0.0,
+              "risk_level": "\u2705 Normal"
+            },
+            {
+              "date": "2024-03-14",
+              "amount": 299986.77,
+              "description": "Transaction for Interest Expense with Global Corp",
+              "suspicion_index": 0.6,
+              "amount_score": 0.9999,
+              "text_score": 0.0,
+              "risk_level": "\u2705 Normal"
+            },
+            {
+              "date": "2023-02-21",
+              "amount": 299961.0,
+              "description": "Transaction for Insurance with Bright Consulting",
+              "suspicion_index": 0.5998,
+              "amount_score": 0.9997,
+              "text_score": 0.0,
+              "risk_level": "\u2705 Normal"
+            },
+            {
+              "date": "2021-01-06",
+              "amount": 299958.99,
+              "description": "Transaction for Travel Expenses with Metro Services",
+              "suspicion_index": 0.5998,
+              "amount_score": 0.9997,
+              "text_score": 0.0,
+              "risk_level": "\u2705 Normal"
+            },
+            {
+              "date": "2024-10-11",
+              "amount": 299935.52,
+              "description": "Transaction for Maintenance with Metro Services",
+              "suspicion_index": 0.5997,
+              "amount_score": 0.9996,
+              "text_score": 0.0,
+              "risk_level": "\u2705 Normal"
+            },
+            {
+              "date": "2020-10-11",
+              "amount": 299913.79,
+              "description": "Transaction for Utilities with QuickTech",
+              "suspicion_index": 0.5997,
+              "amount_score": 0.9994,
+              "text_score": 0.0,
+              "risk_level": "\u2705 Normal"
+            },
+            {
+              "date": "2024-09-23",
+              "amount": 299913.32,
+              "description": "Transaction for Interest Expense with QuickTech",
+              "suspicion_index": 0.5997,
+              "amount_score": 0.9994,
+              "text_score": 0.0,
+              "risk_level": "\u2705 Normal"
+            },
+            {
+              "date": "2021-10-11",
+              "amount": 299793.68,
+              "description": "Transaction for Inventory Purchase with Customer-B",
+              "suspicion_index": 0.5992,
+              "amount_score": 0.9986,
+              "text_score": 0.0,
+              "risk_level": "\u2705 Normal"
+            },
+            {
+              "date": "2022-11-23",
+              "amount": 299777.86,
+              "description": "Transaction for Licensing Fees with Global Corp",
+              "suspicion_index": 0.5991,
+              "amount_score": 0.9985,
+              "text_score": 0.0,
+              "risk_level": "\u2705 Normal"
+            },
+            {
+              "date": "2021-07-06",
+              "amount": 299777.04,
+              "description": "Transaction for Licensing Fees with Vendor-Two",
+              "suspicion_index": 0.5991,
+              "amount_score": 0.9985,
+              "text_score": 0.0,
+              "risk_level": "\u2705 Normal"
+            }
+          ],
+          "anomalies_detected": [
+            "0 high-risk transactions",
+            "0 medium-risk transactions",
+            "10944 normal transactions"
+          ],
+          "risk_level": "LOW",
+          "findings": [
+            "Total transactions analyzed: 10944",
+            "High-risk transactions: 0 (0.0%)",
+            "Medium-risk transactions: 0 (0.0%)",
+            "Normal transactions: 10944 (100.0%)"
+          ]
+        },
+        "risk_assessment": {
+          "financial_risks": [
+            "Identified 0 potentially fraudulent transactions",
+            "Average transaction amount: \u20b9149,836.03",
+            "Largest transaction: \u20b9299,998.88"
+          ],
+          "operational_risks": [],
+          "compliance_risks": [],
+          "overall_risk_level": "LOW"
+        },
+        "internal_controls": {
+          "strengths": [
+            "Automated fraud detection system in place"
+          ],
+          "weaknesses": [],
+          "improvement_areas": [
+            "Maintain current monitoring levels"
+          ]
+        },
+        "regulatory_compliance": {
+          "tax_compliance": "COMPLIANT",
+          "statutory_compliance": "COMPLIANT",
+          "issues": [],
+          "actions_required": [
+            "Continue monitoring"
+          ]
+        },
+        "operational_analysis": {
+          "revenue_trends": "Based on transaction analysis",
+          "expense_trends": "Analyzed 10944 transactions",
+          "budget_variance": "Not provided",
+          "key_metrics": [
+            "Total transactions: 10944",
+            "Total amount: \u20b91,639,805,481.56",
+            "Average amount: \u20b9149,836.03",
+            "High-risk ratio: 0.00%"
+          ]
+        },
+        "recommendations": {
+          "critical": [],
+          "high_priority": [],
+          "medium_priority": [
+            "Implement regular fraud detection audits",
+            "Enhance transaction monitoring"
+          ],
+          "low_priority": [
+            "Maintain current fraud detection practices"
+          ]
+        },
+        "metadata": {
+          "audit_performed_at": "2025-11-04T19:18:33.155156",
+          "model_used": "fraud-detection-ml-model",
+          "total_transactions_analyzed": 10944,
+          "financial_period": {
+            "start": "2020-01-01T00:00:00",
+            "end": "2024-12-31T00:00:00"
+          }
+        }
+      },
+      "financial_summary": {
+        "total_amount": 1639805481.56,
+        "total_transactions": 10944
+      },
+      "total_transactions": 10944,
+      "total_amount": 1639805481.56,
+      "insights": {
+        "top_category": {
+          "name": "Other",
+          "percentage": 62.69,
+          "amount": 1027952661.54
+        },
+        "category_breakdown": {
+          "Savings": {
+            "percentage": 15.17,
+            "amount": 248715487.38
+          },
+          "Shopping": {
+            "percentage": 7.96,
+            "amount": 130536590.75
+          },
+          "Other": {
+            "percentage": 62.69,
+            "amount": 1027952661.54
+          },
+          "Transport": {
+            "percentage": 5.87,
+            "amount": 96214059.44
+          },
+          "Travel": {
+            "percentage": 8.32,
+            "amount": 136386682.45
+          }
+        },
+        "total_spent": 1639805481.56,
+        "transaction_count": 10944
+      },
+      "visualizations": {
+        "pie_chart": [
+          {
+            "name": "Savings",
+            "value": 248715487.38
+          },
+          {
+            "name": "Shopping",
+            "value": 130536590.75
+          },
+          {
+            "name": "Other",
+            "value": 1027952661.54
+          },
+          {
+            "name": "Transport",
+            "value": 96214059.44
+          },
+          {
+            "name": "Travel",
+            "value": 136386682.45
+          }
+        ],
+        "bar_chart": [
+          {
+            "name": "Other",
+            "value": 1027952661.54,
+            "category": "Other",
+            "amount": 1027952661.54,
+            "percentage": 62.69
+          },
+          {
+            "name": "Savings",
+            "value": 248715487.38,
+            "category": "Savings",
+            "amount": 248715487.38,
+            "percentage": 15.17
+          },
+          {
+            "name": "Travel",
+            "value": 136386682.45,
+            "category": "Travel",
+            "amount": 136386682.45,
+            "percentage": 8.32
+          },
+          {
+            "name": "Shopping",
+            "value": 130536590.75,
+            "category": "Shopping",
+            "amount": 130536590.75,
+            "percentage": 7.96
+          },
+          {
+            "name": "Transport",
+            "value": 96214059.44,
+            "category": "Transport",
+            "amount": 96214059.44,
+            "percentage": 5.87
+          }
+        ],
+        "summary_stats": {
+          "total_categories": 5,
+          "largest_category": "Other",
+          "smallest_category": "Transport"
+        }
+      },
+      "transactions": [
+        {
+          "amount": 94403.72,
+          "description": "Transaction for Insurance with Customer-C",
+          "date": "2020-01-01"
+        },
+        {
+          "amount": 19006.12,
+          "description": "Transaction for Inventory Purchase with Alpha Logistics",
+          "date": "2020-01-01"
+        },
+        {
+          "amount": 115215.19,
+          "description": "Transaction for Office Supplies with Customer-C",
+          "date": "2020-01-01"
+        },
+        {
+          "amount": 255326.54,
+          "description": "Transaction for Licensing Fees with Customer-B",
+          "date": "2020-01-02"
+        },
+        {
+          "amount": 193668.69,
+          "description": "Transaction for Maintenance with QuickTech",
+          "date": "2020-01-02"
+        },
+        {
+          "amount": 0.0,
+          "description": "Transaction for Salaries with XYZ Supplies",
+          "date": "2020-01-02"
+        },
+        {
+          "amount": 77106.93,
+          "description": "Transaction for Salaries with Customer-C",
+          "date": "2020-01-02"
+        },
+        {
+          "amount": 283765.61,
+          "description": "Transaction for Licensing Fees with Customer-B",
+          "date": "2020-01-02"
+        },
+        {
+          "amount": 133410.09,
+          "description": "Transaction for Sales Revenue with Bright Consulting",
+          "date": "2020-01-02"
+        },
+        {
+          "amount": 67987.67,
+          "description": "Transaction for Office Supplies with Global Corp",
+          "date": "2020-01-02"
+        },
+        {
+          "amount": 72294.19,
+          "description": "Transaction for Interest Expense with Metro Services",
+          "date": "2020-01-02"
+        },
+        {
+          "amount": 224056.86,
+          "description": "Transaction for Sales Revenue with Bright Consulting",
+          "date": "2020-01-03"
+        },
+        {
+          "amount": 81507.91,
+          "description": "Transaction for Maintenance with XYZ Supplies",
+          "date": "2020-01-03"
+        },
+        {
+          "amount": 83927.0,
+          "description": "Transaction for Utilities with QuickTech",
+          "date": "2020-01-03"
+        },
+        {
+          "amount": 84616.82,
+          "description": "Transaction for Salaries with Customer-A",
+          "date": "2020-01-03"
+        },
+        {
+          "amount": 29253.15,
+          "description": "Transaction for Inventory Purchase with Metro Services",
+          "date": "2020-01-03"
+        },
+        {
+          "amount": 24505.17,
+          "description": "Transaction for Licensing Fees with Metro Services",
+          "date": "2020-01-04"
+        },
+        {
+          "amount": 757.99,
+          "description": "Transaction for Travel Expenses with Vendor-Two",
+          "date": "2020-01-04"
+        },
+        {
+          "amount": 109650.8,
+          "description": "Transaction for Rent with Vendor-One",
+          "date": "2020-01-04"
+        },
+        {
+          "amount": 107067.92,
+          "description": "Transaction for Consulting Services with QuickTech",
+          "date": "2020-01-04"
+        },
+        {
+          "amount": 296356.9,
+          "description": "Transaction for Marketing with Bright Consulting",
+          "date": "2020-01-04"
+        },
+        {
+          "amount": 237792.07,
+          "description": "Transaction for Interest Expense with XYZ Supplies",
+          "date": "2020-01-04"
+        },
+        {
+          "amount": 54040.68,
+          "description": "Transaction for Maintenance with QuickTech",
+          "date": "2020-01-04"
+        },
+        {
+          "amount": 1779.97,
+          "description": "Transaction for Consulting Services with Global Corp",
+          "date": "2020-01-04"
+        },
+        {
+          "amount": 174902.91,
+          "description": "Transaction for Travel Expenses with Customer-A",
+          "date": "2020-01-05"
+        },
+        {
+          "amount": 61058.32,
+          "description": "Transaction for Marketing with XYZ Supplies",
+          "date": "2020-01-05"
+        },
+        {
+          "amount": 124580.68,
+          "description": "Transaction for Licensing Fees with Global Corp",
+          "date": "2020-01-05"
+        },
+        {
+          "amount": 104787.12,
+          "description": "Transaction for Sales Revenue with Bright Consulting",
+          "date": "2020-01-05"
+        },
+        {
+          "amount": 103125.23,
+          "description": "Transaction for Marketing with Customer-B",
+          "date": "2020-01-05"
+        },
+        {
+          "amount": 202145.44,
+          "description": "Transaction for Consulting Services with Global Corp",
+          "date": "2020-01-05"
+        },
+        {
+          "amount": 120075.84,
+          "description": "Transaction for Interest Expense with Bright Consulting",
+          "date": "2020-01-05"
+        },
+        {
+          "amount": 138507.25,
+          "description": "Transaction for Interest Expense with Alpha Logistics",
+          "date": "2020-01-05"
+        },
+        {
+          "amount": 66595.56,
+          "description": "Transaction for Insurance with QuickTech",
+          "date": "2020-01-05"
+        },
+        {
+          "amount": 102138.09,
+          "description": "Transaction for Travel Expenses with ABC Traders",
+          "date": "2020-01-06"
+        },
+        {
+          "amount": 229803.66,
+          "description": "Transaction for Rent with Alpha Logistics",
+          "date": "2020-01-06"
+        },
+        {
+          "amount": 195488.76,
+          "description": "Transaction for Inventory Purchase with QuickTech",
+          "date": "2020-01-06"
+        },
+        {
+          "amount": 247057.85,
+          "description": "Transaction for Office Supplies with Customer-B",
+          "date": "2020-01-06"
+        },
+        {
+          "amount": 242036.69,
+          "description": "Transaction for Interest Expense with Customer-B",
+          "date": "2020-01-06"
+        },
+        {
+          "amount": 100791.16,
+          "description": "Transaction for Inventory Purchase with Customer-B",
+          "date": "2020-01-06"
+        },
+        {
+          "amount": 123826.64,
+          "description": "Transaction for Licensing Fees with Vendor-One",
+          "date": "2020-01-06"
+        },
+        {
+          "amount": 155710.54,
+          "description": "Transaction for Insurance with Metro Services",
+          "date": "2020-01-07"
+        },
+        {
+          "amount": 112724.04,
+          "description": "Transaction for Office Supplies with Bright Consulting",
+          "date": "2020-01-07"
+        },
+        {
+          "amount": 286926.61,
+          "description": "Transaction for Maintenance with QuickTech",
+          "date": "2020-01-07"
+        },
+        {
+          "amount": 84030.67,
+          "description": "Transaction for Consulting Services with Vendor-One",
+          "date": "2020-01-07"
+        },
+        {
+          "amount": 203204.69,
+          "description": "Transaction for Sales Revenue with Vendor-Two",
+          "date": "2020-01-07"
+        },
+        {
+          "amount": 115444.44,
+          "description": "Transaction for Sales Revenue with Customer-B",
+          "date": "2020-01-07"
+        },
+        {
+          "amount": 232228.65,
+          "description": "Transaction for Inventory Purchase with XYZ Supplies",
+          "date": "2020-01-07"
+        },
+        {
+          "amount": 123571.69,
+          "description": "Transaction for Sales Revenue with Vendor-One",
+          "date": "2020-01-07"
+        },
+        {
+          "amount": 65151.09,
+          "description": "Transaction for Travel Expenses with Alpha Logistics",
+          "date": "2020-01-07"
+        },
+        {
+          "amount": 148407.34,
+          "description": "Transaction for Rent with Global Corp",
+          "date": "2020-01-08"
+        },
+        {
+          "amount": 108084.58,
+          "description": "Transaction for Maintenance with Vendor-One",
+          "date": "2020-01-08"
+        },
+        {
+          "amount": 160016.3,
+          "description": "Transaction for Licensing Fees with Vendor-Two",
+          "date": "2020-01-08"
+        },
+        {
+          "amount": 26168.01,
+          "description": "Transaction for Inventory Purchase with Vendor-Two",
+          "date": "2020-01-08"
+        },
+        {
+          "amount": 184669.76,
+          "description": "Transaction for Rent with Customer-C",
+          "date": "2020-01-09"
+        },
+        {
+          "amount": 297233.23,
+          "description": "Transaction for Licensing Fees with QuickTech",
+          "date": "2020-01-09"
+        },
+        {
+          "amount": 119520.05,
+          "description": "Transaction for Rent with Customer-B",
+          "date": "2020-01-09"
+        },
+        {
+          "amount": 224671.77,
+          "description": "Transaction for Licensing Fees with Customer-C",
+          "date": "2020-01-09"
+        },
+        {
+          "amount": 218590.74,
+          "description": "Transaction for Utilities with Customer-C",
+          "date": "2020-01-10"
+        },
+        {
+          "amount": 91420.85,
+          "description": "Transaction for Inventory Purchase with Alpha Logistics",
+          "date": "2020-01-10"
+        },
+        {
+          "amount": 73104.28,
+          "description": "Transaction for Travel Expenses with ABC Traders",
+          "date": "2020-01-10"
+        },
+        {
+          "amount": 245356.36,
+          "description": "Transaction for Maintenance with ABC Traders",
+          "date": "2020-01-10"
+        },
+        {
+          "amount": 296164.55,
+          "description": "Transaction for Maintenance with ABC Traders",
+          "date": "2020-01-10"
+        },
+        {
+          "amount": 144165.17,
+          "description": "Transaction for Consulting Services with Vendor-Two",
+          "date": "2020-01-11"
+        },
+        {
+          "amount": 35723.79,
+          "description": "Transaction for Licensing Fees with Global Corp",
+          "date": "2020-01-11"
+        },
+        {
+          "amount": 276206.97,
+          "description": "Transaction for Rent with ABC Traders",
+          "date": "2020-01-11"
+        },
+        {
+          "amount": 80690.08,
+          "description": "Transaction for Travel Expenses with Bright Consulting",
+          "date": "2020-01-11"
+        },
+        {
+          "amount": 22603.9,
+          "description": "Transaction for Inventory Purchase with Customer-A",
+          "date": "2020-01-12"
+        },
+        {
+          "amount": 293275.73,
+          "description": "Transaction for Travel Expenses with ABC Traders",
+          "date": "2020-01-12"
+        },
+        {
+          "amount": 103580.36,
+          "description": "Transaction for Consulting Services with Metro Services",
+          "date": "2020-01-12"
+        },
+        {
+          "amount": 75448.2,
+          "description": "Transaction for Insurance with Vendor-One",
+          "date": "2020-01-12"
+        },
+        {
+          "amount": 42699.81,
+          "description": "Transaction for Office Supplies with Customer-A",
+          "date": "2020-01-12"
+        },
+        {
+          "amount": 212181.28,
+          "description": "Transaction for Salaries with Global Corp",
+          "date": "2020-01-12"
+        },
+        {
+          "amount": 30308.04,
+          "description": "Transaction for Sales Revenue with XYZ Supplies",
+          "date": "2020-01-12"
+        },
+        {
+          "amount": 149758.66,
+          "description": "Transaction for Travel Expenses with Alpha Logistics",
+          "date": "2020-01-13"
+        },
+        {
+          "amount": 154784.11,
+          "description": "Transaction for Interest Expense with Customer-C",
+          "date": "2020-01-13"
+        },
+        {
+          "amount": 119912.36,
+          "description": "Transaction for Sales Revenue with QuickTech",
+          "date": "2020-01-13"
+        },
+        {
+          "amount": 162577.38,
+          "description": "Transaction for Maintenance with Vendor-One",
+          "date": "2020-01-13"
+        },
+        {
+          "amount": 271296.88,
+          "description": "Transaction for Office Supplies with Bright Consulting",
+          "date": "2020-01-14"
+        },
+        {
+          "amount": 139519.7,
+          "description": "Transaction for Consulting Services with Customer-A",
+          "date": "2020-01-14"
+        },
+        {
+          "amount": 133676.76,
+          "description": "Transaction for Maintenance with QuickTech",
+          "date": "2020-01-14"
+        },
+        {
+          "amount": 234746.49,
+          "description": "Transaction for Utilities with Bright Consulting",
+          "date": "2020-01-15"
+        },
+        {
+          "amount": 51594.86,
+          "description": "Transaction for Salaries with Bright Consulting",
+          "date": "2020-01-15"
+        },
+        {
+          "amount": 210071.24,
+          "description": "Transaction for Rent with Vendor-Two",
+          "date": "2020-01-15"
+        },
+        {
+          "amount": 84123.97,
+          "description": "Transaction for Interest Expense with XYZ Supplies",
+          "date": "2020-01-15"
+        },
+        {
+          "amount": 193130.28,
+          "description": "Transaction for Sales Revenue with QuickTech",
+          "date": "2020-01-16"
+        },
+        {
+          "amount": 64903.82,
+          "description": "Transaction for Salaries with QuickTech",
+          "date": "2020-01-16"
+        },
+        {
+          "amount": 247122.93,
+          "description": "Transaction for Consulting Services with Global Corp",
+          "date": "2020-01-16"
+        },
+        {
+          "amount": 163180.33,
+          "description": "Transaction for Utilities with Bright Consulting",
+          "date": "2020-01-16"
+        },
+        {
+          "amount": 130714.52,
+          "description": "Transaction for Consulting Services with QuickTech",
+          "date": "2020-01-16"
+        },
+        {
+          "amount": 69150.32,
+          "description": "Transaction for Consulting Services with QuickTech",
+          "date": "2020-01-16"
+        },
+        {
+          "amount": 69223.34,
+          "description": "Transaction for Interest Expense with Customer-A",
+          "date": "2020-01-16"
+        },
+        {
+          "amount": 16420.89,
+          "description": "Transaction for Marketing with Metro Services",
+          "date": "2020-01-16"
+        },
+        {
+          "amount": 42964.11,
+          "description": "Transaction for Travel Expenses with Metro Services",
+          "date": "2020-01-16"
+        },
+        {
+          "amount": 239995.57,
+          "description": "Transaction for Travel Expenses with XYZ Supplies",
+          "date": "2020-01-17"
+        },
+        {
+          "amount": 104624.97,
+          "description": "Transaction for Inventory Purchase with Metro Services",
+          "date": "2020-01-17"
+        },
+        {
+          "amount": 299155.1,
+          "description": "Transaction for Utilities with Global Corp",
+          "date": "2020-01-17"
+        },
+        {
+          "amount": 123811.34,
+          "description": "Transaction for Travel Expenses with Customer-B",
+          "date": "2020-01-17"
+        },
+        {
+          "amount": 26884.98,
+          "description": "Transaction for Insurance with Metro Services",
+          "date": "2020-01-17"
+        },
+        {
+          "amount": 41596.24,
+          "description": "Transaction for Insurance with Vendor-Two",
+          "date": "2020-01-18"
+        },
+        {
+          "amount": 278515.65,
+          "description": "Transaction for Sales Revenue with ABC Traders",
+          "date": "2020-01-18"
+        }
+      ],
+      "smart_score": {
+        "score": 6.9,
+        "max_score": 10.0,
+        "spender_rating": "Moderate Spender",
+        "components": {
+          "Food": {
+            "ideal": 15.0,
+            "actual": 0,
+            "deviation": 15.0,
+            "score": 5.0
+          },
+          "Entertainment": {
+            "ideal": 10.0,
+            "actual": 0,
+            "deviation": 10.0,
+            "score": 6.67
+          },
+          "Travel": {
+            "ideal": 5.0,
+            "actual": 8.32,
+            "deviation": 3.32,
+            "score": 8.89
+          },
+          "Utilities": {
+            "ideal": 10.0,
+            "actual": 0,
+            "deviation": 10.0,
+            "score": 6.67
+          },
+          "Education": {
+            "ideal": 10.0,
+            "actual": 0,
+            "deviation": 10.0,
+            "score": 6.67
+          },
+          "Healthcare": {
+            "ideal": 5.0,
+            "actual": 0,
+            "deviation": 5.0,
+            "score": 8.33
+          },
+          "Shopping": {
+            "ideal": 10.0,
+            "actual": 7.96,
+            "deviation": 2.04,
+            "score": 9.32
+          },
+          "Savings": {
+            "ideal": 25.0,
+            "actual": 15.17,
+            "deviation": 9.83,
+            "score": 6.72
+          },
+          "Subscriptions": {
+            "ideal": 5.0,
+            "actual": 0,
+            "deviation": 5.0,
+            "score": 8.33
+          },
+          "Transport": {
+            "ideal": 5.0,
+            "actual": 5.87,
+            "deviation": 0.87,
+            "score": 9.71
+          },
+          "Other": {
+            "ideal": 0,
+            "actual": 62.69,
+            "deviation": 62.69,
+            "score": 0
+          }
+        },
+        "savings_bonus": 7,
+        "interpretation": "Moderate Spender. Your spending patterns could be optimized. Consider reviewing your expense categories.",
+        "recommendations": [
+          "\ud83d\udca1 Optimization: You're spending 8.3% on Travel (ideal: 5.0%). This is your highest spending category. Review and cut unnecessary expenses here first.",
+          "\u26a0\ufe0f Reduce spending on Travel. You're spending 8.3% (ideal: 5.0%). This is 66% above recommended."
+        ]
+      },
+      "files_uploaded": [
+        "company_5_year_transactions 1.csv"
+      ]
+    },
+    {
+      "id": "IixAn-8DctMLizmHeP3lBw",
+      "user_id": "71uXQF8rISlv06jUIsQXSQ",
+      "account_type": "company",
+      "created_at": "2025-11-04T19:19:19.076341",
+      "company_name": "vish",
+      "audit_report": {
+        "audit_summary": {
+          "audit_date": "2025-11-04T19:19:19.075918",
+          "company_name": "vish",
+          "fiscal_year": 2025,
+          "overall_risk_score": 50,
+          "compliance_score": 50,
+          "financial_health_score": 50,
+          "audit_status": "CONDITIONAL"
+        },
+        "financial_compliance": {
+          "gaap_compliance": "REVIEW_REQUIRED",
+          "issues": [],
+          "recommendations": [
+            "No significant issues detected"
+          ]
+        },
+        "fraud_detection": {
+          "suspicious_transactions": [
+            {
+              "date": "2025-11-04",
+              "amount": 293027.58,
+              "description": "AGGREGATOR ESCROW/UTIB0001506 2,744.00",
+              "suspicion_index": 0.7615,
+              "amount_score": 0.9194,
+              "text_score": 0.5246,
+              "risk_level": "\u26a0\ufe0f MEDIUM RISK"
+            },
+            {
+              "date": "2025-11-04",
+              "amount": 1.0,
+              "description": "3165549 1.00",
+              "suspicion_index": 0.731,
+              "amount_score": 1.0,
+              "text_score": 0.3274,
+              "risk_level": "\u26a0\ufe0f MEDIUM RISK"
+            },
+            {
+              "date": "2025-11-04",
+              "amount": 290283.58,
+              "description": "SETDT-23022025IDFC 25,988.01",
+              "suspicion_index": 0.7302,
+              "amount_score": 0.9014,
+              "text_score": 0.4733,
+              "risk_level": "\u26a0\ufe0f MEDIUM RISK"
+            },
+            {
+              "date": "2025-11-04",
+              "amount": 2.0,
+              "description": "PRIVATE LIMITED/UTIB0001506 1.00",
+              "suspicion_index": 0.6667,
+              "amount_score": 1.0,
+              "text_score": 0.1667,
+              "risk_level": "\u26a0\ufe0f MEDIUM RISK"
+            },
+            {
+              "date": "2025-11-04",
+              "amount": 247478.67,
+              "description": "SHREE V K/BARB0GOREAS 6,000.00",
+              "suspicion_index": 0.6442,
+              "amount_score": 0.621,
+              "text_score": 0.6789,
+              "risk_level": "\u26a0\ufe0f MEDIUM RISK"
+            },
+            {
+              "date": "2025-11-04",
+              "amount": 265295.57,
+              "description": "AGGREGATOR ESCROW/UTIB0001506 980.00",
+              "suspicion_index": 0.5994,
+              "amount_score": 0.7377,
+              "text_score": 0.3918,
+              "risk_level": "\u2705 Normal"
+            },
+            {
+              "date": "2025-11-04",
+              "amount": 55497.58,
+              "description": "from PhonePe 250.00",
+              "suspicion_index": 0.5957,
+              "amount_score": 0.6365,
+              "text_score": 0.5345,
+              "risk_level": "\u2705 Normal"
+            },
+            {
+              "date": "2025-11-04",
+              "amount": 53877.58,
+              "description": "from PhonePe 5,000.00",
+              "suspicion_index": 0.5836,
+              "amount_score": 0.6471,
+              "text_score": 0.4883,
+              "risk_level": "\u2705 Normal"
+            },
+            {
+              "date": "2025-11-04",
+              "amount": 264295.57,
+              "description": "Silvers/ICIC0006031/6157/ 1,000.00",
+              "suspicion_index": 0.5557,
+              "amount_score": 0.7312,
+              "text_score": 0.2924,
+              "risk_level": "\u2705 Normal"
+            },
+            {
+              "date": "2025-11-04",
+              "amount": 247478.67,
+              "description": "0.00 2,89,514.00 5,36,992.67",
+              "suspicion_index": 0.5513,
+              "amount_score": 0.621,
+              "text_score": 0.4467,
+              "risk_level": "\u2705 Normal"
+            }
+          ],
+          "anomalies_detected": [
+            "0 high-risk transactions",
+            "5 medium-risk transactions",
+            "33 normal transactions"
+          ],
+          "risk_level": "MEDIUM",
+          "findings": [
+            "Total transactions analyzed: 38",
+            "High-risk transactions: 0 (0.0%)",
+            "Medium-risk transactions: 5 (13.2%)",
+            "Normal transactions: 33 (86.8%)"
+          ]
+        },
+        "risk_assessment": {
+          "financial_risks": [
+            "Identified 0 potentially fraudulent transactions",
+            "Average transaction amount: \u20b9152,667.13",
+            "Largest transaction: \u20b9293,027.58"
+          ],
+          "operational_risks": [],
+          "compliance_risks": [],
+          "overall_risk_level": "MEDIUM"
+        },
+        "internal_controls": {
+          "strengths": [
+            "Automated fraud detection system in place"
+          ],
+          "weaknesses": [],
+          "improvement_areas": [
+            "Maintain current monitoring levels"
+          ]
+        },
+        "regulatory_compliance": {
+          "tax_compliance": "COMPLIANT",
+          "statutory_compliance": "COMPLIANT",
+          "issues": [],
+          "actions_required": [
+            "Continue monitoring"
+          ]
+        },
+        "operational_analysis": {
+          "revenue_trends": "Based on transaction analysis",
+          "expense_trends": "Analyzed 38 transactions",
+          "budget_variance": "Not provided",
+          "key_metrics": [
+            "Total transactions: 38",
+            "Total amount: \u20b95,801,350.78",
+            "Average amount: \u20b9152,667.13",
+            "High-risk ratio: 0.00%"
+          ]
+        },
+        "recommendations": {
+          "critical": [],
+          "high_priority": [
+            "Verify suspicious transaction details",
+            "Review transaction approval processes"
+          ],
+          "medium_priority": [
+            "Implement regular fraud detection audits",
+            "Enhance transaction monitoring"
+          ],
+          "low_priority": []
+        },
+        "metadata": {
+          "audit_performed_at": "2025-11-04T19:19:19.076065",
+          "model_used": "fraud-detection-ml-model",
+          "total_transactions_analyzed": 38,
+          "financial_period": {
+            "start": "2025-11-04T00:00:00",
+            "end": "2025-11-04T00:00:00"
+          }
+        }
+      },
+      "financial_summary": {
+        "total_amount": 5801350.78,
+        "total_transactions": 38
+      },
+      "total_transactions": 38,
+      "total_amount": 5801350.78,
+      "insights": {
+        "top_category": {
+          "name": "Other",
+          "percentage": 64.59,
+          "amount": 3747230.84
+        },
+        "category_breakdown": {
+          "Other": {
+            "percentage": 64.59,
+            "amount": 3747230.84
+          },
+          "Utilities": {
+            "percentage": 24.17,
+            "amount": 1402257.46
+          },
+          "Payments": {
+            "percentage": 8.7,
+            "amount": 504999.9
+          },
+          "Savings": {
+            "percentage": 2.53,
+            "amount": 146862.58
+          }
+        },
+        "total_spent": 5801350.78,
+        "transaction_count": 38
+      },
+      "visualizations": {
+        "pie_chart": [
+          {
+            "name": "Other",
+            "value": 3747230.84
+          },
+          {
+            "name": "Utilities",
+            "value": 1402257.46
+          },
+          {
+            "name": "Payments",
+            "value": 504999.9
+          },
+          {
+            "name": "Savings",
+            "value": 146862.58
+          }
+        ],
+        "bar_chart": [
+          {
+            "name": "Other",
+            "value": 3747230.84,
+            "category": "Other",
+            "amount": 3747230.84,
+            "percentage": 64.59
+          },
+          {
+            "name": "Utilities",
+            "value": 1402257.46,
+            "category": "Utilities",
+            "amount": 1402257.46,
+            "percentage": 24.17
+          },
+          {
+            "name": "Payments",
+            "value": 504999.9,
+            "category": "Payments",
+            "amount": 504999.9,
+            "percentage": 8.7
+          },
+          {
+            "name": "Savings",
+            "value": 146862.58,
+            "category": "Savings",
+            "amount": 146862.58,
+            "percentage": 2.53
+          }
+        ],
+        "summary_stats": {
+          "total_categories": 4,
+          "largest_category": "Other",
+          "smallest_category": "Savings"
+        }
+      },
+      "transactions": [
+        {
+          "amount": 247478.67,
+          "description": "0.00 2,89,514.00 5,36,992.67",
+          "date": "2025-11-04"
+        },
+        {
+          "amount": 1.0,
+          "description": "3165549 1.00",
+          "date": "2025-11-04"
+        },
+        {
+          "amount": 2.0,
+          "description": "PRIVATE LIMITED/UTIB0001506 1.00",
+          "date": "2025-11-04"
+        },
+        {
+          "amount": 214315.57,
+          "description": "AGGREGATOR ESCROW/UTIB0001506 2,14,313.57",
+          "date": "2025-11-04"
+        },
+        {
+          "amount": 264315.57,
+          "description": "KUMAR N/UNION B036030 50,000.00",
+          "date": "2025-11-04"
+        },
+        {
+          "amount": 265295.57,
+          "description": "AGGREGATOR ESCROW/UTIB0001506 980.00",
+          "date": "2025-11-04"
+        },
+        {
+          "amount": 264295.57,
+          "description": "Silvers/ICIC0006031/6157/ 1,000.00",
+          "date": "2025-11-04"
+        },
+        {
+          "amount": 290283.58,
+          "description": "SETDT-23022025IDFC 25,988.01",
+          "date": "2025-11-04"
+        },
+        {
+          "amount": 247478.67,
+          "description": "0.00 2,89,514.00 5,36,992.67",
+          "date": "2025-11-04"
+        },
+        {
+          "amount": 293027.58,
+          "description": "AGGREGATOR ESCROW/UTIB0001506 2,744.00",
+          "date": "2025-11-04"
+        },
+        {
+          "amount": 44027.58,
+          "description": "Silvers/ICIC0006031/6157/ 2,49,000.00",
+          "date": "2025-11-04"
+        },
+        {
+          "amount": 55247.58,
+          "description": "AGGREGATOR ESCROW/UTIB0001506 11,220.00",
+          "date": "2025-11-04"
+        },
+        {
+          "amount": 55497.58,
+          "description": "from PhonePe 250.00",
+          "date": "2025-11-04"
+        },
+        {
+          "amount": 77477.58,
+          "description": "AGGREGATOR ESCROW/UTIB0001506 21,980.00",
+          "date": "2025-11-04"
+        },
+        {
+          "amount": 48877.58,
+          "description": "M/SBIN0011819/Rent 28,600.00",
+          "date": "2025-11-04"
+        },
+        {
+          "amount": 53877.58,
+          "description": "from PhonePe 5,000.00",
+          "date": "2025-11-04"
+        },
+        {
+          "amount": 55877.58,
+          "description": "07-Mar-2025 07-Mar-2025 UPI/MOB/101075277038/UPI 2,000.00",
+          "date": "2025-11-04"
+        },
+        {
+          "amount": 56482.58,
+          "description": "07-Mar-2025 07-Mar-2025 UPI/MOB/506696716630/UPI 605.00",
+          "date": "2025-11-04"
+        },
+        {
+          "amount": 94077.58,
+          "description": "07-Mar-2025 07-Mar-2025 UPI/MOB/428107325701/Silver 37,595.00",
+          "date": "2025-11-04"
+        },
+        {
+          "amount": 96877.58,
+          "description": "from PhonePe 2,800.00",
+          "date": "2025-11-04"
+        },
+        {
+          "amount": 94861.58,
+          "description": "E/20250714842655/12032025 2,016.00",
+          "date": "2025-11-04"
+        },
+        {
+          "amount": 94862.58,
+          "description": "cesBankAccountValidation 1.00",
+          "date": "2025-11-04"
+        },
+        {
+          "amount": 146862.58,
+          "description": "14-Mar-2025 14-Mar-2025 CASH DEPOSIT BY SELF 81178 52,000.00",
+          "date": "2025-11-04"
+        },
+        {
+          "amount": 147452.58,
+          "description": "16-Mar-2025 16-Mar-2025 UPI/MOB/544111254267/UPI 590.00",
+          "date": "2025-11-04"
+        },
+        {
+          "amount": 151109.58,
+          "description": "16-Mar-2025 16-Mar-2025 UPI/MOB/544182378154/UPI 3,657.00",
+          "date": "2025-11-04"
+        },
+        {
+          "amount": 155109.58,
+          "description": "from PhonePe 4,000.00",
+          "date": "2025-11-04"
+        },
+        {
+          "amount": 161509.58,
+          "description": "from PhonePe 6,400.00",
+          "date": "2025-11-04"
+        },
+        {
+          "amount": 158611.58,
+          "description": "SUREKHA N Y/SBIN0007484 2,898.00",
+          "date": "2025-11-04"
+        },
+        {
+          "amount": 161289.58,
+          "description": "from PhonePe 2,678.00",
+          "date": "2025-11-04"
+        },
+        {
+          "amount": 166389.58,
+          "description": "from PhonePe 5,100.00",
+          "date": "2025-11-04"
+        },
+        {
+          "amount": 167489.58,
+          "description": "from PhonePe 1,100.00",
+          "date": "2025-11-04"
+        },
+        {
+          "amount": 167746.58,
+          "description": "AGGREGATOR ESCROW/UTIB0001506 257.00",
+          "date": "2025-11-04"
+        },
+        {
+          "amount": 170588.41,
+          "description": "SETDT-26032025IDFC 2,841.83",
+          "date": "2025-11-04"
+        },
+        {
+          "amount": 247478.67,
+          "description": "0.00 2,89,514.00 5,36,992.67",
+          "date": "2025-11-04"
+        },
+        {
+          "amount": 191788.41,
+          "description": "from PhonePe 21,200.00",
+          "date": "2025-11-04"
+        },
+        {
+          "amount": 192428.41,
+          "description": "from PhonePe 640.00",
+          "date": "2025-11-04"
+        },
+        {
+          "amount": 253478.67,
+          "description": "SETDT-30032025IDFC 61,050.26",
+          "date": "2025-11-04"
+        },
+        {
+          "amount": 247478.67,
+          "description": "SHREE V K/BARB0GOREAS 6,000.00",
+          "date": "2025-11-04"
+        }
+      ],
+      "smart_score": {
+        "score": 5.6,
+        "max_score": 10.0,
+        "spender_rating": "Moderate Spender",
+        "components": {
+          "Food": {
+            "ideal": 15.0,
+            "actual": 0,
+            "deviation": 15.0,
+            "score": 5.0
+          },
+          "Entertainment": {
+            "ideal": 10.0,
+            "actual": 0,
+            "deviation": 10.0,
+            "score": 6.67
+          },
+          "Travel": {
+            "ideal": 5.0,
+            "actual": 0,
+            "deviation": 5.0,
+            "score": 8.33
+          },
+          "Utilities": {
+            "ideal": 10.0,
+            "actual": 24.17,
+            "deviation": 14.17,
+            "score": 5.28
+          },
+          "Education": {
+            "ideal": 10.0,
+            "actual": 0,
+            "deviation": 10.0,
+            "score": 6.67
+          },
+          "Healthcare": {
+            "ideal": 5.0,
+            "actual": 0,
+            "deviation": 5.0,
+            "score": 8.33
+          },
+          "Shopping": {
+            "ideal": 10.0,
+            "actual": 0,
+            "deviation": 10.0,
+            "score": 6.67
+          },
+          "Savings": {
+            "ideal": 25.0,
+            "actual": 2.53,
+            "deviation": 22.47,
+            "score": 2.51
+          },
+          "Subscriptions": {
+            "ideal": 5.0,
+            "actual": 0,
+            "deviation": 5.0,
+            "score": 8.33
+          },
+          "Transport": {
+            "ideal": 5.0,
+            "actual": 0,
+            "deviation": 5.0,
+            "score": 8.33
+          },
+          "Other": {
+            "ideal": 0,
+            "actual": 64.59,
+            "deviation": 64.59,
+            "score": 0
+          }
+        },
+        "savings_bonus": 1.27,
+        "interpretation": "Moderate Spender. Your spending patterns could be optimized. Consider reviewing your expense categories.",
+        "recommendations": [
+          "\ud83d\udea8 Priority: Increase savings to at least 15% of income (currently 2.5%). Consider automating monthly transfers to savings.",
+          "\ud83d\udca1 Optimization: You're spending 24.2% on Utilities (ideal: 10.0%). This is your highest spending category. Review and cut unnecessary expenses here first.",
+          "\u26a0\ufe0f Reduce spending on Utilities. You're spending 24.2% (ideal: 10.0%). This is 142% above recommended."
+        ]
+      },
+      "files_uploaded": [
+        "IDFCFIRSTBankstatement_52507201810-1.pdf"
+      ]
+    },
+    {
+      "id": "7CVQVfy4XkIxuTGGLlhhnw",
+      "user_id": "71uXQF8rISlv06jUIsQXSQ",
+      "account_type": "company",
+      "created_at": "2025-11-06T08:52:35.779563",
+      "company_name": "vish",
+      "audit_report": {
+        "audit_summary": {
+          "audit_date": "2025-11-06T08:52:35.770701",
+          "company_name": "vish",
+          "fiscal_year": 2025,
+          "overall_risk_score": 25,
+          "compliance_score": 75,
+          "financial_health_score": 75,
+          "audit_status": "PASS"
+        },
+        "financial_compliance": {
+          "gaap_compliance": "COMPLIANT",
+          "issues": [],
+          "recommendations": [
+            "No significant issues detected"
+          ]
+        },
+        "fraud_detection": {
+          "suspicious_transactions": [
+            {
+              "date": "2023-11-26",
+              "amount": 299998.88,
+              "description": "Transaction for Insurance with Bright Consulting",
+              "suspicion_index": 0.6,
+              "amount_score": 1.0,
+              "text_score": 0.0,
+              "risk_level": "\u2705 Normal"
+            },
+            {
+              "date": "2024-03-14",
+              "amount": 299986.77,
+              "description": "Transaction for Interest Expense with Global Corp",
+              "suspicion_index": 0.6,
+              "amount_score": 0.9999,
+              "text_score": 0.0,
+              "risk_level": "\u2705 Normal"
+            },
+            {
+              "date": "2023-02-21",
+              "amount": 299961.0,
+              "description": "Transaction for Insurance with Bright Consulting",
+              "suspicion_index": 0.5998,
+              "amount_score": 0.9997,
+              "text_score": 0.0,
+              "risk_level": "\u2705 Normal"
+            },
+            {
+              "date": "2021-01-06",
+              "amount": 299958.99,
+              "description": "Transaction for Travel Expenses with Metro Services",
+              "suspicion_index": 0.5998,
+              "amount_score": 0.9997,
+              "text_score": 0.0,
+              "risk_level": "\u2705 Normal"
+            },
+            {
+              "date": "2024-10-11",
+              "amount": 299935.52,
+              "description": "Transaction for Maintenance with Metro Services",
+              "suspicion_index": 0.5997,
+              "amount_score": 0.9996,
+              "text_score": 0.0,
+              "risk_level": "\u2705 Normal"
+            },
+            {
+              "date": "2020-10-11",
+              "amount": 299913.79,
+              "description": "Transaction for Utilities with QuickTech",
+              "suspicion_index": 0.5997,
+              "amount_score": 0.9994,
+              "text_score": 0.0,
+              "risk_level": "\u2705 Normal"
+            },
+            {
+              "date": "2024-09-23",
+              "amount": 299913.32,
+              "description": "Transaction for Interest Expense with QuickTech",
+              "suspicion_index": 0.5997,
+              "amount_score": 0.9994,
+              "text_score": 0.0,
+              "risk_level": "\u2705 Normal"
+            },
+            {
+              "date": "2021-10-11",
+              "amount": 299793.68,
+              "description": "Transaction for Inventory Purchase with Customer-B",
+              "suspicion_index": 0.5992,
+              "amount_score": 0.9986,
+              "text_score": 0.0,
+              "risk_level": "\u2705 Normal"
+            },
+            {
+              "date": "2022-11-23",
+              "amount": 299777.86,
+              "description": "Transaction for Licensing Fees with Global Corp",
+              "suspicion_index": 0.5991,
+              "amount_score": 0.9985,
+              "text_score": 0.0,
+              "risk_level": "\u2705 Normal"
+            },
+            {
+              "date": "2021-07-06",
+              "amount": 299777.04,
+              "description": "Transaction for Licensing Fees with Vendor-Two",
+              "suspicion_index": 0.5991,
+              "amount_score": 0.9985,
+              "text_score": 0.0,
+              "risk_level": "\u2705 Normal"
+            }
+          ],
+          "anomalies_detected": [
+            "0 high-risk transactions",
+            "0 medium-risk transactions",
+            "10944 normal transactions"
+          ],
+          "risk_level": "LOW",
+          "findings": [
+            "Total transactions analyzed: 10944",
+            "High-risk transactions: 0 (0.0%)",
+            "Medium-risk transactions: 0 (0.0%)",
+            "Normal transactions: 10944 (100.0%)"
+          ]
+        },
+        "risk_assessment": {
+          "financial_risks": [
+            "Identified 0 potentially fraudulent transactions",
+            "Average transaction amount: \u20b9149,836.03",
+            "Largest transaction: \u20b9299,998.88"
+          ],
+          "operational_risks": [],
+          "compliance_risks": [],
+          "overall_risk_level": "LOW"
+        },
+        "internal_controls": {
+          "strengths": [
+            "Automated fraud detection system in place"
+          ],
+          "weaknesses": [],
+          "improvement_areas": [
+            "Maintain current monitoring levels"
+          ]
+        },
+        "regulatory_compliance": {
+          "tax_compliance": "COMPLIANT",
+          "statutory_compliance": "COMPLIANT",
+          "issues": [],
+          "actions_required": [
+            "Continue monitoring"
+          ]
+        },
+        "operational_analysis": {
+          "revenue_trends": "Based on transaction analysis",
+          "expense_trends": "Analyzed 10944 transactions",
+          "budget_variance": "Not provided",
+          "key_metrics": [
+            "Total transactions: 10944",
+            "Total amount: \u20b91,639,805,481.56",
+            "Average amount: \u20b9149,836.03",
+            "High-risk ratio: 0.00%"
+          ]
+        },
+        "recommendations": {
+          "critical": [],
+          "high_priority": [],
+          "medium_priority": [
+            "Implement regular fraud detection audits",
+            "Enhance transaction monitoring"
+          ],
+          "low_priority": [
+            "Maintain current fraud detection practices"
+          ]
+        },
+        "metadata": {
+          "audit_performed_at": "2025-11-06T08:52:35.776719",
+          "model_used": "fraud-detection-ml-model",
+          "total_transactions_analyzed": 10944,
+          "financial_period": {
+            "start": "2020-01-01T00:00:00",
+            "end": "2024-12-31T00:00:00"
+          }
+        }
+      },
+      "financial_summary": {
+        "total_amount": 1639805481.56,
+        "total_transactions": 10944
+      },
+      "total_transactions": 10944,
+      "total_amount": 1639805481.56,
+      "insights": {
+        "top_category": {
+          "name": "Other",
+          "percentage": 62.69,
+          "amount": 1027952661.54
+        },
+        "category_breakdown": {
+          "Savings": {
+            "percentage": 15.17,
+            "amount": 248715487.38
+          },
+          "Shopping": {
+            "percentage": 7.96,
+            "amount": 130536590.75
+          },
+          "Other": {
+            "percentage": 62.69,
+            "amount": 1027952661.54
+          },
+          "Transport": {
+            "percentage": 5.87,
+            "amount": 96214059.44
+          },
+          "Travel": {
+            "percentage": 8.32,
+            "amount": 136386682.45
+          }
+        },
+        "total_spent": 1639805481.56,
+        "transaction_count": 10944
+      },
+      "visualizations": {
+        "pie_chart": [
+          {
+            "name": "Savings",
+            "value": 248715487.38
+          },
+          {
+            "name": "Shopping",
+            "value": 130536590.75
+          },
+          {
+            "name": "Other",
+            "value": 1027952661.54
+          },
+          {
+            "name": "Transport",
+            "value": 96214059.44
+          },
+          {
+            "name": "Travel",
+            "value": 136386682.45
+          }
+        ],
+        "bar_chart": [
+          {
+            "name": "Other",
+            "value": 1027952661.54,
+            "category": "Other",
+            "amount": 1027952661.54,
+            "percentage": 62.69
+          },
+          {
+            "name": "Savings",
+            "value": 248715487.38,
+            "category": "Savings",
+            "amount": 248715487.38,
+            "percentage": 15.17
+          },
+          {
+            "name": "Travel",
+            "value": 136386682.45,
+            "category": "Travel",
+            "amount": 136386682.45,
+            "percentage": 8.32
+          },
+          {
+            "name": "Shopping",
+            "value": 130536590.75,
+            "category": "Shopping",
+            "amount": 130536590.75,
+            "percentage": 7.96
+          },
+          {
+            "name": "Transport",
+            "value": 96214059.44,
+            "category": "Transport",
+            "amount": 96214059.44,
+            "percentage": 5.87
+          }
+        ],
+        "summary_stats": {
+          "total_categories": 5,
+          "largest_category": "Other",
+          "smallest_category": "Transport"
+        }
+      },
+      "transactions": [
+        {
+          "amount": 94403.72,
+          "description": "Transaction for Insurance with Customer-C",
+          "date": "2020-01-01"
+        },
+        {
+          "amount": 19006.12,
+          "description": "Transaction for Inventory Purchase with Alpha Logistics",
+          "date": "2020-01-01"
+        },
+        {
+          "amount": 115215.19,
+          "description": "Transaction for Office Supplies with Customer-C",
+          "date": "2020-01-01"
+        },
+        {
+          "amount": 255326.54,
+          "description": "Transaction for Licensing Fees with Customer-B",
+          "date": "2020-01-02"
+        },
+        {
+          "amount": 193668.69,
+          "description": "Transaction for Maintenance with QuickTech",
+          "date": "2020-01-02"
+        },
+        {
+          "amount": 0.0,
+          "description": "Transaction for Salaries with XYZ Supplies",
+          "date": "2020-01-02"
+        },
+        {
+          "amount": 77106.93,
+          "description": "Transaction for Salaries with Customer-C",
+          "date": "2020-01-02"
+        },
+        {
+          "amount": 283765.61,
+          "description": "Transaction for Licensing Fees with Customer-B",
+          "date": "2020-01-02"
+        },
+        {
+          "amount": 133410.09,
+          "description": "Transaction for Sales Revenue with Bright Consulting",
+          "date": "2020-01-02"
+        },
+        {
+          "amount": 67987.67,
+          "description": "Transaction for Office Supplies with Global Corp",
+          "date": "2020-01-02"
+        },
+        {
+          "amount": 72294.19,
+          "description": "Transaction for Interest Expense with Metro Services",
+          "date": "2020-01-02"
+        },
+        {
+          "amount": 224056.86,
+          "description": "Transaction for Sales Revenue with Bright Consulting",
+          "date": "2020-01-03"
+        },
+        {
+          "amount": 81507.91,
+          "description": "Transaction for Maintenance with XYZ Supplies",
+          "date": "2020-01-03"
+        },
+        {
+          "amount": 83927.0,
+          "description": "Transaction for Utilities with QuickTech",
+          "date": "2020-01-03"
+        },
+        {
+          "amount": 84616.82,
+          "description": "Transaction for Salaries with Customer-A",
+          "date": "2020-01-03"
+        },
+        {
+          "amount": 29253.15,
+          "description": "Transaction for Inventory Purchase with Metro Services",
+          "date": "2020-01-03"
+        },
+        {
+          "amount": 24505.17,
+          "description": "Transaction for Licensing Fees with Metro Services",
+          "date": "2020-01-04"
+        },
+        {
+          "amount": 757.99,
+          "description": "Transaction for Travel Expenses with Vendor-Two",
+          "date": "2020-01-04"
+        },
+        {
+          "amount": 109650.8,
+          "description": "Transaction for Rent with Vendor-One",
+          "date": "2020-01-04"
+        },
+        {
+          "amount": 107067.92,
+          "description": "Transaction for Consulting Services with QuickTech",
+          "date": "2020-01-04"
+        },
+        {
+          "amount": 296356.9,
+          "description": "Transaction for Marketing with Bright Consulting",
+          "date": "2020-01-04"
+        },
+        {
+          "amount": 237792.07,
+          "description": "Transaction for Interest Expense with XYZ Supplies",
+          "date": "2020-01-04"
+        },
+        {
+          "amount": 54040.68,
+          "description": "Transaction for Maintenance with QuickTech",
+          "date": "2020-01-04"
+        },
+        {
+          "amount": 1779.97,
+          "description": "Transaction for Consulting Services with Global Corp",
+          "date": "2020-01-04"
+        },
+        {
+          "amount": 174902.91,
+          "description": "Transaction for Travel Expenses with Customer-A",
+          "date": "2020-01-05"
+        },
+        {
+          "amount": 61058.32,
+          "description": "Transaction for Marketing with XYZ Supplies",
+          "date": "2020-01-05"
+        },
+        {
+          "amount": 124580.68,
+          "description": "Transaction for Licensing Fees with Global Corp",
+          "date": "2020-01-05"
+        },
+        {
+          "amount": 104787.12,
+          "description": "Transaction for Sales Revenue with Bright Consulting",
+          "date": "2020-01-05"
+        },
+        {
+          "amount": 103125.23,
+          "description": "Transaction for Marketing with Customer-B",
+          "date": "2020-01-05"
+        },
+        {
+          "amount": 202145.44,
+          "description": "Transaction for Consulting Services with Global Corp",
+          "date": "2020-01-05"
+        },
+        {
+          "amount": 120075.84,
+          "description": "Transaction for Interest Expense with Bright Consulting",
+          "date": "2020-01-05"
+        },
+        {
+          "amount": 138507.25,
+          "description": "Transaction for Interest Expense with Alpha Logistics",
+          "date": "2020-01-05"
+        },
+        {
+          "amount": 66595.56,
+          "description": "Transaction for Insurance with QuickTech",
+          "date": "2020-01-05"
+        },
+        {
+          "amount": 102138.09,
+          "description": "Transaction for Travel Expenses with ABC Traders",
+          "date": "2020-01-06"
+        },
+        {
+          "amount": 229803.66,
+          "description": "Transaction for Rent with Alpha Logistics",
+          "date": "2020-01-06"
+        },
+        {
+          "amount": 195488.76,
+          "description": "Transaction for Inventory Purchase with QuickTech",
+          "date": "2020-01-06"
+        },
+        {
+          "amount": 247057.85,
+          "description": "Transaction for Office Supplies with Customer-B",
+          "date": "2020-01-06"
+        },
+        {
+          "amount": 242036.69,
+          "description": "Transaction for Interest Expense with Customer-B",
+          "date": "2020-01-06"
+        },
+        {
+          "amount": 100791.16,
+          "description": "Transaction for Inventory Purchase with Customer-B",
+          "date": "2020-01-06"
+        },
+        {
+          "amount": 123826.64,
+          "description": "Transaction for Licensing Fees with Vendor-One",
+          "date": "2020-01-06"
+        },
+        {
+          "amount": 155710.54,
+          "description": "Transaction for Insurance with Metro Services",
+          "date": "2020-01-07"
+        },
+        {
+          "amount": 112724.04,
+          "description": "Transaction for Office Supplies with Bright Consulting",
+          "date": "2020-01-07"
+        },
+        {
+          "amount": 286926.61,
+          "description": "Transaction for Maintenance with QuickTech",
+          "date": "2020-01-07"
+        },
+        {
+          "amount": 84030.67,
+          "description": "Transaction for Consulting Services with Vendor-One",
+          "date": "2020-01-07"
+        },
+        {
+          "amount": 203204.69,
+          "description": "Transaction for Sales Revenue with Vendor-Two",
+          "date": "2020-01-07"
+        },
+        {
+          "amount": 115444.44,
+          "description": "Transaction for Sales Revenue with Customer-B",
+          "date": "2020-01-07"
+        },
+        {
+          "amount": 232228.65,
+          "description": "Transaction for Inventory Purchase with XYZ Supplies",
+          "date": "2020-01-07"
+        },
+        {
+          "amount": 123571.69,
+          "description": "Transaction for Sales Revenue with Vendor-One",
+          "date": "2020-01-07"
+        },
+        {
+          "amount": 65151.09,
+          "description": "Transaction for Travel Expenses with Alpha Logistics",
+          "date": "2020-01-07"
+        },
+        {
+          "amount": 148407.34,
+          "description": "Transaction for Rent with Global Corp",
+          "date": "2020-01-08"
+        },
+        {
+          "amount": 108084.58,
+          "description": "Transaction for Maintenance with Vendor-One",
+          "date": "2020-01-08"
+        },
+        {
+          "amount": 160016.3,
+          "description": "Transaction for Licensing Fees with Vendor-Two",
+          "date": "2020-01-08"
+        },
+        {
+          "amount": 26168.01,
+          "description": "Transaction for Inventory Purchase with Vendor-Two",
+          "date": "2020-01-08"
+        },
+        {
+          "amount": 184669.76,
+          "description": "Transaction for Rent with Customer-C",
+          "date": "2020-01-09"
+        },
+        {
+          "amount": 297233.23,
+          "description": "Transaction for Licensing Fees with QuickTech",
+          "date": "2020-01-09"
+        },
+        {
+          "amount": 119520.05,
+          "description": "Transaction for Rent with Customer-B",
+          "date": "2020-01-09"
+        },
+        {
+          "amount": 224671.77,
+          "description": "Transaction for Licensing Fees with Customer-C",
+          "date": "2020-01-09"
+        },
+        {
+          "amount": 218590.74,
+          "description": "Transaction for Utilities with Customer-C",
+          "date": "2020-01-10"
+        },
+        {
+          "amount": 91420.85,
+          "description": "Transaction for Inventory Purchase with Alpha Logistics",
+          "date": "2020-01-10"
+        },
+        {
+          "amount": 73104.28,
+          "description": "Transaction for Travel Expenses with ABC Traders",
+          "date": "2020-01-10"
+        },
+        {
+          "amount": 245356.36,
+          "description": "Transaction for Maintenance with ABC Traders",
+          "date": "2020-01-10"
+        },
+        {
+          "amount": 296164.55,
+          "description": "Transaction for Maintenance with ABC Traders",
+          "date": "2020-01-10"
+        },
+        {
+          "amount": 144165.17,
+          "description": "Transaction for Consulting Services with Vendor-Two",
+          "date": "2020-01-11"
+        },
+        {
+          "amount": 35723.79,
+          "description": "Transaction for Licensing Fees with Global Corp",
+          "date": "2020-01-11"
+        },
+        {
+          "amount": 276206.97,
+          "description": "Transaction for Rent with ABC Traders",
+          "date": "2020-01-11"
+        },
+        {
+          "amount": 80690.08,
+          "description": "Transaction for Travel Expenses with Bright Consulting",
+          "date": "2020-01-11"
+        },
+        {
+          "amount": 22603.9,
+          "description": "Transaction for Inventory Purchase with Customer-A",
+          "date": "2020-01-12"
+        },
+        {
+          "amount": 293275.73,
+          "description": "Transaction for Travel Expenses with ABC Traders",
+          "date": "2020-01-12"
+        },
+        {
+          "amount": 103580.36,
+          "description": "Transaction for Consulting Services with Metro Services",
+          "date": "2020-01-12"
+        },
+        {
+          "amount": 75448.2,
+          "description": "Transaction for Insurance with Vendor-One",
+          "date": "2020-01-12"
+        },
+        {
+          "amount": 42699.81,
+          "description": "Transaction for Office Supplies with Customer-A",
+          "date": "2020-01-12"
+        },
+        {
+          "amount": 212181.28,
+          "description": "Transaction for Salaries with Global Corp",
+          "date": "2020-01-12"
+        },
+        {
+          "amount": 30308.04,
+          "description": "Transaction for Sales Revenue with XYZ Supplies",
+          "date": "2020-01-12"
+        },
+        {
+          "amount": 149758.66,
+          "description": "Transaction for Travel Expenses with Alpha Logistics",
+          "date": "2020-01-13"
+        },
+        {
+          "amount": 154784.11,
+          "description": "Transaction for Interest Expense with Customer-C",
+          "date": "2020-01-13"
+        },
+        {
+          "amount": 119912.36,
+          "description": "Transaction for Sales Revenue with QuickTech",
+          "date": "2020-01-13"
+        },
+        {
+          "amount": 162577.38,
+          "description": "Transaction for Maintenance with Vendor-One",
+          "date": "2020-01-13"
+        },
+        {
+          "amount": 271296.88,
+          "description": "Transaction for Office Supplies with Bright Consulting",
+          "date": "2020-01-14"
+        },
+        {
+          "amount": 139519.7,
+          "description": "Transaction for Consulting Services with Customer-A",
+          "date": "2020-01-14"
+        },
+        {
+          "amount": 133676.76,
+          "description": "Transaction for Maintenance with QuickTech",
+          "date": "2020-01-14"
+        },
+        {
+          "amount": 234746.49,
+          "description": "Transaction for Utilities with Bright Consulting",
+          "date": "2020-01-15"
+        },
+        {
+          "amount": 51594.86,
+          "description": "Transaction for Salaries with Bright Consulting",
+          "date": "2020-01-15"
+        },
+        {
+          "amount": 210071.24,
+          "description": "Transaction for Rent with Vendor-Two",
+          "date": "2020-01-15"
+        },
+        {
+          "amount": 84123.97,
+          "description": "Transaction for Interest Expense with XYZ Supplies",
+          "date": "2020-01-15"
+        },
+        {
+          "amount": 193130.28,
+          "description": "Transaction for Sales Revenue with QuickTech",
+          "date": "2020-01-16"
+        },
+        {
+          "amount": 64903.82,
+          "description": "Transaction for Salaries with QuickTech",
+          "date": "2020-01-16"
+        },
+        {
+          "amount": 247122.93,
+          "description": "Transaction for Consulting Services with Global Corp",
+          "date": "2020-01-16"
+        },
+        {
+          "amount": 163180.33,
+          "description": "Transaction for Utilities with Bright Consulting",
+          "date": "2020-01-16"
+        },
+        {
+          "amount": 130714.52,
+          "description": "Transaction for Consulting Services with QuickTech",
+          "date": "2020-01-16"
+        },
+        {
+          "amount": 69150.32,
+          "description": "Transaction for Consulting Services with QuickTech",
+          "date": "2020-01-16"
+        },
+        {
+          "amount": 69223.34,
+          "description": "Transaction for Interest Expense with Customer-A",
+          "date": "2020-01-16"
+        },
+        {
+          "amount": 16420.89,
+          "description": "Transaction for Marketing with Metro Services",
+          "date": "2020-01-16"
+        },
+        {
+          "amount": 42964.11,
+          "description": "Transaction for Travel Expenses with Metro Services",
+          "date": "2020-01-16"
+        },
+        {
+          "amount": 239995.57,
+          "description": "Transaction for Travel Expenses with XYZ Supplies",
+          "date": "2020-01-17"
+        },
+        {
+          "amount": 104624.97,
+          "description": "Transaction for Inventory Purchase with Metro Services",
+          "date": "2020-01-17"
+        },
+        {
+          "amount": 299155.1,
+          "description": "Transaction for Utilities with Global Corp",
+          "date": "2020-01-17"
+        },
+        {
+          "amount": 123811.34,
+          "description": "Transaction for Travel Expenses with Customer-B",
+          "date": "2020-01-17"
+        },
+        {
+          "amount": 26884.98,
+          "description": "Transaction for Insurance with Metro Services",
+          "date": "2020-01-17"
+        },
+        {
+          "amount": 41596.24,
+          "description": "Transaction for Insurance with Vendor-Two",
+          "date": "2020-01-18"
+        },
+        {
+          "amount": 278515.65,
+          "description": "Transaction for Sales Revenue with ABC Traders",
+          "date": "2020-01-18"
+        }
+      ],
+      "smart_score": {
+        "score": 6.9,
+        "max_score": 10.0,
+        "spender_rating": "Moderate Spender",
+        "components": {
+          "Food": {
+            "ideal": 15.0,
+            "actual": 0,
+            "deviation": 15.0,
+            "score": 5.0
+          },
+          "Entertainment": {
+            "ideal": 10.0,
+            "actual": 0,
+            "deviation": 10.0,
+            "score": 6.67
+          },
+          "Travel": {
+            "ideal": 5.0,
+            "actual": 8.32,
+            "deviation": 3.32,
+            "score": 8.89
+          },
+          "Utilities": {
+            "ideal": 10.0,
+            "actual": 0,
+            "deviation": 10.0,
+            "score": 6.67
+          },
+          "Education": {
+            "ideal": 10.0,
+            "actual": 0,
+            "deviation": 10.0,
+            "score": 6.67
+          },
+          "Healthcare": {
+            "ideal": 5.0,
+            "actual": 0,
+            "deviation": 5.0,
+            "score": 8.33
+          },
+          "Shopping": {
+            "ideal": 10.0,
+            "actual": 7.96,
+            "deviation": 2.04,
+            "score": 9.32
+          },
+          "Savings": {
+            "ideal": 25.0,
+            "actual": 15.17,
+            "deviation": 9.83,
+            "score": 6.72
+          },
+          "Subscriptions": {
+            "ideal": 5.0,
+            "actual": 0,
+            "deviation": 5.0,
+            "score": 8.33
+          },
+          "Transport": {
+            "ideal": 5.0,
+            "actual": 5.87,
+            "deviation": 0.87,
+            "score": 9.71
+          },
+          "Other": {
+            "ideal": 0,
+            "actual": 62.69,
+            "deviation": 62.69,
+            "score": 0
+          }
+        },
+        "savings_bonus": 7,
+        "interpretation": "Moderate Spender. Your spending patterns could be optimized. Consider reviewing your expense categories.",
+        "recommendations": [
+          "\ud83d\udca1 Optimization: You're spending 8.3% on Travel (ideal: 5.0%). This is your highest spending category. Review and cut unnecessary expenses here first.",
+          "\u26a0\ufe0f Reduce spending on Travel. You're spending 8.3% (ideal: 5.0%). This is 66% above recommended."
+        ]
+      },
+      "files_uploaded": [
+        "company_5_year_transactions 1.csv"
+      ]
+    },
+    {
+      "id": "analysis_1762399535.048097",
+      "user_id": "OvvBgt9u-PYEW966lLUi6g",
+      "account_type": "personal",
+      "created_at": "2025-11-06T08:55:35.048124",
+      "total_transactions": 10944,
+      "total_amount": 1639805481.5599983,
+      "date_range": {
+        "start": "2020-01-01T00:00:00",
+        "end": "2024-12-31T00:00:00"
+      },
+      "smart_score": {
+        "score": 6.9,
+        "max_score": 10,
+        "spender_rating": "Moderate Spender",
+        "components": {
+          "Food": {
+            "ideal": 15,
+            "actual": 0,
+            "deviation": 15,
+            "score": 5
+          },
+          "Entertainment": {
+            "ideal": 10,
+            "actual": 0,
+            "deviation": 10,
+            "score": 6.67
+          },
+          "Travel": {
+            "ideal": 5,
+            "actual": 8.32,
+            "deviation": 3.32,
+            "score": 8.89
+          },
+          "Utilities": {
+            "ideal": 10,
+            "actual": 0,
+            "deviation": 10,
+            "score": 6.67
+          },
+          "Education": {
+            "ideal": 10,
+            "actual": 0,
+            "deviation": 10,
+            "score": 6.67
+          },
+          "Healthcare": {
+            "ideal": 5,
+            "actual": 0,
+            "deviation": 5,
+            "score": 8.33
+          },
+          "Shopping": {
+            "ideal": 10,
+            "actual": 7.96,
+            "deviation": 2.04,
+            "score": 9.32
+          },
+          "Savings": {
+            "ideal": 25,
+            "actual": 15.17,
+            "deviation": 9.83,
+            "score": 6.72
+          },
+          "Subscriptions": {
+            "ideal": 5,
+            "actual": 0,
+            "deviation": 5,
+            "score": 8.33
+          },
+          "Transport": {
+            "ideal": 5,
+            "actual": 5.87,
+            "deviation": 0.87,
+            "score": 9.71
+          },
+          "Other": {
+            "ideal": 0,
+            "actual": 62.69,
+            "deviation": 62.69,
+            "score": 0
+          }
+        },
+        "savings_bonus": 7,
+        "interpretation": "Moderate Spender. Your spending patterns could be optimized. Consider reviewing your expense categories.",
+        "recommendations": [
+          "\ud83d\udca1 Optimization: You're spending 8.3% on Travel (ideal: 5.0%). This is your highest spending category. Review and cut unnecessary expenses here first.",
+          "\u26a0\ufe0f Reduce spending on Travel. You're spending 8.3% (ideal: 5.0%). This is 66% above recommended."
+        ]
+      },
+      "insights_summary": {
+        "top_category": {
+          "name": "Other",
+          "percentage": 62.69,
+          "amount": 1027952661.54
+        },
+        "category_count": 5
+      },
+      "file_errors": [],
+      "file_warnings": []
+    },
+    {
+      "id": "rsB1sWRXdV6TDBRCJKz0JQ",
+      "user_id": "71uXQF8rISlv06jUIsQXSQ",
+      "account_type": "company",
+      "created_at": "2025-11-06T18:44:14.467816",
+      "company_name": "vish",
+      "audit_report": {
+        "audit_summary": {
+          "audit_date": "2025-11-06T18:44:14.464559",
+          "company_name": "vish",
+          "fiscal_year": 2025,
+          "overall_risk_score": 25,
+          "compliance_score": 75,
+          "financial_health_score": 75,
+          "audit_status": "PASS"
+        },
+        "financial_compliance": {
+          "gaap_compliance": "COMPLIANT",
+          "issues": [],
+          "recommendations": [
+            "No significant issues detected"
+          ]
+        },
+        "fraud_detection": {
+          "suspicious_transactions": [
+            {
+              "date": "2023-11-26",
+              "amount": 299998.88,
+              "description": "Transaction for Insurance with Bright Consulting",
+              "suspicion_index": 0.6,
+              "amount_score": 1.0,
+              "text_score": 0.0,
+              "risk_level": "\u2705 Normal"
+            },
+            {
+              "date": "2024-03-14",
+              "amount": 299986.77,
+              "description": "Transaction for Interest Expense with Global Corp",
+              "suspicion_index": 0.6,
+              "amount_score": 0.9999,
+              "text_score": 0.0,
+              "risk_level": "\u2705 Normal"
+            },
+            {
+              "date": "2023-02-21",
+              "amount": 299961.0,
+              "description": "Transaction for Insurance with Bright Consulting",
+              "suspicion_index": 0.5998,
+              "amount_score": 0.9997,
+              "text_score": 0.0,
+              "risk_level": "\u2705 Normal"
+            },
+            {
+              "date": "2021-01-06",
+              "amount": 299958.99,
+              "description": "Transaction for Travel Expenses with Metro Services",
+              "suspicion_index": 0.5998,
+              "amount_score": 0.9997,
+              "text_score": 0.0,
+              "risk_level": "\u2705 Normal"
+            },
+            {
+              "date": "2024-10-11",
+              "amount": 299935.52,
+              "description": "Transaction for Maintenance with Metro Services",
+              "suspicion_index": 0.5997,
+              "amount_score": 0.9996,
+              "text_score": 0.0,
+              "risk_level": "\u2705 Normal"
+            },
+            {
+              "date": "2020-10-11",
+              "amount": 299913.79,
+              "description": "Transaction for Utilities with QuickTech",
+              "suspicion_index": 0.5997,
+              "amount_score": 0.9994,
+              "text_score": 0.0,
+              "risk_level": "\u2705 Normal"
+            },
+            {
+              "date": "2024-09-23",
+              "amount": 299913.32,
+              "description": "Transaction for Interest Expense with QuickTech",
+              "suspicion_index": 0.5997,
+              "amount_score": 0.9994,
+              "text_score": 0.0,
+              "risk_level": "\u2705 Normal"
+            },
+            {
+              "date": "2021-10-11",
+              "amount": 299793.68,
+              "description": "Transaction for Inventory Purchase with Customer-B",
+              "suspicion_index": 0.5992,
+              "amount_score": 0.9986,
+              "text_score": 0.0,
+              "risk_level": "\u2705 Normal"
+            },
+            {
+              "date": "2022-11-23",
+              "amount": 299777.86,
+              "description": "Transaction for Licensing Fees with Global Corp",
+              "suspicion_index": 0.5991,
+              "amount_score": 0.9985,
+              "text_score": 0.0,
+              "risk_level": "\u2705 Normal"
+            },
+            {
+              "date": "2021-07-06",
+              "amount": 299777.04,
+              "description": "Transaction for Licensing Fees with Vendor-Two",
+              "suspicion_index": 0.5991,
+              "amount_score": 0.9985,
+              "text_score": 0.0,
+              "risk_level": "\u2705 Normal"
+            }
+          ],
+          "anomalies_detected": [
+            "0 high-risk transactions",
+            "0 medium-risk transactions",
+            "10944 normal transactions"
+          ],
+          "risk_level": "LOW",
+          "findings": [
+            "Total transactions analyzed: 10944",
+            "High-risk transactions: 0 (0.0%)",
+            "Medium-risk transactions: 0 (0.0%)",
+            "Normal transactions: 10944 (100.0%)"
+          ]
+        },
+        "risk_assessment": {
+          "financial_risks": [
+            "Identified 0 potentially fraudulent transactions",
+            "Average transaction amount: \u20b9149,836.03",
+            "Largest transaction: \u20b9299,998.88"
+          ],
+          "operational_risks": [],
+          "compliance_risks": [],
+          "overall_risk_level": "LOW"
+        },
+        "internal_controls": {
+          "strengths": [
+            "Automated fraud detection system in place"
+          ],
+          "weaknesses": [],
+          "improvement_areas": [
+            "Maintain current monitoring levels"
+          ]
+        },
+        "regulatory_compliance": {
+          "tax_compliance": "COMPLIANT",
+          "statutory_compliance": "COMPLIANT",
+          "issues": [],
+          "actions_required": [
+            "Continue monitoring"
+          ]
+        },
+        "operational_analysis": {
+          "revenue_trends": "Based on transaction analysis",
+          "expense_trends": "Analyzed 10944 transactions",
+          "budget_variance": "Not provided",
+          "key_metrics": [
+            "Total transactions: 10944",
+            "Total amount: \u20b91,639,805,481.56",
+            "Average amount: \u20b9149,836.03",
+            "High-risk ratio: 0.00%"
+          ]
+        },
+        "recommendations": {
+          "critical": [],
+          "high_priority": [],
+          "medium_priority": [
+            "Implement regular fraud detection audits",
+            "Enhance transaction monitoring"
+          ],
+          "low_priority": [
+            "Maintain current fraud detection practices"
+          ]
+        },
+        "metadata": {
+          "audit_performed_at": "2025-11-06T18:44:14.466877",
+          "model_used": "fraud-detection-ml-model",
+          "total_transactions_analyzed": 10944,
+          "financial_period": {
+            "start": "2020-01-01T00:00:00",
+            "end": "2024-12-31T00:00:00"
+          }
+        }
+      },
+      "financial_summary": {
+        "total_amount": 1639805481.56,
+        "total_transactions": 10944
+      },
+      "total_transactions": 10944,
+      "total_amount": 1639805481.56,
+      "insights": {
+        "top_category": {
+          "name": "Other",
+          "percentage": 62.69,
+          "amount": 1027952661.54
+        },
+        "category_breakdown": {
+          "Savings": {
+            "percentage": 15.17,
+            "amount": 248715487.38
+          },
+          "Shopping": {
+            "percentage": 7.96,
+            "amount": 130536590.75
+          },
+          "Other": {
+            "percentage": 62.69,
+            "amount": 1027952661.54
+          },
+          "Transport": {
+            "percentage": 5.87,
+            "amount": 96214059.44
+          },
+          "Travel": {
+            "percentage": 8.32,
+            "amount": 136386682.45
+          }
+        },
+        "total_spent": 1639805481.56,
+        "transaction_count": 10944
+      },
+      "visualizations": {
+        "pie_chart": [
+          {
+            "name": "Savings",
+            "value": 248715487.38
+          },
+          {
+            "name": "Shopping",
+            "value": 130536590.75
+          },
+          {
+            "name": "Other",
+            "value": 1027952661.54
+          },
+          {
+            "name": "Transport",
+            "value": 96214059.44
+          },
+          {
+            "name": "Travel",
+            "value": 136386682.45
+          }
+        ],
+        "bar_chart": [
+          {
+            "name": "Other",
+            "value": 1027952661.54,
+            "category": "Other",
+            "amount": 1027952661.54,
+            "percentage": 62.69
+          },
+          {
+            "name": "Savings",
+            "value": 248715487.38,
+            "category": "Savings",
+            "amount": 248715487.38,
+            "percentage": 15.17
+          },
+          {
+            "name": "Travel",
+            "value": 136386682.45,
+            "category": "Travel",
+            "amount": 136386682.45,
+            "percentage": 8.32
+          },
+          {
+            "name": "Shopping",
+            "value": 130536590.75,
+            "category": "Shopping",
+            "amount": 130536590.75,
+            "percentage": 7.96
+          },
+          {
+            "name": "Transport",
+            "value": 96214059.44,
+            "category": "Transport",
+            "amount": 96214059.44,
+            "percentage": 5.87
+          }
+        ],
+        "summary_stats": {
+          "total_categories": 5,
+          "largest_category": "Other",
+          "smallest_category": "Transport"
+        }
+      },
+      "transactions": [
+        {
+          "amount": 94403.72,
+          "description": "Transaction for Insurance with Customer-C",
+          "date": "2020-01-01"
+        },
+        {
+          "amount": 19006.12,
+          "description": "Transaction for Inventory Purchase with Alpha Logistics",
+          "date": "2020-01-01"
+        },
+        {
+          "amount": 115215.19,
+          "description": "Transaction for Office Supplies with Customer-C",
+          "date": "2020-01-01"
+        },
+        {
+          "amount": 255326.54,
+          "description": "Transaction for Licensing Fees with Customer-B",
+          "date": "2020-01-02"
+        },
+        {
+          "amount": 193668.69,
+          "description": "Transaction for Maintenance with QuickTech",
+          "date": "2020-01-02"
+        },
+        {
+          "amount": 0.0,
+          "description": "Transaction for Salaries with XYZ Supplies",
+          "date": "2020-01-02"
+        },
+        {
+          "amount": 77106.93,
+          "description": "Transaction for Salaries with Customer-C",
+          "date": "2020-01-02"
+        },
+        {
+          "amount": 283765.61,
+          "description": "Transaction for Licensing Fees with Customer-B",
+          "date": "2020-01-02"
+        },
+        {
+          "amount": 133410.09,
+          "description": "Transaction for Sales Revenue with Bright Consulting",
+          "date": "2020-01-02"
+        },
+        {
+          "amount": 67987.67,
+          "description": "Transaction for Office Supplies with Global Corp",
+          "date": "2020-01-02"
+        },
+        {
+          "amount": 72294.19,
+          "description": "Transaction for Interest Expense with Metro Services",
+          "date": "2020-01-02"
+        },
+        {
+          "amount": 224056.86,
+          "description": "Transaction for Sales Revenue with Bright Consulting",
+          "date": "2020-01-03"
+        },
+        {
+          "amount": 81507.91,
+          "description": "Transaction for Maintenance with XYZ Supplies",
+          "date": "2020-01-03"
+        },
+        {
+          "amount": 83927.0,
+          "description": "Transaction for Utilities with QuickTech",
+          "date": "2020-01-03"
+        },
+        {
+          "amount": 84616.82,
+          "description": "Transaction for Salaries with Customer-A",
+          "date": "2020-01-03"
+        },
+        {
+          "amount": 29253.15,
+          "description": "Transaction for Inventory Purchase with Metro Services",
+          "date": "2020-01-03"
+        },
+        {
+          "amount": 24505.17,
+          "description": "Transaction for Licensing Fees with Metro Services",
+          "date": "2020-01-04"
+        },
+        {
+          "amount": 757.99,
+          "description": "Transaction for Travel Expenses with Vendor-Two",
+          "date": "2020-01-04"
+        },
+        {
+          "amount": 109650.8,
+          "description": "Transaction for Rent with Vendor-One",
+          "date": "2020-01-04"
+        },
+        {
+          "amount": 107067.92,
+          "description": "Transaction for Consulting Services with QuickTech",
+          "date": "2020-01-04"
+        },
+        {
+          "amount": 296356.9,
+          "description": "Transaction for Marketing with Bright Consulting",
+          "date": "2020-01-04"
+        },
+        {
+          "amount": 237792.07,
+          "description": "Transaction for Interest Expense with XYZ Supplies",
+          "date": "2020-01-04"
+        },
+        {
+          "amount": 54040.68,
+          "description": "Transaction for Maintenance with QuickTech",
+          "date": "2020-01-04"
+        },
+        {
+          "amount": 1779.97,
+          "description": "Transaction for Consulting Services with Global Corp",
+          "date": "2020-01-04"
+        },
+        {
+          "amount": 174902.91,
+          "description": "Transaction for Travel Expenses with Customer-A",
+          "date": "2020-01-05"
+        },
+        {
+          "amount": 61058.32,
+          "description": "Transaction for Marketing with XYZ Supplies",
+          "date": "2020-01-05"
+        },
+        {
+          "amount": 124580.68,
+          "description": "Transaction for Licensing Fees with Global Corp",
+          "date": "2020-01-05"
+        },
+        {
+          "amount": 104787.12,
+          "description": "Transaction for Sales Revenue with Bright Consulting",
+          "date": "2020-01-05"
+        },
+        {
+          "amount": 103125.23,
+          "description": "Transaction for Marketing with Customer-B",
+          "date": "2020-01-05"
+        },
+        {
+          "amount": 202145.44,
+          "description": "Transaction for Consulting Services with Global Corp",
+          "date": "2020-01-05"
+        },
+        {
+          "amount": 120075.84,
+          "description": "Transaction for Interest Expense with Bright Consulting",
+          "date": "2020-01-05"
+        },
+        {
+          "amount": 138507.25,
+          "description": "Transaction for Interest Expense with Alpha Logistics",
+          "date": "2020-01-05"
+        },
+        {
+          "amount": 66595.56,
+          "description": "Transaction for Insurance with QuickTech",
+          "date": "2020-01-05"
+        },
+        {
+          "amount": 102138.09,
+          "description": "Transaction for Travel Expenses with ABC Traders",
+          "date": "2020-01-06"
+        },
+        {
+          "amount": 229803.66,
+          "description": "Transaction for Rent with Alpha Logistics",
+          "date": "2020-01-06"
+        },
+        {
+          "amount": 195488.76,
+          "description": "Transaction for Inventory Purchase with QuickTech",
+          "date": "2020-01-06"
+        },
+        {
+          "amount": 247057.85,
+          "description": "Transaction for Office Supplies with Customer-B",
+          "date": "2020-01-06"
+        },
+        {
+          "amount": 242036.69,
+          "description": "Transaction for Interest Expense with Customer-B",
+          "date": "2020-01-06"
+        },
+        {
+          "amount": 100791.16,
+          "description": "Transaction for Inventory Purchase with Customer-B",
+          "date": "2020-01-06"
+        },
+        {
+          "amount": 123826.64,
+          "description": "Transaction for Licensing Fees with Vendor-One",
+          "date": "2020-01-06"
+        },
+        {
+          "amount": 155710.54,
+          "description": "Transaction for Insurance with Metro Services",
+          "date": "2020-01-07"
+        },
+        {
+          "amount": 112724.04,
+          "description": "Transaction for Office Supplies with Bright Consulting",
+          "date": "2020-01-07"
+        },
+        {
+          "amount": 286926.61,
+          "description": "Transaction for Maintenance with QuickTech",
+          "date": "2020-01-07"
+        },
+        {
+          "amount": 84030.67,
+          "description": "Transaction for Consulting Services with Vendor-One",
+          "date": "2020-01-07"
+        },
+        {
+          "amount": 203204.69,
+          "description": "Transaction for Sales Revenue with Vendor-Two",
+          "date": "2020-01-07"
+        },
+        {
+          "amount": 115444.44,
+          "description": "Transaction for Sales Revenue with Customer-B",
+          "date": "2020-01-07"
+        },
+        {
+          "amount": 232228.65,
+          "description": "Transaction for Inventory Purchase with XYZ Supplies",
+          "date": "2020-01-07"
+        },
+        {
+          "amount": 123571.69,
+          "description": "Transaction for Sales Revenue with Vendor-One",
+          "date": "2020-01-07"
+        },
+        {
+          "amount": 65151.09,
+          "description": "Transaction for Travel Expenses with Alpha Logistics",
+          "date": "2020-01-07"
+        },
+        {
+          "amount": 148407.34,
+          "description": "Transaction for Rent with Global Corp",
+          "date": "2020-01-08"
+        },
+        {
+          "amount": 108084.58,
+          "description": "Transaction for Maintenance with Vendor-One",
+          "date": "2020-01-08"
+        },
+        {
+          "amount": 160016.3,
+          "description": "Transaction for Licensing Fees with Vendor-Two",
+          "date": "2020-01-08"
+        },
+        {
+          "amount": 26168.01,
+          "description": "Transaction for Inventory Purchase with Vendor-Two",
+          "date": "2020-01-08"
+        },
+        {
+          "amount": 184669.76,
+          "description": "Transaction for Rent with Customer-C",
+          "date": "2020-01-09"
+        },
+        {
+          "amount": 297233.23,
+          "description": "Transaction for Licensing Fees with QuickTech",
+          "date": "2020-01-09"
+        },
+        {
+          "amount": 119520.05,
+          "description": "Transaction for Rent with Customer-B",
+          "date": "2020-01-09"
+        },
+        {
+          "amount": 224671.77,
+          "description": "Transaction for Licensing Fees with Customer-C",
+          "date": "2020-01-09"
+        },
+        {
+          "amount": 218590.74,
+          "description": "Transaction for Utilities with Customer-C",
+          "date": "2020-01-10"
+        },
+        {
+          "amount": 91420.85,
+          "description": "Transaction for Inventory Purchase with Alpha Logistics",
+          "date": "2020-01-10"
+        },
+        {
+          "amount": 73104.28,
+          "description": "Transaction for Travel Expenses with ABC Traders",
+          "date": "2020-01-10"
+        },
+        {
+          "amount": 245356.36,
+          "description": "Transaction for Maintenance with ABC Traders",
+          "date": "2020-01-10"
+        },
+        {
+          "amount": 296164.55,
+          "description": "Transaction for Maintenance with ABC Traders",
+          "date": "2020-01-10"
+        },
+        {
+          "amount": 144165.17,
+          "description": "Transaction for Consulting Services with Vendor-Two",
+          "date": "2020-01-11"
+        },
+        {
+          "amount": 35723.79,
+          "description": "Transaction for Licensing Fees with Global Corp",
+          "date": "2020-01-11"
+        },
+        {
+          "amount": 276206.97,
+          "description": "Transaction for Rent with ABC Traders",
+          "date": "2020-01-11"
+        },
+        {
+          "amount": 80690.08,
+          "description": "Transaction for Travel Expenses with Bright Consulting",
+          "date": "2020-01-11"
+        },
+        {
+          "amount": 22603.9,
+          "description": "Transaction for Inventory Purchase with Customer-A",
+          "date": "2020-01-12"
+        },
+        {
+          "amount": 293275.73,
+          "description": "Transaction for Travel Expenses with ABC Traders",
+          "date": "2020-01-12"
+        },
+        {
+          "amount": 103580.36,
+          "description": "Transaction for Consulting Services with Metro Services",
+          "date": "2020-01-12"
+        },
+        {
+          "amount": 75448.2,
+          "description": "Transaction for Insurance with Vendor-One",
+          "date": "2020-01-12"
+        },
+        {
+          "amount": 42699.81,
+          "description": "Transaction for Office Supplies with Customer-A",
+          "date": "2020-01-12"
+        },
+        {
+          "amount": 212181.28,
+          "description": "Transaction for Salaries with Global Corp",
+          "date": "2020-01-12"
+        },
+        {
+          "amount": 30308.04,
+          "description": "Transaction for Sales Revenue with XYZ Supplies",
+          "date": "2020-01-12"
+        },
+        {
+          "amount": 149758.66,
+          "description": "Transaction for Travel Expenses with Alpha Logistics",
+          "date": "2020-01-13"
+        },
+        {
+          "amount": 154784.11,
+          "description": "Transaction for Interest Expense with Customer-C",
+          "date": "2020-01-13"
+        },
+        {
+          "amount": 119912.36,
+          "description": "Transaction for Sales Revenue with QuickTech",
+          "date": "2020-01-13"
+        },
+        {
+          "amount": 162577.38,
+          "description": "Transaction for Maintenance with Vendor-One",
+          "date": "2020-01-13"
+        },
+        {
+          "amount": 271296.88,
+          "description": "Transaction for Office Supplies with Bright Consulting",
+          "date": "2020-01-14"
+        },
+        {
+          "amount": 139519.7,
+          "description": "Transaction for Consulting Services with Customer-A",
+          "date": "2020-01-14"
+        },
+        {
+          "amount": 133676.76,
+          "description": "Transaction for Maintenance with QuickTech",
+          "date": "2020-01-14"
+        },
+        {
+          "amount": 234746.49,
+          "description": "Transaction for Utilities with Bright Consulting",
+          "date": "2020-01-15"
+        },
+        {
+          "amount": 51594.86,
+          "description": "Transaction for Salaries with Bright Consulting",
+          "date": "2020-01-15"
+        },
+        {
+          "amount": 210071.24,
+          "description": "Transaction for Rent with Vendor-Two",
+          "date": "2020-01-15"
+        },
+        {
+          "amount": 84123.97,
+          "description": "Transaction for Interest Expense with XYZ Supplies",
+          "date": "2020-01-15"
+        },
+        {
+          "amount": 193130.28,
+          "description": "Transaction for Sales Revenue with QuickTech",
+          "date": "2020-01-16"
+        },
+        {
+          "amount": 64903.82,
+          "description": "Transaction for Salaries with QuickTech",
+          "date": "2020-01-16"
+        },
+        {
+          "amount": 247122.93,
+          "description": "Transaction for Consulting Services with Global Corp",
+          "date": "2020-01-16"
+        },
+        {
+          "amount": 163180.33,
+          "description": "Transaction for Utilities with Bright Consulting",
+          "date": "2020-01-16"
+        },
+        {
+          "amount": 130714.52,
+          "description": "Transaction for Consulting Services with QuickTech",
+          "date": "2020-01-16"
+        },
+        {
+          "amount": 69150.32,
+          "description": "Transaction for Consulting Services with QuickTech",
+          "date": "2020-01-16"
+        },
+        {
+          "amount": 69223.34,
+          "description": "Transaction for Interest Expense with Customer-A",
+          "date": "2020-01-16"
+        },
+        {
+          "amount": 16420.89,
+          "description": "Transaction for Marketing with Metro Services",
+          "date": "2020-01-16"
+        },
+        {
+          "amount": 42964.11,
+          "description": "Transaction for Travel Expenses with Metro Services",
+          "date": "2020-01-16"
+        },
+        {
+          "amount": 239995.57,
+          "description": "Transaction for Travel Expenses with XYZ Supplies",
+          "date": "2020-01-17"
+        },
+        {
+          "amount": 104624.97,
+          "description": "Transaction for Inventory Purchase with Metro Services",
+          "date": "2020-01-17"
+        },
+        {
+          "amount": 299155.1,
+          "description": "Transaction for Utilities with Global Corp",
+          "date": "2020-01-17"
+        },
+        {
+          "amount": 123811.34,
+          "description": "Transaction for Travel Expenses with Customer-B",
+          "date": "2020-01-17"
+        },
+        {
+          "amount": 26884.98,
+          "description": "Transaction for Insurance with Metro Services",
+          "date": "2020-01-17"
+        },
+        {
+          "amount": 41596.24,
+          "description": "Transaction for Insurance with Vendor-Two",
+          "date": "2020-01-18"
+        },
+        {
+          "amount": 278515.65,
+          "description": "Transaction for Sales Revenue with ABC Traders",
+          "date": "2020-01-18"
+        }
+      ],
+      "smart_score": {
+        "score": 6.9,
+        "max_score": 10.0,
+        "spender_rating": "Moderate Spender",
+        "components": {
+          "Food": {
+            "ideal": 15.0,
+            "actual": 0,
+            "deviation": 15.0,
+            "score": 5.0
+          },
+          "Entertainment": {
+            "ideal": 10.0,
+            "actual": 0,
+            "deviation": 10.0,
+            "score": 6.67
+          },
+          "Travel": {
+            "ideal": 5.0,
+            "actual": 8.32,
+            "deviation": 3.32,
+            "score": 8.89
+          },
+          "Utilities": {
+            "ideal": 10.0,
+            "actual": 0,
+            "deviation": 10.0,
+            "score": 6.67
+          },
+          "Education": {
+            "ideal": 10.0,
+            "actual": 0,
+            "deviation": 10.0,
+            "score": 6.67
+          },
+          "Healthcare": {
+            "ideal": 5.0,
+            "actual": 0,
+            "deviation": 5.0,
+            "score": 8.33
+          },
+          "Shopping": {
+            "ideal": 10.0,
+            "actual": 7.96,
+            "deviation": 2.04,
+            "score": 9.32
+          },
+          "Savings": {
+            "ideal": 25.0,
+            "actual": 15.17,
+            "deviation": 9.83,
+            "score": 6.72
+          },
+          "Subscriptions": {
+            "ideal": 5.0,
+            "actual": 0,
+            "deviation": 5.0,
+            "score": 8.33
+          },
+          "Transport": {
+            "ideal": 5.0,
+            "actual": 5.87,
+            "deviation": 0.87,
+            "score": 9.71
+          },
+          "Other": {
+            "ideal": 0,
+            "actual": 62.69,
+            "deviation": 62.69,
+            "score": 0
+          }
+        },
+        "savings_bonus": 7,
+        "interpretation": "Moderate Spender. Your spending patterns could be optimized. Consider reviewing your expense categories.",
+        "recommendations": [
+          "\ud83d\udca1 Optimization: You're spending 8.3% on Travel (ideal: 5.0%). This is your highest spending category. Review and cut unnecessary expenses here first.",
+          "\u26a0\ufe0f Reduce spending on Travel. You're spending 8.3% (ideal: 5.0%). This is 66% above recommended."
+        ]
+      },
+      "files_uploaded": [
+        "company_5_year_transactions 1.csv"
+      ]
+    },
+    {
+      "id": "analysis_1762435020.079589",
+      "user_id": "OvvBgt9u-PYEW966lLUi6g",
+      "account_type": "personal",
+      "created_at": "2025-11-06T18:47:00.079600",
+      "total_transactions": 10944,
+      "total_amount": 1639805481.5599983,
+      "date_range": {
+        "start": "2020-01-01T00:00:00",
+        "end": "2024-12-31T00:00:00"
+      },
+      "smart_score": {
+        "score": 6.9,
+        "max_score": 10,
+        "spender_rating": "Moderate Spender",
+        "components": {
+          "Food": {
+            "ideal": 15,
+            "actual": 0,
+            "deviation": 15,
+            "score": 5
+          },
+          "Entertainment": {
+            "ideal": 10,
+            "actual": 0,
+            "deviation": 10,
+            "score": 6.67
+          },
+          "Travel": {
+            "ideal": 5,
+            "actual": 8.32,
+            "deviation": 3.32,
+            "score": 8.89
+          },
+          "Utilities": {
+            "ideal": 10,
+            "actual": 0,
+            "deviation": 10,
+            "score": 6.67
+          },
+          "Education": {
+            "ideal": 10,
+            "actual": 0,
+            "deviation": 10,
+            "score": 6.67
+          },
+          "Healthcare": {
+            "ideal": 5,
+            "actual": 0,
+            "deviation": 5,
+            "score": 8.33
+          },
+          "Shopping": {
+            "ideal": 10,
+            "actual": 7.96,
+            "deviation": 2.04,
+            "score": 9.32
+          },
+          "Savings": {
+            "ideal": 25,
+            "actual": 15.17,
+            "deviation": 9.83,
+            "score": 6.72
+          },
+          "Subscriptions": {
+            "ideal": 5,
+            "actual": 0,
+            "deviation": 5,
+            "score": 8.33
+          },
+          "Transport": {
+            "ideal": 5,
+            "actual": 5.87,
+            "deviation": 0.87,
+            "score": 9.71
+          },
+          "Other": {
+            "ideal": 0,
+            "actual": 62.69,
+            "deviation": 62.69,
+            "score": 0
+          }
+        },
+        "savings_bonus": 7,
+        "interpretation": "Moderate Spender. Your spending patterns could be optimized. Consider reviewing your expense categories.",
+        "recommendations": [
+          "\ud83d\udca1 Optimization: You're spending 8.3% on Travel (ideal: 5.0%). This is your highest spending category. Review and cut unnecessary expenses here first.",
+          "\u26a0\ufe0f Reduce spending on Travel. You're spending 8.3% (ideal: 5.0%). This is 66% above recommended."
+        ]
+      },
+      "insights_summary": {
+        "top_category": {
+          "name": "Other",
+          "percentage": 62.69,
+          "amount": 1027952661.54
+        },
+        "category_count": 5
+      },
+      "file_errors": [],
+      "file_warnings": []
     }
   ]
 }
