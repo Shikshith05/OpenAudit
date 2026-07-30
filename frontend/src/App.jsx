@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 import Login from './components/Login'
 import Signup from './components/Signup'
 import Welcome from './components/Welcome'
@@ -24,22 +25,35 @@ function App() {
   const [pendingUser, setPendingUser] = useState(null)
 
   useEffect(() => {
-    // Check if user is logged in
-    const storedUser = localStorage.getItem('user')
-    if (storedUser) {
-      const userData = JSON.parse(storedUser)
-      setUser(userData)
-      
-      // Route based on account type
-      if (userData.is_admin) {
-        setCurrentView('admin')
-      } else if (userData.account_type === 'company') {
-        setCurrentView('company')
-      } else {
-        setCurrentView('welcome')
-        setShowWelcome(true)
+    // Check if user is logged in and the JWT session is still valid
+    const restoreSession = async () => {
+      const storedUser = localStorage.getItem('user')
+      if (!storedUser) {
+        return
+      }
+
+      try {
+        const response = await axios.get('/api/auth/me')
+        const userData = response.data?.user || JSON.parse(storedUser)
+        setUser(userData)
+
+        if (userData.is_admin) {
+          setCurrentView('admin')
+        } else if (userData.account_type === 'company') {
+          setCurrentView('company')
+        } else {
+          setCurrentView('welcome')
+          setShowWelcome(true)
+        }
+      } catch (err) {
+        localStorage.removeItem('user')
+        setUser(null)
+        setCurrentView('landing')
+        setShowWelcome(false)
       }
     }
+
+    restoreSession()
   }, [])
 
   const handleLandingLogin = (userData) => {

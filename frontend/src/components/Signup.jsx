@@ -55,11 +55,7 @@ function Signup({ onBackToLogin, onVerifyOTP }) {
       if (response.data.status === 'success') {
         setRegisteredEmail(formData.email)
         setStep(2)
-        // In production, OTP would be sent via SMS/Email
-        // For now, we show it (remove in production)
-        if (response.data.otp) {
-          alert(`OTP: ${response.data.otp} (This is only for development)`)
-        }
+        setError(null)
       }
     } catch (err) {
       setError(err.response?.data?.detail || 'Registration failed')
@@ -95,8 +91,8 @@ function Signup({ onBackToLogin, onVerifyOTP }) {
       const response = await axios.post('/api/auth/resend-otp', {
         email: registeredEmail
       })
-      if (response.data.status === 'success' && response.data.otp) {
-        alert(`New OTP: ${response.data.otp} (This is only for development)`)
+      if (response.data.status === 'success') {
+        setError(null)
       }
     } catch (err) {
       setError(err.response?.data?.detail || 'Failed to resend OTP')
@@ -117,7 +113,7 @@ function Signup({ onBackToLogin, onVerifyOTP }) {
             <img src="/logo.png" alt="OpenAudit Logo" onError={(e) => { e.target.style.display = 'none'; }} />
           </div>
           <h1>Verify Your Account</h1>
-          <p>Enter the OTP sent to your contact number</p>
+          <p>Enter the OTP sent to your email or contact number</p>
         </div>
 
           <form onSubmit={handleVerifyOTP} className="signup-form">

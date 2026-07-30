@@ -1,19 +1,26 @@
 import json
 import hashlib
+import logging
+import os
 import secrets
 from datetime import datetime, timedelta
-from typing import Dict, Optional
+from typing import Dict, Optional, Tuple
 from pathlib import Path
 import random
+import bcrypt
+
+
+logger = logging.getLogger(__name__)
 
 class AuthService:
     """Authentication service for user management"""
-    
-    def __init__(self):
-        self.db_path = Path(__file__).parent.parent / "database" / "users.json"
+
+    def __init__(self, db_path: Optional[str] = None):
+        self.db_path = Path(db_path) if db_path else Path(__file__).parent.parent / "database" / "users.json"
         self.db_path.parent.mkdir(parents=True, exist_ok=True)
         self.users = self._load_users()
         self.otp_storage = {}  # Store OTPs temporarily
+        self.otp_delivery_mode = os.getenv("OPENAUDIT_OTP_DELIVERY_MODE", "stub").lower()
         
     def _load_users(self) -> Dict:
         """Load users from JSON file"""
@@ -31,12 +38,54 @@ class AuthService:
             json.dump(self.users, f, indent=2)
     
     def _hash_password(self, password: str) -> str:
-        """Hash password using SHA256"""
-        return hashlib.sha256(password.encode()).hexdigest()
+        """Hash password using bcrypt for new accounts and password upgrades"""
+        return bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt()).decode("utf-8")
+
+    def _is_legacy_sha256_hash(self, hashed_password: Optional[str]) -> bool:
+        if not isinstance(hashed_password, str) or len(hashed_password) != 64:
+            return False
+        try:
+            int(hashed_password, 16)
+            return True
+        except (TypeError, ValueError):
+            return False
+
+    def _verify_password(self, password: str, stored_hash: Optional[str]) -> Tuple[bool, bool]:
+        """Return whether the password matches and whether the hash should be upgraded."""
+        if not stored_hash:
+            return False, False
+
+        stored_hash = str(stored_hash)
+
+        if stored_hash.startswith("$2a$") or stored_hash.startswith("$2b$") or stored_hash.startswith("$2y$"):
+            try:
+                return bcrypt.checkpw(password.encode("utf-8"), stored_hash.encode("utf-8")), False
+            except ValueError:
+                return False, False
+
+        if self._is_legacy_sha256_hash(stored_hash):
+            candidate = hashlib.sha256(password.encode()).hexdigest()
+            return secrets.compare_digest(candidate, stored_hash), True
+
+        candidate = hashlib.sha256(password.encode()).hexdigest()
+        return secrets.compare_digest(candidate, stored_hash), True
     
     def _generate_otp(self) -> str:
         """Generate 6-digit OTP"""
         return str(random.randint(100000, 999999))
+
+    def _deliver_otp(self, recipient: str, otp: str) -> None:
+        """Deliver OTP using the configured dev-only stub or a future real provider."""
+        if self.otp_delivery_mode == "stub":
+            logger.info("[OTP STUB] OTP for %s is %s", recipient, otp)
+            return
+
+        logger.warning(
+            "OTP delivery mode '%s' is not wired to an external provider yet; using stub logging for %s",
+            self.otp_delivery_mode,
+            recipient,
+        )
+        logger.info("[OTP STUB] OTP for %s is %s", recipient, otp)
     
     def register_user(self, username: str, email: str, password: str, 
                      account_type: str, full_name: str, contact_number: str) -> Dict:
@@ -78,11 +127,11 @@ class AuthService:
             self.users["users"] = []
         self.users["users"].append(new_user)
         self._save_users()
+        self._deliver_otp(email, otp)
         
         return {
             "success": True,
-            "message": "User registered. OTP sent to your contact number.",
-            "otp": otp  # In production, send via SMS/Email
+            "message": "User registered. OTP sent to your contact number."
         }
     
     def verify_otp(self, email: str, otp: str) -> Dict:
@@ -121,34 +170,23 @@ class AuthService:
         """Authenticate user"""
         # Reload users to get latest data
         self.users = self._load_users()
-        hashed_password = self._hash_password(password)
-        
-        # DEBUG: Log login attempt
-        print(f"[LOGIN DEBUG] Attempting login for: {username}")
-        print(f"[LOGIN DEBUG] Password hash: {hashed_password[:20]}...")
-        print(f"[LOGIN DEBUG] Total users: {len(self.users.get('users', []))}")
-        
+
         for user in self.users.get("users", []):
             username_match = user.get("username") == username or user.get("email") == username
-            password_match = user.get("password") == hashed_password
-            
-            print(f"[LOGIN DEBUG] Checking user: {user.get('username')} (email: {user.get('email')})")
-            print(f"[LOGIN DEBUG]   Username match: {username_match}")
-            print(f"[LOGIN DEBUG]   Password match: {password_match}")
-            print(f"[LOGIN DEBUG]   Stored hash: {user.get('password', '')[:20]}...")
-            print(f"[LOGIN DEBUG]   Is verified: {user.get('is_verified', False)}")
-            
+            password_match, needs_rehash = self._verify_password(password, user.get("password"))
+
             if username_match and password_match:
-                print(f"[LOGIN DEBUG] ✅ MATCH FOUND for user: {user.get('username')}")
-                
                 if not user.get("is_verified", False):
-                    print(f"[LOGIN DEBUG] ❌ User not verified")
                     return {
                         "success": False,
                         "message": "Please verify your account with OTP first"
                     }
-                
-                print(f"[LOGIN DEBUG] ✅ User verified, returning success")
+
+                if needs_rehash:
+                    user["password"] = self._hash_password(password)
+                    self._save_users()
+                    self.users = self._load_users()
+
                 user_obj = {
                     "id": user["id"],
                     "username": user["username"],
@@ -157,7 +195,6 @@ class AuthService:
                     "full_name": user["full_name"],
                     "is_admin": user.get("is_admin", False)
                 }
-                print(f"[LOGIN DEBUG] Returning user object: {user_obj}")
                 return {
                     "success": True,
                     "user": user_obj,
@@ -180,6 +217,13 @@ class AuthService:
                     "is_admin": user.get("is_admin", False),
                     "created_at": user.get("created_at", "")
                 }
+        return None
+
+    def get_user_record(self, user_id: str) -> Optional[Dict]:
+        """Get the raw stored user record by ID."""
+        for user in self.users.get("users", []):
+            if user.get("id") == user_id:
+                return user
         return None
     
     def get_all_users(self) -> list:
@@ -214,10 +258,10 @@ class AuthService:
             "otp": otp,
             "expiry": datetime.now() + timedelta(minutes=10)
         }
+        self._deliver_otp(email, otp)
         
         return {
             "success": True,
-            "message": "OTP sent to your contact number",
-            "otp": otp  # In production, send via SMS/Email
+            "message": "OTP sent to your contact number"
         }
 

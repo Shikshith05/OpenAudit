@@ -1,12 +1,14 @@
-from fastapi import FastAPI, HTTPException, File, UploadFile, Form
+from fastapi import FastAPI, HTTPException, File, UploadFile, Form, Depends, Request
 from fastapi.responses import JSONResponse, FileResponse, Response
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from typing import List, Dict, Any, Optional
 import pandas as pd
 import io
 import json
 import re
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
+import jwt
 from PyPDF2 import PdfReader
 import openpyxl
 import xlrd
@@ -31,14 +33,28 @@ from services.auth_service import AuthService
 from services.bias_detection import BiasDetectionService
 from services.audit_service import AuditService
 from services.contract_service import ContractService
+from routers.auth import router as auth_router
 
 # Initialize FastAPI app
 app = FastAPI(title="OpenAudit API")
 
+
+def _get_cors_origins() -> List[str]:
+    configured_origins = os.getenv("OPENAUDIT_CORS_ORIGINS", "")
+    if configured_origins.strip():
+        return [origin.strip() for origin in configured_origins.split(",") if origin.strip()]
+
+    return [
+        "http://localhost:3000",
+        "http://127.0.0.1:3000",
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+    ]
+
 # CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=_get_cors_origins(),
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -53,6 +69,137 @@ auth_service = AuthService()
 bias_detection_service = BiasDetectionService()
 audit_service = AuditService()
 contract_service = ContractService()
+
+CONTRACT_UPLOAD_MAX_BYTES = 10 * 1024 * 1024
+CONTRACT_UPLOAD_MIME_TYPES = {"application/pdf"}
+
+JWT_SECRET = os.getenv("OPENAUDIT_JWT_SECRET", "openaudit-dev-secret-change-me-please-set-env")
+JWT_ALGORITHM = "HS256"
+JWT_ACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv("OPENAUDIT_JWT_ACCESS_TOKEN_EXPIRE_MINUTES", "480"))
+AUTH_COOKIE_NAME = "openaudit_access_token"
+auth_scheme = HTTPBearer(auto_error=False)
+
+app.include_router(auth_router)
+
+
+def create_access_token(user: Dict[str, Any]) -> str:
+    now = datetime.now(timezone.utc)
+    expires_at = now + timedelta(minutes=JWT_ACCESS_TOKEN_EXPIRE_MINUTES)
+    payload = {
+        "sub": user["id"],
+        "username": user.get("username"),
+        "email": user.get("email"),
+        "account_type": user.get("account_type"),
+        "full_name": user.get("full_name"),
+        "is_admin": bool(user.get("is_admin", False)),
+        "exp": expires_at,
+        "iat": now,
+        "type": "access",
+    }
+    return jwt.encode(payload, JWT_SECRET, algorithm=JWT_ALGORITHM)
+
+
+def _set_auth_cookie(response: JSONResponse, token: str) -> None:
+    response.set_cookie(
+        key=AUTH_COOKIE_NAME,
+        value=token,
+        httponly=True,
+        secure=False,
+        samesite="lax",
+        max_age=JWT_ACCESS_TOKEN_EXPIRE_MINUTES * 60,
+        path="/",
+    )
+
+
+def get_current_user(
+    request: Request,
+    credentials: Optional[HTTPAuthorizationCredentials] = Depends(auth_scheme)
+) -> Dict[str, Any]:
+    token = None
+    if credentials and credentials.scheme.lower() == "bearer":
+        token = credentials.credentials
+    else:
+        token = request.cookies.get(AUTH_COOKIE_NAME)
+
+    if not token:
+        raise HTTPException(status_code=401, detail="Authentication required")
+
+    try:
+        payload = jwt.decode(token, JWT_SECRET, algorithms=[JWT_ALGORITHM])
+    except jwt.PyJWTError:
+        raise HTTPException(status_code=401, detail="Invalid or expired authentication token")
+
+    user_id = payload.get("sub")
+    if not user_id:
+        raise HTTPException(status_code=401, detail="Invalid authentication token")
+
+    user_record = auth_service.get_user_record(user_id)
+    if not user_record:
+        raise HTTPException(status_code=401, detail="User not found")
+
+    return {
+        "id": user_record["id"],
+        "username": user_record["username"],
+        "email": user_record["email"],
+        "account_type": user_record["account_type"],
+        "full_name": user_record["full_name"],
+        "is_admin": user_record.get("is_admin", False),
+    }
+
+
+def require_admin(current_user: Dict[str, Any] = Depends(get_current_user)) -> Dict[str, Any]:
+    if not current_user.get("is_admin", False):
+        raise HTTPException(status_code=403, detail="Admin access required")
+    return current_user
+
+
+def ensure_user_access(current_user: Dict[str, Any], target_user_id: Optional[str]) -> None:
+    if not target_user_id:
+        return
+    if current_user.get("is_admin", False) or current_user.get("id") == target_user_id:
+        return
+    raise HTTPException(status_code=403, detail="Access denied")
+
+
+def ensure_analysis_access(current_user: Dict[str, Any], analysis: Optional[Dict[str, Any]]) -> None:
+    if not analysis:
+        raise HTTPException(status_code=404, detail="Analysis not found")
+    ensure_user_access(current_user, analysis.get("user_id"))
+
+
+def ensure_contract_access(current_user: Dict[str, Any], contract: Optional[Dict[str, Any]]) -> None:
+    if not contract:
+        raise HTTPException(status_code=404, detail="Contract not found")
+    if current_user.get("is_admin", False) or contract.get("company_id") == current_user.get("id"):
+        return
+    raise HTTPException(status_code=403, detail="Access denied")
+
+
+def _get_valid_contract(contract_id: str) -> Dict[str, Any]:
+    if not re.fullmatch(r"contract_\d+", contract_id):
+        raise HTTPException(status_code=400, detail="Invalid contract_id format")
+
+    contract = contract_service.get_contract_by_id(contract_id)
+    if not contract:
+        raise HTTPException(status_code=404, detail="Contract not found")
+
+    return contract
+
+
+def _validate_contract_upload(file: UploadFile, content: bytes) -> None:
+    content_type = (file.content_type or "").lower()
+    if content_type not in CONTRACT_UPLOAD_MIME_TYPES:
+        raise HTTPException(status_code=400, detail="Only PDF contract uploads are allowed")
+
+    if len(content) > CONTRACT_UPLOAD_MAX_BYTES:
+        raise HTTPException(status_code=400, detail="Uploaded contract is too large")
+
+
+def _build_contract_upload_path(prefix: str) -> str:
+    contract_dir = os.path.join(os.path.dirname(__file__), "database", "contracts")
+    os.makedirs(contract_dir, exist_ok=True)
+    filename = f"{prefix}_{secrets.token_urlsafe(16)}.pdf"
+    return os.path.join(contract_dir, filename)
 
 
 def find_column(df: pd.DataFrame, possible_names: List[str]) -> Optional[str]:
@@ -654,7 +801,8 @@ def process_file(file: UploadFile) -> Dict[str, Any]:
 @app.post("/api/company/analyze")
 async def analyze_company_files(
     files: List[UploadFile] = File(...),
-    user_id: str = Form(None)
+    user_id: str = Form(None),
+    current_user: Dict[str, Any] = Depends(get_current_user)
 ):
     """Analyze multiple files for company financial analysis"""
     try:
@@ -662,7 +810,9 @@ async def analyze_company_files(
             raise HTTPException(status_code=400, detail="No files provided")
         
         if not user_id:
-            raise HTTPException(status_code=400, detail="user_id is required")
+            user_id = current_user.get("id")
+
+        ensure_user_access(current_user, user_id)
         
         all_transactions = []
         all_file_errors = []
@@ -848,9 +998,10 @@ async def analyze_company_files(
 
 
 @app.get("/api/company/history/{user_id}")
-async def get_company_history(user_id: str):
+async def get_company_history(user_id: str, current_user: Dict[str, Any] = Depends(get_current_user)):
     """Get analysis history for a company user"""
     try:
+        ensure_user_access(current_user, user_id)
         history = history_service.get_user_history(user_id, account_type="company")
         return JSONResponse(content={"status": "success", "history": history})
     except Exception as e:
@@ -858,7 +1009,7 @@ async def get_company_history(user_id: str):
 
 
 @app.post("/api/company/report")
-async def generate_company_report(data: Dict[str, Any]):
+async def generate_company_report(data: Dict[str, Any], current_user: Dict[str, Any] = Depends(get_current_user)):
     """Generate PDF report for company analysis"""
     try:
         analysis_id = data.get("analysisId")
@@ -869,6 +1020,8 @@ async def generate_company_report(data: Dict[str, Any]):
         analysis = history_service.get_analysis_by_id(analysis_id)
         if not analysis:
             raise HTTPException(status_code=404, detail="Analysis not found")
+
+        ensure_analysis_access(current_user, analysis)
         
         # For now, return a JSON response
         # In production, you would generate an actual PDF here
@@ -1192,7 +1345,7 @@ async def download_company_report(analysis_id: str):
 
 
 @app.post("/api/company/suggestions")
-async def get_company_suggestions(data: Dict[str, Any]):
+async def get_company_suggestions(data: Dict[str, Any], current_user: Dict[str, Any] = Depends(get_current_user)):
     """Get AI suggestions based on analysis data"""
     try:
         insights = data.get("insights", {})
@@ -1262,7 +1415,7 @@ async def get_company_suggestions(data: Dict[str, Any]):
 
 # Add new endpoint to save personal analysis to history
 @app.post("/api/personal/analyze")
-async def save_personal_analysis(data: Dict[str, Any]):
+async def save_personal_analysis(data: Dict[str, Any], current_user: Dict[str, Any] = Depends(get_current_user)):
     """Save personal analysis to history"""
     try:
         user_id = data.get("user_id")
@@ -1270,6 +1423,8 @@ async def save_personal_analysis(data: Dict[str, Any]):
         
         if not user_id or not analysis_data:
             raise HTTPException(status_code=400, detail="user_id and analysis_data are required")
+
+        ensure_user_access(current_user, user_id)
         
         analysis_id = history_service.save_analysis(user_id, "personal", analysis_data)
         
@@ -1285,9 +1440,10 @@ async def save_personal_analysis(data: Dict[str, Any]):
 
 
 @app.get("/api/personal/history/{user_id}")
-async def get_personal_history(user_id: str):
+async def get_personal_history(user_id: str, current_user: Dict[str, Any] = Depends(get_current_user)):
     """Get analysis history for a personal user"""
     try:
+        ensure_user_access(current_user, user_id)
         history = history_service.get_user_history(user_id, account_type="personal")
         return JSONResponse(content={"status": "success", "history": history})
     except Exception as e:
@@ -1295,7 +1451,7 @@ async def get_personal_history(user_id: str):
 
 
 @app.get("/api/personal/visualizations/{analysis_id}")
-async def get_personal_visualizations(analysis_id: str):
+async def get_personal_visualizations(analysis_id: str, current_user: Dict[str, Any] = Depends(get_current_user)):
     """Generate visualization images for personal analysis using matplotlib"""
     try:
         # Get the analysis from history
@@ -1303,6 +1459,8 @@ async def get_personal_visualizations(analysis_id: str):
         
         if not analysis:
             raise HTTPException(status_code=404, detail="Analysis not found")
+
+        ensure_analysis_access(current_user, analysis)
         
         # Get visualization data
         visualizations = analysis.get('visualizations', {})
@@ -1413,7 +1571,7 @@ async def get_personal_visualizations(analysis_id: str):
 
 
 @app.get("/api/personal/report/{analysis_id}")
-async def download_personal_report(analysis_id: str):
+async def download_personal_report(analysis_id: str, current_user: Dict[str, Any] = Depends(get_current_user)):
     """Download PDF report for a personal analysis"""
     try:
         # Get the analysis from history
@@ -1421,6 +1579,8 @@ async def download_personal_report(analysis_id: str):
         
         if not analysis:
             raise HTTPException(status_code=404, detail="Analysis not found")
+
+        ensure_analysis_access(current_user, analysis)
         
         # For now, return a simple PDF. In production, you might want to generate a full report
         # similar to company reports but tailored for personal users
@@ -1494,116 +1654,12 @@ async def download_personal_report(analysis_id: str):
         raise HTTPException(status_code=500, detail=f"Error generating PDF report: {str(e)}")
 
 
-# Authentication Endpoints
-@app.post("/api/auth/login")
-async def login(data: Dict[str, Any]):
-    """User login endpoint"""
-    try:
-        username = data.get("username")
-        password = data.get("password")
-        
-        print(f"[LOGIN API] Received login request for: {username}")
-        
-        if not username or not password:
-            print(f"[LOGIN API] Missing username or password")
-            raise HTTPException(status_code=400, detail="Username and password are required")
-        
-        result = auth_service.login(username, password)
-        
-        print(f"[LOGIN API] Auth service result: {result.get('success')}")
-        
-        if result["success"]:
-            print(f"[LOGIN API] Login successful, returning user: {result['user']}")
-            return JSONResponse(content={
-                "status": "success",
-                "user": result["user"],
-                "message": result["message"]
-            })
-        else:
-            print(f"[LOGIN API] Login failed: {result.get('message')}")
-            raise HTTPException(status_code=401, detail=result["message"])
-    except HTTPException:
-        raise
-    except Exception as e:
-        import traceback
-        print(f"[LOGIN API] Error during login: {str(e)}")
-        traceback.print_exc()
-        raise HTTPException(status_code=500, detail=f"Error during login: {str(e)}")
-
-
-@app.post("/api/auth/register")
-async def register(data: Dict[str, Any]):
-    """User registration endpoint"""
-    try:
-        username = data.get("username")
-        email = data.get("email")
-        password = data.get("password")
-        account_type = data.get("account_type", "personal")
-        full_name = data.get("full_name", "")
-        contact_number = data.get("contact_number", "")
-        
-        if not username or not email or not password:
-            raise HTTPException(status_code=400, detail="Username, email, and password are required")
-        
-        result = auth_service.register_user(username, email, password, account_type, full_name, contact_number)
-        
-        if result["success"]:
-            return JSONResponse(content={
-                "status": "success",
-                "message": result["message"],
-                "otp": result["otp"]  # For development, return OTP. In production, send via SMS/Email
-            })
-        else:
-            raise HTTPException(status_code=400, detail=result["message"])
-    except HTTPException:
-        raise
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Error during registration: {str(e)}")
-
-
-@app.post("/api/auth/verify-otp")
-async def verify_otp(data: Dict[str, Any]):
-    """Verify OTP endpoint"""
-    try:
-        email = data.get("email")
-        otp = data.get("otp")
-        
-        if not email or not otp:
-            raise HTTPException(status_code=400, detail="Email and OTP are required")
-        
-        result = auth_service.verify_otp(email, otp)
-        
-        if result["success"]:
-            return JSONResponse(content={
-                "status": "success",
-                "message": result["message"]
-            })
-        else:
-            raise HTTPException(status_code=400, detail=result["message"])
-    except HTTPException:
-        raise
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Error verifying OTP: {str(e)}")
-
-
-@app.get("/api/auth/users")
-async def get_users():
-    """Get all users (admin only)"""
-    try:
-        users = auth_service.get_all_users()
-        return JSONResponse(content={
-            "status": "success",
-            "users": users
-        })
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Error fetching users: {str(e)}")
-
-
 # File Upload and Analysis Endpoints
 @app.post("/api/upload")
 async def upload_file(
     file: UploadFile = File(...),
-    pdf_password: Optional[str] = Form(None)
+    pdf_password: Optional[str] = Form(None),
+    current_user: Dict[str, Any] = Depends(get_current_user)
 ):
     """Upload and process a single file"""
     try:
@@ -1649,7 +1705,7 @@ async def upload_file(
 
 
 @app.post("/api/analyze")
-async def analyze_data(data: Dict[str, Any]):
+async def analyze_data(data: Dict[str, Any], current_user: Dict[str, Any] = Depends(get_current_user)):
     """Analyze financial transaction data"""
     try:
         transactions = data.get("transactions", [])
@@ -1795,7 +1851,7 @@ async def detect_bias(data: Dict[str, Any]):
 
 # Admin Endpoints
 @app.get("/api/admin/user-data/{user_id}")
-async def get_user_data(user_id: str):
+async def get_user_data(user_id: str, current_user: Dict[str, Any] = Depends(require_admin)):
     """Get user data for admin portal"""
     try:
         # Get user from auth service
@@ -1967,7 +2023,7 @@ This Agreement constitutes the entire agreement between the parties regarding th
     return buffer
 
 @app.post("/api/company/contract/request")
-async def request_contract(data: Dict[str, Any]):
+async def request_contract(data: Dict[str, Any], current_user: Dict[str, Any] = Depends(get_current_user)):
     """Company requests a contract"""
     try:
         company_id = data.get("company_id")
@@ -1975,6 +2031,8 @@ async def request_contract(data: Dict[str, Any]):
         
         if not company_id:
             raise HTTPException(status_code=400, detail="company_id is required")
+
+        ensure_user_access(current_user, company_id)
         
         contract = contract_service.request_contract(company_id, company_name)
         
@@ -1988,9 +2046,10 @@ async def request_contract(data: Dict[str, Any]):
         raise HTTPException(status_code=500, detail=f"Error requesting contract: {str(e)}")
 
 @app.get("/api/company/contract/{company_id}")
-async def get_company_contract(company_id: str):
+async def get_company_contract(company_id: str, current_user: Dict[str, Any] = Depends(get_current_user)):
     """Get contract for a company"""
     try:
+        ensure_user_access(current_user, company_id)
         contract = contract_service.get_company_contract(company_id)
         if not contract:
             return JSONResponse(content={"status": "not_found", "contract": None})
@@ -1999,7 +2058,7 @@ async def get_company_contract(company_id: str):
         raise HTTPException(status_code=500, detail=f"Error fetching contract: {str(e)}")
 
 @app.get("/api/admin/contracts/pending")
-async def get_pending_contracts():
+async def get_pending_contracts(current_user: Dict[str, Any] = Depends(require_admin)):
     """Get all pending contracts for admin"""
     try:
         contracts = contract_service.get_pending_contracts()
@@ -2008,7 +2067,7 @@ async def get_pending_contracts():
         raise HTTPException(status_code=500, detail=f"Error fetching pending contracts: {str(e)}")
 
 @app.get("/api/admin/contracts")
-async def get_all_contracts():
+async def get_all_contracts(current_user: Dict[str, Any] = Depends(require_admin)):
     """Get all contracts for admin"""
     try:
         contracts = contract_service.get_all_contracts()
@@ -2017,21 +2076,22 @@ async def get_all_contracts():
         raise HTTPException(status_code=500, detail=f"Error fetching contracts: {str(e)}")
 
 @app.post("/api/admin/contract/sign")
-async def sign_contract_admin(contract_id: str = Form(...), signature: str = Form(...), file: UploadFile = File(...)):
+async def sign_contract_admin(contract_id: str = Form(...), signature: str = Form(...), file: UploadFile = File(...), current_user: Dict[str, Any] = Depends(require_admin)):
     """Admin signs and uploads the contract"""
     try:
-        # Save uploaded PDF
-        contract_dir = "database/contracts"
-        os.makedirs(contract_dir, exist_ok=True)
-        file_path = os.path.join(contract_dir, f"{contract_id}_signed.pdf")
-        
+        _get_valid_contract(contract_id)
+        content = await file.read()
+        _validate_contract_upload(file, content)
+        file_path = _build_contract_upload_path("signed_contract")
+
         with open(file_path, "wb") as f:
-            content = await file.read()
             f.write(content)
         
         contract = contract_service.sign_contract_admin(contract_id, signature, file_path)
         
         if "error" in contract:
+            if os.path.exists(file_path):
+                os.remove(file_path)
             raise HTTPException(status_code=400, detail=contract["error"])
         
         return JSONResponse(content={"status": "success", "contract": contract})
@@ -2041,21 +2101,22 @@ async def sign_contract_admin(contract_id: str = Form(...), signature: str = For
         raise HTTPException(status_code=500, detail=f"Error signing contract: {str(e)}")
 
 @app.post("/api/admin/contract/update")
-async def update_signed_contract(contract_id: str = Form(...), file: UploadFile = File(...)):
+async def update_signed_contract(contract_id: str = Form(...), file: UploadFile = File(...), current_user: Dict[str, Any] = Depends(require_admin)):
     """Admin updates/re-uploads signed contract"""
     try:
-        # Save uploaded PDF
-        contract_dir = "database/contracts"
-        os.makedirs(contract_dir, exist_ok=True)
-        file_path = os.path.join(contract_dir, f"{contract_id}_signed.pdf")
-        
+        _get_valid_contract(contract_id)
+        content = await file.read()
+        _validate_contract_upload(file, content)
+        file_path = _build_contract_upload_path("updated_contract")
+
         with open(file_path, "wb") as f:
-            content = await file.read()
             f.write(content)
         
         contract = contract_service.update_signed_contract(contract_id, file_path)
         
         if "error" in contract:
+            if os.path.exists(file_path):
+                os.remove(file_path)
             raise HTTPException(status_code=400, detail=contract["error"])
         
         return JSONResponse(content={"status": "success", "contract": contract})
@@ -2065,14 +2126,12 @@ async def update_signed_contract(contract_id: str = Form(...), file: UploadFile 
         raise HTTPException(status_code=500, detail=f"Error updating contract: {str(e)}")
 
 @app.get("/api/contract/{contract_id}/download")
-async def download_contract(contract_id: str, type: str = "template"):
+async def download_contract(contract_id: str, type: str = "template", current_user: Dict[str, Any] = Depends(get_current_user)):
     """Download contract (template or signed)"""
     try:
-        contracts = contract_service.get_all_contracts()
-        contract = next((c for c in contracts if c.get("id") == contract_id), None)
-        
-        if not contract:
-            raise HTTPException(status_code=404, detail="Contract not found")
+        contract = _get_valid_contract(contract_id)
+
+        ensure_contract_access(current_user, contract)
         
         if type == "signed" and contract.get("signed_contract_pdf_path"):
             # Return signed contract
@@ -2103,7 +2162,7 @@ async def download_contract(contract_id: str, type: str = "template"):
         raise HTTPException(status_code=500, detail=f"Error downloading contract: {str(e)}")
 
 @app.post("/api/company/contract/sign")
-async def sign_contract_company(data: Dict[str, Any]):
+async def sign_contract_company(data: Dict[str, Any], current_user: Dict[str, Any] = Depends(get_current_user)):
     """Company signs the contract"""
     try:
         company_id = data.get("company_id")
@@ -2111,6 +2170,8 @@ async def sign_contract_company(data: Dict[str, Any]):
         
         if not company_id:
             raise HTTPException(status_code=400, detail="company_id is required")
+
+        ensure_user_access(current_user, company_id)
         
         contract = contract_service.sign_contract_company(company_id, signature)
         
@@ -2144,7 +2205,8 @@ async def perform_company_audit(
     location: str = Form(...),
     fiscal_year: Optional[str] = Form(None),
     accounting_standards: Optional[str] = Form("IFRS"),
-    regulatory_framework: Optional[str] = Form("India")
+    regulatory_framework: Optional[str] = Form("India"),
+    current_user: Dict[str, Any] = Depends(get_current_user)
 ):
     """
     Perform comprehensive AI-powered audit on company financial data
@@ -2166,8 +2228,7 @@ async def perform_company_audit(
         if not files:
             raise HTTPException(status_code=400, detail="No files provided")
         
-        if not user_id:
-            raise HTTPException(status_code=400, detail="user_id is required")
+        ensure_user_access(current_user, user_id)
         
         # Process all uploaded files
         all_transactions = []
@@ -2312,9 +2373,10 @@ async def perform_company_audit(
 
 
 @app.get("/api/company/audit-history/{user_id}")
-async def get_audit_history(user_id: str):
+async def get_audit_history(user_id: str, current_user: Dict[str, Any] = Depends(get_current_user)):
     """Get audit history for a company"""
     try:
+        ensure_user_access(current_user, user_id)
         history = history_service.get_company_history(user_id)
         audits = [
             {
@@ -2330,18 +2392,8 @@ async def get_audit_history(user_id: str):
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error fetching audit history: {str(e)}")
 
-@app.get("/api/company/history/{user_id}")
-async def get_company_history(user_id: str):
-    """Get full analysis history for a company (including visualizations)"""
-    try:
-        history = history_service.get_company_history(user_id)
-        # Return full records for history tab
-        return JSONResponse(content={"status": "success", "history": history})
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Error fetching history: {str(e)}")
-
 @app.get("/api/company/analysis/{analysis_id}")
-async def get_company_analysis(analysis_id: str, user_id: str = None):
+async def get_company_analysis(analysis_id: str, user_id: str = None, current_user: Dict[str, Any] = Depends(get_current_user)):
     """Get full analysis data by ID (for visualise tab)"""
     try:
         analysis = history_service.get_analysis_by_id(analysis_id)
@@ -2349,8 +2401,9 @@ async def get_company_analysis(analysis_id: str, user_id: str = None):
             raise HTTPException(status_code=404, detail="Analysis not found")
         
         # Verify user owns this analysis
-        if user_id and analysis.get('user_id') != user_id:
-            raise HTTPException(status_code=403, detail="Access denied")
+        if user_id:
+            ensure_user_access(current_user, user_id)
+        ensure_analysis_access(current_user, analysis)
         
         return JSONResponse(content={
             "status": "success",
@@ -2363,10 +2416,14 @@ async def get_company_analysis(analysis_id: str, user_id: str = None):
 
 
 @app.get("/api/company/audit-report/{audit_id}")
-async def get_audit_report(audit_id: str, user_id: str = None):
+async def get_audit_report(audit_id: str, user_id: str = None, current_user: Dict[str, Any] = Depends(get_current_user)):
     """Get detailed audit report by ID"""
     try:
-        history = history_service.get_company_history(user_id) if user_id else []
+        if user_id:
+            ensure_user_access(current_user, user_id)
+
+        history_user_id = user_id or current_user.get("id")
+        history = history_service.get_company_history(history_user_id) if history_user_id else []
         
         # Find the audit record
         audit_record = None
@@ -2377,6 +2434,8 @@ async def get_audit_report(audit_id: str, user_id: str = None):
         
         if not audit_record:
             raise HTTPException(status_code=404, detail="Audit report not found")
+
+        ensure_analysis_access(current_user, audit_record)
         
         return JSONResponse(content={
             "status": "success",

@@ -41,6 +41,11 @@ venv/
 __pycache__/
 *.pyc
 
+# Persisted local data
+backend/database/*.json
+backend/database/contracts/*
+!backend/database/contracts/.gitkeep
+
 # Secrets / API keys
 backend/GEMINI_API_SETUP.txt
 *.pem

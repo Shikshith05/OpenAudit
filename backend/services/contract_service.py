@@ -72,6 +72,11 @@ class ContractService:
         if contracts:
             return sorted(contracts, key=lambda x: x.get("requested_at", ""), reverse=True)[0]
         return None
+
+    def get_contract_by_id(self, contract_id: str) -> Optional[Dict[str, Any]]:
+        """Get a contract by its ID"""
+        db = self._load_db()
+        return next((c for c in db["contracts"] if c.get("id") == contract_id), None)
     
     def sign_contract_admin(self, contract_id: str, signature: str, signed_pdf_path: str) -> Dict[str, Any]:
         """Admin signs and uploads the contract"""

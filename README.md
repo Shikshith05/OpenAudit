@@ -74,6 +74,11 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
+Optional backend environment variables:
+- `OPENAUDIT_CORS_ORIGINS` - Comma-separated list of allowed frontend origins.
+- `OPENAUDIT_JWT_SECRET` - Overrides the development JWT signing key.
+- `OPENAUDIT_OTP_DELIVERY_MODE` - Controls OTP delivery; defaults to the local `stub` logger.
+
 4. Run the backend server:
 ```bash
 python main.py
