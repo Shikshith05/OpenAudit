@@ -14,6 +14,7 @@ out/
 .env
 .env.local
 .env.*.local
+*.env
 
 # Logs
 *.log
@@ -33,3 +34,15 @@ Thumbs.db
 # Test / cache folders
 .cache/
 coverage/
+
+# Python
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# Secrets / API keys
+backend/GEMINI_API_SETUP.txt
+*.pem
+*.key
+secrets.*
